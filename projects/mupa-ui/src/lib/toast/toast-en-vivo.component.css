@@ -1,0 +1,19 @@
+/*
+ * Port fiel del wrapper `Live` del Lego Design System — Alcaldía de Panamá.
+ * La transformación y la opacidad se aplican desde el componente.
+ */
+
+:host {
+  display: contents;
+}
+
+.mupa-toast-en-vivo {
+  pointer-events: auto;
+  transition:
+    transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.22s;
+}
+
+.mupa-toast-en-vivo--sin-movimiento {
+  transition: none;
+}

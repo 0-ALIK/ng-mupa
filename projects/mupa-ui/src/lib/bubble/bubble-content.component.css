@@ -1,0 +1,60 @@
+/*
+ * Port fiel de BubbleContent en el Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: block;
+}
+
+.mupa-bubble-content {
+  display: grid;
+  gap: 6px;
+}
+
+.mupa-bubble-content__texto {
+  color: var(--fg-strong);
+  font: 500 16px/1.6 var(--font-body);
+  text-wrap: pretty;
+  overflow-wrap: anywhere;
+}
+
+.mupa-bubble-content--primary {
+  --mupa-bubble-enlace: var(--fg-on-brand);
+}
+
+.mupa-bubble-content--primary .mupa-bubble-content__texto {
+  color: var(--fg-on-brand);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.mupa-bubble-content--muted .mupa-bubble-content__texto,
+.mupa-bubble-content--outline .mupa-bubble-content__texto {
+  color: var(--fg-strong);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.mupa-bubble-content__texto--recortado {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--mupa-bubble-lineas);
+  overflow: hidden;
+}
+
+.mupa-bubble-content__toggle {
+  justify-self: start;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--mupa-bubble-enlace, var(--color-primary-700));
+  font: 700 13.5px/1.3 var(--font-body);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.mupa-bubble-content__toggle:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}

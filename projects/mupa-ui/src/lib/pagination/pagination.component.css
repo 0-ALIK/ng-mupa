@@ -1,0 +1,130 @@
+/*
+ * Port fiel del Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: block;
+}
+
+.mupa-pagination {
+  font-family: var(--font-body);
+}
+
+.mupa-pagination--default {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.mupa-pagination__lado {
+  flex: 1;
+  display: flex;
+}
+
+.mupa-pagination__lado--derecha {
+  justify-content: flex-end;
+}
+
+.mupa-pagination__numeros {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mupa-pagination--compact {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.mupa-pagination--simple {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.mupa-pagination__boton {
+  min-width: 40px;
+  height: 40px;
+  padding: 0 10px;
+  gap: 8px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1.5px solid var(--border-default);
+  background: #ffffff;
+  cursor: pointer;
+  outline: none;
+  font: 600 14px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+  color: var(--fg-strong);
+  transition:
+    background 0.12s,
+    border-color 0.12s,
+    color 0.12s;
+}
+
+.mupa-pagination__boton--ancho {
+  padding: 0 16px;
+}
+
+.mupa-pagination__boton--fantasma {
+  background: transparent;
+  border-color: transparent;
+}
+
+.mupa-pagination__boton:not(:disabled):hover {
+  background: var(--color-primary-50);
+  border-color: var(--color-primary-300);
+  color: var(--color-primary-700);
+}
+
+.mupa-pagination__boton:not(:disabled):active {
+  background: var(--color-primary-100);
+  border-color: var(--color-primary-300);
+  color: var(--color-primary-700);
+}
+
+.mupa-pagination__boton--actual {
+  background: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.mupa-pagination__boton:focus-visible {
+  box-shadow: 0 0 0 3px rgba(6, 96, 255, 0.3);
+}
+
+.mupa-pagination__boton:disabled {
+  background: #ffffff;
+  border-color: var(--border-default);
+  color: var(--color-neutral-300);
+  cursor: not-allowed;
+}
+
+.mupa-pagination__boton--fantasma:disabled {
+  border-color: transparent;
+}
+
+.mupa-pagination__puntos {
+  min-width: 28px;
+  text-align: center;
+  font: 600 14px/1 var(--font-body);
+  color: var(--fg-muted);
+}
+
+.mupa-pagination__estado {
+  font: 500 14px/1 var(--font-body);
+  color: var(--fg-default);
+}
+
+.mupa-pagination__estado b {
+  color: var(--fg-strong);
+}

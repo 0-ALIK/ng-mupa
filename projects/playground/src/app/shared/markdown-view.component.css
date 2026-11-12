@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+.pg-markdown__estado {
+  margin: 0;
+  font: var(--text-body);
+  color: var(--fg-muted);
+}
+
+.pg-markdown__error {
+  margin: 0;
+  font: var(--text-body);
+  color: var(--color-error-700);
+}

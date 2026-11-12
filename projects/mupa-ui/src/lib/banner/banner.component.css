@@ -1,0 +1,85 @@
+/*
+ * Port fiel del Lego Design System — Alcaldía de Panamá.
+ * Banners con fondo tintado, barra izquierda e icono de contorno.
+ */
+
+:host {
+  display: block;
+}
+
+.mupa-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  border-left: 5px solid var(--mupa-banner-acento);
+  border-radius: var(--radius-md);
+  background: var(--mupa-banner-fondo);
+  color: var(--mupa-banner-texto);
+  font-family: var(--font-body);
+  text-align: left;
+}
+
+.mupa-banner__icono {
+  flex: none;
+  margin-top: 1px;
+  color: var(--mupa-banner-acento);
+}
+
+.mupa-banner__contenido {
+  min-width: 0;
+}
+
+.mupa-banner__titulo {
+  margin: 0 0 3px;
+  font: var(--text-label);
+  font-weight: 700;
+  color: var(--mupa-banner-texto);
+}
+
+.mupa-banner__mensaje {
+  color: var(--mupa-banner-texto);
+  font-size: 12.5px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.mupa-banner__mensaje strong,
+.mupa-banner__mensaje b {
+  font-weight: 700;
+}
+
+.mupa-banner--info {
+  --mupa-banner-fondo: var(--color-info-100);
+  --mupa-banner-acento: var(--color-primary-500);
+  --mupa-banner-texto: var(--color-primary-800);
+}
+
+.mupa-banner--success {
+  --mupa-banner-fondo: var(--color-success-100);
+  --mupa-banner-acento: var(--color-success-500);
+  --mupa-banner-texto: var(--color-success-700);
+}
+
+.mupa-banner--warning {
+  --mupa-banner-fondo: var(--color-warning-100);
+  --mupa-banner-acento: var(--color-warning-500);
+  --mupa-banner-texto: var(--color-warning-700);
+}
+
+.mupa-banner--error {
+  --mupa-banner-fondo: var(--color-error-100);
+  --mupa-banner-acento: var(--color-error-500);
+  --mupa-banner-texto: var(--color-error-700);
+}
+
+:host-context([data-theme='dark']) .mupa-banner--info {
+  --mupa-banner-texto: var(--color-primary-700);
+}
+
+@media (forced-colors: active) {
+  .mupa-banner {
+    border: 1px solid CanvasText;
+    border-left-width: 5px;
+  }
+}

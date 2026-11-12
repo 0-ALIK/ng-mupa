@@ -1,0 +1,23 @@
+/*
+ * Port fiel de BubbleReactions en el Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: inline-flex;
+  align-self: flex-start;
+  max-width: 100%;
+}
+
+.mupa-bubble-reactions {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 26px;
+  box-sizing: border-box;
+  padding: 3px 8px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface);
+  color: var(--fg-default);
+  font: 600 12px/1 var(--font-body);
+}

@@ -1,0 +1,20 @@
+/*
+ * Port fiel de BubbleCard en el Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+.mupa-bubble-card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 18px;
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 16px rgba(14, 34, 93, 0.06);
+  font-family: var(--font-body);
+}

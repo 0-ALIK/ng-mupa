@@ -1,0 +1,102 @@
+/*
+ * Port fiel de los estilos de campo del Lego Design System — Alcaldía de Panamá.
+ * Clases globales para construir campos con HTML vanilla o con la directiva
+ * `mupaInput`. Los estados de Angular Forms se reconocen con `.ng-invalid.ng-touched`
+ * y el estado nativo del navegador con `:user-invalid`.
+ */
+
+.mupa-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  font-family: var(--font-body);
+}
+
+.mupa-field__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-strong);
+}
+
+.mupa-field__input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  border: 1.5px solid var(--border-control);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  background: var(--bg-surface);
+  color: var(--fg-strong);
+  font: 400 15px/1.4 var(--font-body);
+}
+
+.mupa-field__input::placeholder {
+  color: var(--fg-muted);
+}
+
+.mupa-field__input:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 3px;
+}
+
+.mupa-field__input[aria-invalid='true'],
+.mupa-field__input.ng-invalid.ng-touched,
+.mupa-field__input:user-invalid {
+  border-color: var(--color-error-700);
+}
+
+.mupa-field__input:disabled {
+  background: var(--color-neutral-100);
+  color: var(--fg-disabled);
+  cursor: not-allowed;
+}
+
+.mupa-field__input[readonly] {
+  background: var(--bg-base);
+}
+
+.mupa-field__hint,
+.mupa-field__error {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--fg-muted);
+}
+
+.mupa-field__error {
+  color: var(--color-error-700);
+}
+
+.mupa-field__check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font: 400 14px/1.5 var(--font-body);
+  color: var(--fg-default);
+}
+
+.mupa-field__check input {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  accent-color: var(--action);
+}
+
+.mupa-field__check input:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 3px;
+}
+
+@media (forced-colors: active) {
+  .mupa-field__input {
+    border-color: ButtonText;
+  }
+
+  .mupa-field__input:focus-visible,
+  .mupa-field__check input:focus-visible {
+    outline-color: Highlight;
+  }
+}

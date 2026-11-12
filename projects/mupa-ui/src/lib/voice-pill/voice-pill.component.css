@@ -1,0 +1,283 @@
+/*
+ * Port fiel del Lego Design System — Alcaldía de Panamá.
+ * Área interactiva mínima: 44 × 44 px.
+ */
+
+:host {
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.voice-pill-control {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-width: 0;
+  vertical-align: middle;
+}
+
+.voice-pill {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  box-sizing: border-box;
+  width: max(44px, calc(var(--vp-size) + 2 * var(--vp-pad)));
+  height: max(44px, var(--vp-size));
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: calc(var(--vp-radius) + var(--vp-pad));
+  overflow: hidden;
+  background: transparent;
+  color: var(--vp-accent);
+  font-family: var(--font-body);
+  cursor: pointer;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transform: translateX(var(--vp-slide, 0px)) scale(var(--vp-scale, 1));
+  vertical-align: middle;
+}
+
+.voice-pill[data-state='listening'],
+.voice-pill[data-state='requesting'] {
+  width: max(
+    44px,
+    calc(var(--vp-size) + 2 * var(--vp-pad) + 2 * var(--vp-reach) + var(--vp-extra))
+  );
+}
+
+.voice-pill[data-pressed] {
+  --vp-scale: var(--vp-press);
+}
+
+.voice-pill__capsule {
+  position: absolute;
+  top: 50%;
+  left: var(--vp-pad);
+  right: var(--vp-pad);
+  height: var(--vp-size);
+  border-radius: var(--vp-radius);
+  background: var(--vp-bg);
+  box-shadow: inset 0 0 0 1px var(--color-primary-200);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.voice-pill__glyph {
+  position: absolute;
+  left: var(--vp-pad);
+  top: 50%;
+  width: var(--vp-size);
+  height: var(--vp-size);
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.voice-pill__mic,
+.voice-pill__stop {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    opacity var(--vp-open) cubic-bezier(0.16, 1, 0.3, 1),
+    transform var(--vp-open) cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.voice-pill__mic {
+  color: var(--vp-icon);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.voice-pill__stop {
+  width: var(--vp-stop);
+  height: var(--vp-stop);
+  border-radius: 2px;
+  background: var(--vp-accent);
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.voice-pill[data-state='listening'] .voice-pill__mic,
+.voice-pill[data-state='requesting'] .voice-pill__mic {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.voice-pill[data-state='listening'] .voice-pill__stop,
+.voice-pill[data-state='requesting'] .voice-pill__stop {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.voice-pill__time,
+.voice-pill__wave,
+.voice-pill__static-wave {
+  position: absolute;
+  top: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity var(--vp-open) cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.voice-pill__time {
+  left: calc(var(--vp-pad) + var(--vp-size) + var(--vp-reach) + var(--vp-wave-w));
+  width: var(--vp-clock-w);
+  font: 600 var(--vp-time-size) / 1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  text-align: center;
+  color: var(--vp-accent);
+}
+
+.voice-pill__wave,
+.voice-pill__static-wave {
+  left: calc(var(--vp-pad) + var(--vp-size) + var(--vp-reach));
+  width: var(--vp-wave-w);
+  height: calc(var(--vp-size) * 0.55);
+}
+
+.voice-pill__static-wave {
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2px;
+}
+
+.voice-pill__static-wave i {
+  display: block;
+  width: 2px;
+  max-height: 100%;
+  border-radius: 999px;
+  background: var(--vp-accent);
+}
+
+.voice-pill[data-state='listening'] .voice-pill__wave,
+.voice-pill[data-state='listening'] .voice-pill__time,
+.voice-pill[data-state='requesting'] .voice-pill__time {
+  opacity: calc(1 - var(--vp-cancel, 0));
+}
+
+.voice-pill__cancel {
+  position: absolute;
+  left: calc(var(--vp-pad) + var(--vp-size));
+  right: var(--vp-pad);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  opacity: var(--vp-cancel, 0);
+  color: var(--vp-accent);
+  font: 600 11px/1.2 var(--font-body);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.voice-pill[data-state='error'] .voice-pill__capsule {
+  box-shadow: inset 0 0 0 1px var(--color-error-700);
+  background: var(--color-error-100);
+}
+
+.voice-pill[data-state='error'] .voice-pill__mic {
+  color: var(--color-error-700);
+}
+
+.voice-pill:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.voice-pill[data-input='key'] .voice-pill__mic,
+.voice-pill[data-input='key'] .voice-pill__stop,
+.voice-pill[data-input='key'] .voice-pill__wave,
+.voice-pill[data-input='key'] .voice-pill__time {
+  transition: none;
+}
+
+.voice-pill:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (hover: hover) {
+  .voice-pill:not(:disabled):hover .voice-pill__capsule {
+    box-shadow: inset 0 0 0 1px var(--action);
+  }
+}
+
+.voice-pill__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.voice-pill[data-reduced] .voice-pill__wave {
+  display: none;
+}
+
+.voice-pill[data-reduced][data-state='listening'] .voice-pill__static-wave {
+  display: flex;
+  opacity: calc(1 - var(--vp-cancel, 0));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voice-pill,
+  .voice-pill * {
+    transition: none !important;
+  }
+
+  .voice-pill {
+    transform: none !important;
+  }
+
+  .voice-pill__wave {
+    display: none;
+  }
+
+  .voice-pill[data-state='listening'] .voice-pill__static-wave {
+    display: flex;
+    opacity: calc(1 - var(--vp-cancel, 0));
+  }
+}
+
+@media (forced-colors: active) {
+  .voice-pill__capsule {
+    background: Canvas;
+    outline: 1px solid ButtonText;
+    box-shadow: none;
+  }
+
+  .voice-pill__mic,
+  .voice-pill__time,
+  .voice-pill__cancel {
+    color: ButtonText;
+  }
+
+  .voice-pill__stop,
+  .voice-pill__static-wave i {
+    background: ButtonText;
+  }
+
+  .voice-pill__wave {
+    display: none;
+  }
+
+  .voice-pill[data-state='listening'] .voice-pill__static-wave {
+    display: flex;
+    opacity: 1;
+  }
+}

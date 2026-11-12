@@ -1,0 +1,151 @@
+/*
+ * Port fiel del Lego Design System — Alcaldía de Panamá.
+ * La animación de cada celda usa un keyframe único generado por el componente.
+ */
+
+:host {
+  --ll-n: 3;
+  --ll-cell: 6px;
+  --ll-gap: 2px;
+  --ll-font: 14px;
+  --ll-color: var(--action);
+  --ll-mark: var(--color-success-700);
+  --ll-idle: 0.15;
+  --ll-glow: var(--action);
+  --ll-mark-glow: var(--color-success-700);
+  --ll-cycle: 1000ms;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 100%;
+  color: var(--fg-default);
+  font-family: var(--font-body);
+  font-size: var(--ll-font);
+  font-weight: 500;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+.mupa-lattice-loader__grid {
+  display: inline-grid;
+  flex: none;
+  width: calc(var(--ll-n) * var(--ll-cell) + (var(--ll-n) - 1) * var(--ll-gap));
+  height: calc(var(--ll-n) * var(--ll-cell) + (var(--ll-n) - 1) * var(--ll-gap));
+  color: var(--ll-color);
+}
+
+.mupa-lattice-loader__layer {
+  display: grid;
+  grid-area: 1 / 1;
+  grid-template-columns: repeat(var(--ll-n), var(--ll-cell));
+  gap: var(--ll-gap);
+}
+
+.mupa-lattice-loader__cell {
+  width: var(--ll-cell);
+  height: var(--ll-cell);
+  border-radius: 50%;
+  background: currentColor;
+  opacity: var(--ll-idle);
+  transform: scale(0.9);
+}
+
+:host([data-shape='square']) .mupa-lattice-loader__cell {
+  border-radius: 2px;
+}
+
+.mupa-lattice-loader__run .mupa-lattice-loader__cell {
+  animation-duration: var(--ll-cycle);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.mupa-lattice-loader__run .mupa-lattice-loader__cell[data-hole] {
+  visibility: hidden;
+  animation: none;
+}
+
+.mupa-lattice-loader__mark {
+  display: none;
+  color: var(--ll-mark);
+}
+
+.mupa-lattice-loader__mark .mupa-lattice-loader__cell {
+  opacity: 0;
+  transform: none;
+}
+
+.mupa-lattice-loader__mark .mupa-lattice-loader__cell[data-on] {
+  opacity: 1;
+}
+
+:host(:not([data-status='working'])) .mupa-lattice-loader__run {
+  display: none;
+}
+
+:host(:not([data-status='working'])) .mupa-lattice-loader__run .mupa-lattice-loader__cell {
+  animation: none;
+}
+
+:host(:not([data-status='working'])) .mupa-lattice-loader__mark {
+  display: grid;
+}
+
+:host([data-paused]) .mupa-lattice-loader__run .mupa-lattice-loader__cell {
+  animation-play-state: paused;
+}
+
+:host([data-glow]) .mupa-lattice-loader__run {
+  filter: drop-shadow(0 0 2px var(--ll-glow));
+}
+
+:host([data-glow]) .mupa-lattice-loader__mark {
+  filter: drop-shadow(0 0 2px var(--ll-mark-glow));
+}
+
+.mupa-lattice-loader__label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.mupa-lattice-loader__timer {
+  color: var(--fg-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.mupa-lattice-loader__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mupa-lattice-loader__run .mupa-lattice-loader__cell {
+    animation: none;
+    opacity: 0.65;
+    transform: none;
+  }
+
+  .mupa-lattice-loader__run .mupa-lattice-loader__cell[data-hole] {
+    visibility: hidden;
+  }
+}
+
+@media (forced-colors: active) {
+  .mupa-lattice-loader__grid,
+  .mupa-lattice-loader__mark {
+    color: CanvasText;
+  }
+
+  :host([data-glow]) .mupa-lattice-loader__layer {
+    filter: none;
+  }
+}

@@ -1,0 +1,379 @@
+/*
+ * Port fiel del Lego Design System — Alcaldía de Panamá.
+ * Las clases `lego-*` se renombran a `mupa-*`; el resto de valores se conserva.
+ */
+
+:host {
+  display: contents;
+}
+
+.mupa-sidebar,
+.mupa-sidebar *,
+.mupa-sidebar__dialogo,
+.mupa-sidebar__disparador-movil {
+  box-sizing: border-box;
+}
+
+.mupa-sidebar {
+  position: sticky;
+  top: 0;
+  flex: none;
+  width: 264px;
+  max-width: 100%;
+  min-width: 0;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface);
+  color: var(--fg-default);
+  border-right: 1px solid var(--border-subtle);
+  font-family: var(--font-body);
+}
+
+.mupa-sidebar__marca {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 18px 16px;
+  flex-shrink: 0;
+}
+
+.mupa-sidebar__logo {
+  display: block;
+  align-self: flex-start;
+  width: auto;
+  max-width: 100%;
+  height: 40px;
+  object-fit: contain;
+}
+
+.mupa-sidebar__sistema {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  overflow-wrap: anywhere;
+}
+
+.mupa-sidebar__controles {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 12px 12px;
+}
+
+.mupa-sidebar__boton,
+.mupa-sidebar__disparador-movil {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px;
+  border: 1.5px solid var(--border-default);
+  border-radius: 8px;
+  background: var(--bg-surface);
+  color: var(--fg-strong);
+  cursor: pointer;
+  font: 600 13px/1.4 var(--font-body);
+}
+
+.mupa-sidebar__nav {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  padding: 4px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mupa-sidebar__grupo-etiqueta {
+  margin: 0;
+  padding: 0 15px 6px;
+  font-size: 12px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--fg-muted);
+  overflow-wrap: anywhere;
+}
+
+.mupa-sidebar__nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.mupa-sidebar__nav ul[hidden] {
+  display: none;
+}
+
+.mupa-sidebar__enlace {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  width: 100%;
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--fg-default);
+  font: 500 14px/1.3 var(--font-body);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mupa-sidebar__enlace mupa-icon,
+.mupa-sidebar__boton mupa-icon,
+.mupa-sidebar__disparador-movil mupa-icon,
+.mupa-sidebar__usuario-disparador > mupa-icon {
+  flex-shrink: 0;
+}
+
+.mupa-sidebar__enlace .mupa-sidebar__texto {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.mupa-sidebar__enlace:hover,
+.mupa-sidebar__boton:hover,
+.mupa-sidebar__usuario-disparador:hover,
+.mupa-sidebar__usuario-panel a:hover {
+  background: var(--color-neutral-100);
+  color: var(--fg-strong);
+}
+
+.mupa-sidebar__enlace[data-active='true'] {
+  font-weight: 700;
+  color: var(--fg-strong);
+}
+
+.mupa-sidebar__enlace[aria-current='page'] {
+  background: var(--color-primary-50);
+  color: var(--color-primary-700);
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+.mupa-sidebar__badge {
+  flex-shrink: 0;
+  min-width: 20px;
+  padding: 3px 6px;
+  border-radius: 999px;
+  background: var(--color-primary-500);
+  color: #fff;
+  font: 700 11px/1.2 var(--font-body);
+  text-align: center;
+}
+
+.mupa-sidebar__nav .mupa-sidebar__hijos {
+  gap: 2px;
+  margin: 2px 0 6px 24px;
+  padding-left: 12px;
+  border-left: 1.5px solid var(--border-default);
+}
+
+.mupa-sidebar__enlace--hijo {
+  padding: 10px 12px;
+  font-size: 13.5px;
+  line-height: 1.25;
+}
+
+.mupa-sidebar__enlace--hijo[aria-current='page'] {
+  border-radius: 8px;
+}
+
+.mupa-sidebar :is(a, button, summary):focus-visible,
+.mupa-sidebar__disparador-movil:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: -3px;
+}
+
+.mupa-sidebar__pie {
+  position: relative;
+  flex-shrink: 0;
+  padding: 10px 12px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.mupa-sidebar__footer {
+  padding: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--fg-muted);
+  overflow-wrap: anywhere;
+}
+
+.mupa-sidebar__usuario-disparador {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  width: 100%;
+  padding: 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--fg-default);
+  text-align: left;
+  list-style: none;
+}
+
+summary.mupa-sidebar__usuario-disparador {
+  cursor: pointer;
+}
+
+summary.mupa-sidebar__usuario-disparador::-webkit-details-marker {
+  display: none;
+}
+
+.mupa-sidebar__identidad {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mupa-sidebar__identidad strong {
+  font-size: 13.5px;
+  line-height: 1.2;
+  color: var(--fg-strong);
+}
+
+.mupa-sidebar__identidad > span {
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--fg-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mupa-sidebar__usuario-panel {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 12px;
+  right: 12px;
+  padding: 6px;
+  border: 1px solid var(--border-default);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  background: var(--bg-surface);
+}
+
+.mupa-sidebar__usuario-panel a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--fg-default);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.mupa-sidebar--colapsada {
+  width: 72px;
+}
+
+.mupa-sidebar--colapsada .mupa-sidebar__texto,
+.mupa-sidebar--colapsada .mupa-sidebar__badge {
+  display: none;
+}
+
+.mupa-sidebar--colapsada .mupa-sidebar__marca {
+  padding: 20px 0 16px;
+  align-items: center;
+}
+
+.mupa-sidebar__marca-compacta {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--color-primary-500);
+  color: #fff;
+}
+
+.mupa-sidebar--colapsada .mupa-sidebar__enlace {
+  justify-content: center;
+  padding: 12px;
+}
+
+.mupa-sidebar--colapsada .mupa-sidebar__enlace[data-active='true'] {
+  background: var(--color-primary-50);
+  color: var(--color-primary-700);
+}
+
+.mupa-sidebar--colapsada .mupa-sidebar__controles {
+  justify-content: center;
+}
+
+.mupa-sidebar--colapsada .mupa-sidebar__nav {
+  gap: 8px;
+  scrollbar-width: none;
+}
+
+.mupa-sidebar--colapsada .mupa-sidebar__usuario-disparador {
+  justify-content: center;
+  padding: 8px 2px;
+}
+
+.mupa-sidebar--colapsada .mupa-sidebar__usuario-panel {
+  width: 236px;
+  left: calc(100% + 8px);
+  right: auto;
+  bottom: 10px;
+}
+
+.mupa-sidebar__disparador-movil {
+  display: none;
+}
+
+.mupa-sidebar__dialogo {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: min(320px, calc(100vw - 24px));
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--bg-surface);
+}
+
+.mupa-sidebar__dialogo::backdrop {
+  background: rgb(15 19 25 / 0.48);
+}
+
+.mupa-sidebar--drawer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 767px) {
+  .mupa-sidebar:not(.mupa-sidebar--drawer) {
+    display: none;
+  }
+
+  .mupa-sidebar__disparador-movil {
+    display: inline-flex;
+  }
+}

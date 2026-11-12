@@ -1,0 +1,24 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/mupa-ui",
+  "lib": {
+    "entryFile": "src/public-api.ts"
+  },
+  "assets": [
+    {
+      "input": "src/theme",
+      "output": ".",
+      "glob": "tokens.css"
+    },
+    {
+      "input": "src/theme",
+      "output": ".",
+      "glob": "forms.css"
+    },
+    {
+      "input": "src/theme/fonts",
+      "output": "fonts",
+      "glob": "*.ttf"
+    }
+  ]
+}

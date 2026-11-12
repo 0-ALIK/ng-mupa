@@ -1,0 +1,50 @@
+/*
+ * Port fiel de `Pill` en AppKit.jsx, `Chip` en WebKit.jsx y las variantes
+ * de preview/comp-pills.html.
+ */
+
+:host {
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.mupa-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 8px;
+  padding: 5px 11px;
+  border: 1.5px solid transparent;
+  font: var(--text-caption);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.mupa-pill--md {
+  padding: 6px 14px;
+  font-size: 13px;
+}
+
+.mupa-pill__texto {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.mupa-pill__quitar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.mupa-pill__quitar:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

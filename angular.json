@@ -2,9 +2,115 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": false
   },
   "newProjectRoot": "projects",
   "projects": {
+    "mupa-ui": {
+      "projectType": "library",
+      "root": "projects/mupa-ui",
+      "sourceRoot": "projects/mupa-ui/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/mupa-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/mupa-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/mupa-ui/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "playground": {
+      "projectType": "application",
+      "root": "projects/playground",
+      "sourceRoot": "projects/playground/src",
+      "prefix": "pg",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "outputPath": "dist/playground",
+            "browser": "projects/playground/src/main.ts",
+            "index": "projects/playground/src/index.html",
+            "tsConfig": "projects/playground/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/playground/public"
+              },
+              {
+                "glob": "**/*.md",
+                "input": "projects/mupa-ui/src/lib",
+                "output": "docs"
+              },
+              {
+                "glob": "tokens.md",
+                "input": "projects/mupa-ui/src/theme",
+                "output": "docs/fundamentos"
+              }
+            ],
+            "styles": [
+              "projects/mupa-ui/src/theme/tokens.css",
+              "projects/mupa-ui/src/theme/forms.css",
+              "projects/playground/src/styles.css"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "1MB",
+                  "maximumError": "2MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "10kB",
+                  "maximumError": "20kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "playground:build:production"
+            },
+            "development": {
+              "buildTarget": "playground:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/playground/tsconfig.spec.json"
+          }
+        }
+      }
+    }
   }
 }

@@ -1,0 +1,57 @@
+/*
+ * Port fiel de BubbleSuggestions / Chip en el Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: block;
+}
+
+.mupa-bubble-suggestions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.mupa-bubble-suggestions__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  background: var(--bg-surface);
+  color: var(--fg-strong);
+  font: 600 14px/1.3 var(--font-body);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    transform 0.1s;
+}
+
+.mupa-bubble-suggestions__chip:hover {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-50);
+}
+
+.mupa-bubble-suggestions__chip:active {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-100);
+  transform: scale(0.98);
+}
+
+.mupa-bubble-suggestions__chip:focus-visible {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(6, 96, 255, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mupa-bubble-suggestions__chip {
+    transition: none;
+  }
+}

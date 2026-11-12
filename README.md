@@ -1,59 +1,49 @@
-# NgMupa
+# ng-mupa
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.5.
+Workspace Angular del **Lego Design System — Alcaldía de Panamá**.
 
-## Development server
+## Proyectos
 
-To start a local development server, run:
+| Proyecto     | Tipo        | Descripción                                                        |
+| ------------ | ----------- | ------------------------------------------------------------------ |
+| `mupa-ui`    | Librería    | Componentes Angular del sistema de diseño.                         |
+| `playground` | Aplicación  | Sitio de demostración con preview, ejemplos y documentación.       |
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Comandos
 
 ```bash
-ng generate component component-name
+# Servir el playground en http://localhost:4200
+npm start
+
+# Compilar la librería
+npm run build
+
+# Compilar el playground
+npm run build:playground
+
+# Pruebas de la librería
+npm test
+
+# Pruebas del playground
+npm run test:playground
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Documentación
 
-```bash
-ng generate --help
+- Convenciones de la librería: `projects/mupa-ui/AGENTS.md`
+- Fundamentos y componentes: `projects/mupa-ui/README.md`
+- Tokens: `projects/mupa-ui/src/theme/tokens.md`
+
+## Estructura
+
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
+projects/
+├── mupa-ui/       Librería de componentes y tokens
+│   └── src/
+│       ├── theme/       tokens.css + fuentes Montserrat
+│       └── lib/         componentes, tipos, specs y documentación
+└── playground/    Aplicación de demostración
+    └── src/app/
+        ├── pages/       una página por componente
+        └── shared/      tarjetas de demo y visor de documentación
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

@@ -1,0 +1,173 @@
+/* Demo de Bubble, basada en el Lego Design System — Alcaldía de Panamá. */
+
+.pg-bubble-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.pg-bubble-proto {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-pill);
+  background: var(--color-neutral-50);
+  color: var(--fg-default);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.pg-bubble-conversacion {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.pg-bubble-formulario {
+  display: grid;
+  gap: 10px;
+}
+
+.pg-bubble-etiqueta {
+  color: var(--fg-strong);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.pg-bubble-campo {
+  width: 100%;
+  height: 48px;
+  box-sizing: border-box;
+  padding: 0 14px;
+  border: 1.5px solid var(--border-default);
+  border-radius: 8px;
+  background: var(--bg-surface);
+  color: var(--fg-strong);
+  font: 500 16px var(--font-body);
+  outline: none;
+}
+
+.pg-bubble-campo:focus {
+  border-color: var(--action);
+  box-shadow: var(--shadow-focus);
+}
+
+.pg-bubble-ayuda {
+  color: var(--fg-muted);
+  font-size: 12.5px;
+}
+
+.pg-bubble-cta {
+  width: 100%;
+  height: 48px;
+  margin-top: 6px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--action);
+  color: var(--fg-on-brand);
+  font: 700 15px var(--font-body);
+  cursor: pointer;
+}
+
+.pg-bubble-cta:hover {
+  background: var(--action-hover);
+}
+
+.pg-bubble-lock {
+  display: flex;
+  gap: 8px;
+  color: var(--fg-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.pg-bubble-composer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.pg-bubble-composer__caja {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 60px;
+  box-sizing: border-box;
+  padding: 0 8px 0 20px;
+  border: 1.5px solid var(--action);
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface);
+  box-shadow: 0 0 0 4px rgba(6, 96, 255, 0.12);
+}
+
+.pg-bubble-composer__caja input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--fg-strong);
+  font: 500 16px var(--font-body);
+}
+
+.pg-bubble-composer__boton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+}
+
+.pg-bubble-composer__boton--mic {
+  border: 1.5px solid var(--border-default);
+  background: var(--bg-surface);
+  color: var(--color-primary-700);
+}
+
+.pg-bubble-composer__boton--enviar {
+  border: 0;
+  background: var(--color-neutral-100);
+  color: var(--fg-muted);
+}
+
+.pg-bubble-composer__boton:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.pg-bubble-composer__aviso {
+  color: var(--fg-muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.pg-bubble-extras {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+.pg-bubble-extra {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.pg-bubble-extra h3 {
+  margin: 0;
+  color: var(--fg-strong);
+  font: var(--text-title);
+}

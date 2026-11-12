@@ -1,0 +1,121 @@
+/*
+ * Port fiel del Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: block;
+}
+
+.mupa-breadcrumb__lista {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mupa-breadcrumb__separador {
+  display: flex;
+  align-items: center;
+  color: var(--fg-muted);
+}
+
+.mupa-breadcrumb__slash {
+  font: 500 14px/1 var(--font-body);
+  padding: 0 2px;
+}
+
+.mupa-breadcrumb__item {
+  display: flex;
+}
+
+.mupa-breadcrumb__enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 0 4px;
+  border-radius: 6px;
+  font: 500 14px/1.2 var(--font-body);
+  color: var(--color-primary-700);
+  text-decoration: none;
+  outline: none;
+}
+
+.mupa-breadcrumb__enlace:hover {
+  color: var(--color-primary-500);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.mupa-breadcrumb__enlace:focus-visible {
+  box-shadow: 0 0 0 3px rgba(6, 96, 255, 0.25);
+}
+
+.mupa-breadcrumb__actual {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 0 4px;
+  font: 700 14px/1.2 var(--font-body);
+  color: var(--fg-strong);
+}
+
+.mupa-breadcrumb__elipsis {
+  position: relative;
+  display: flex;
+}
+
+.mupa-breadcrumb__boton-elipsis {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  background: transparent;
+  color: var(--fg-default);
+}
+
+.mupa-breadcrumb__boton-elipsis--abierto {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-50);
+}
+
+.mupa-breadcrumb__menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 40;
+  min-width: 180px;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+}
+
+.mupa-breadcrumb__menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font: 500 14px/1.2 var(--font-body);
+  color: var(--fg-default);
+  text-decoration: none;
+}
+
+.mupa-breadcrumb__menu-item:hover,
+.mupa-breadcrumb__menu-item--activo {
+  background: var(--color-primary-50);
+}

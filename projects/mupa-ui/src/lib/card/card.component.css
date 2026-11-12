@@ -1,0 +1,355 @@
+/*
+ * Port fiel del Lego Design System — Alcaldía de Panamá y de la anatomía
+ * común de las tarjetas del sistema (servicio, KPI, testimonio y web).
+ *
+ * Los valores literales de sombra y del anillo de foco se copian del original;
+ * el resto consume exclusivamente los tokens del sistema.
+ */
+
+:host {
+  display: grid;
+  min-width: 0;
+}
+
+.mupa-card {
+  --mupa-card-padding: 20px 18px;
+  --mupa-card-sombra: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
+  background: var(--bg-surface);
+  color: var(--fg-strong);
+  font: var(--text-body);
+  text-align: left;
+  text-decoration: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: var(--mupa-card-sombra);
+  transition:
+    background 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mupa-card--radio-card {
+  border-radius: var(--radius-card);
+}
+
+.mupa-card--radio-sm {
+  border-radius: var(--radius-sm);
+}
+
+.mupa-card--espaciado-ninguno {
+  --mupa-card-padding: 0;
+}
+
+.mupa-card--espaciado-sm {
+  --mupa-card-padding: 14px 16px 16px;
+}
+
+.mupa-card--espaciado-md {
+  --mupa-card-padding: 20px 18px;
+}
+
+.mupa-card--espaciado-lg {
+  --mupa-card-padding: 22px;
+}
+
+.mupa-card--borde-ninguno {
+  border: 0;
+}
+
+.mupa-card--borde-fino {
+  border-width: 1px;
+}
+
+.mupa-card--borde-grueso {
+  border-width: 1.5px;
+}
+
+.mupa-card--sombra-ninguna {
+  --mupa-card-sombra: none;
+}
+
+.mupa-card--sombra-sutil {
+  --mupa-card-sombra: 0 1px 3px rgba(14, 34, 93, 0.06);
+}
+
+.mupa-card--sombra-sm {
+  --mupa-card-sombra: var(--shadow-sm);
+}
+
+.mupa-card--media-completa {
+  overflow: hidden;
+}
+
+/* Layout */
+
+.mupa-card__layout {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: var(--mupa-card-padding);
+}
+
+.mupa-card__layout--horizontal {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.mupa-card__layout--media-completa {
+  gap: 0;
+  padding: 0;
+}
+
+.mupa-card__layout--media-completa > .mupa-card__cuerpo-exterior {
+  padding: var(--mupa-card-padding);
+}
+
+.mupa-card__media {
+  display: flex;
+  flex: none;
+  min-width: 0;
+}
+
+.mupa-card__media--vacio {
+  display: none;
+}
+
+.mupa-card--media-completa .mupa-card__media {
+  width: 100%;
+}
+
+.mupa-card__cuerpo-exterior {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.mupa-card__layout--horizontal .mupa-card__cuerpo-exterior {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.mupa-card__cuerpo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+/* Ranuras */
+
+.mupa-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.mupa-card__header--vacio {
+  display: none;
+}
+
+.mupa-card__texto {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.mupa-card__contenido {
+  min-width: 0;
+}
+
+.mupa-card__contenido:empty {
+  display: none;
+}
+
+.mupa-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  color: var(--fg-muted);
+  font: 500 11.5px/1.4 var(--font-body);
+}
+
+.mupa-card__footer--vacio {
+  display: none;
+}
+
+.mupa-card__acciones {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.mupa-card__acciones--vacio {
+  display: none;
+}
+
+.mupa-card__layout--horizontal .mupa-card__acciones {
+  margin-left: auto;
+}
+
+/* Tipografía de conveniencia */
+
+.mupa-card__etiqueta {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 5px;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  background: var(--color-neutral-100);
+  color: var(--fg-default);
+  font: 700 10.5px/1 var(--font-body);
+}
+
+.mupa-card__titulo {
+  display: block;
+  margin: 0;
+  color: var(--fg-strong);
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.mupa-card__descripcion {
+  display: block;
+  margin: 0;
+  color: var(--fg-default);
+  font: 400 13.5px/1.4 var(--font-body);
+  text-wrap: pretty;
+  overflow-wrap: anywhere;
+}
+
+/* Interacción */
+
+.mupa-card--interactiva {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.mupa-card--seleccionada {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-50);
+}
+
+@media (hover: hover) {
+  .mupa-card--resaltar:not(.mupa-card--interactiva):not(.mupa-card--deshabilitada):hover {
+    border-color: var(--color-primary-300);
+  }
+
+  .mupa-card--interactiva:not(.mupa-card--estado-forzado):not(.mupa-card--deshabilitada):hover {
+    --mupa-card-sombra: 0 8px 20px rgba(14, 34, 93, 0.1);
+    border-color: var(--color-primary-500);
+  }
+
+  .mupa-card--tinte-hover:not(.mupa-card--estado-forzado):not(.mupa-card--deshabilitada):hover {
+    background: var(--color-primary-50);
+  }
+}
+
+.mupa-card--interactiva:not(.mupa-card--deshabilitada):active {
+  --mupa-card-sombra: 0 8px 20px rgba(14, 34, 93, 0.1);
+  border-color: var(--color-primary-500);
+}
+
+.mupa-card--tinte-hover.mupa-card--interactiva:not(.mupa-card--deshabilitada):active {
+  background: var(--color-primary-100);
+}
+
+.mupa-card--escala-presionada.mupa-card--interactiva:not(.mupa-card--deshabilitada):active {
+  transform: scale(0.98);
+}
+
+/* Estados forzados para vitrinas */
+
+.mupa-card--estado-hover,
+.mupa-card--estado-pressed {
+  --mupa-card-sombra: 0 8px 20px rgba(14, 34, 93, 0.1);
+  border-color: var(--color-primary-500);
+}
+
+.mupa-card--tinte-hover.mupa-card--estado-hover {
+  background: var(--color-primary-50);
+}
+
+.mupa-card--tinte-hover.mupa-card--estado-pressed {
+  background: var(--color-primary-100);
+}
+
+.mupa-card--escala-presionada.mupa-card--estado-pressed {
+  transform: scale(0.98);
+}
+
+.mupa-card:focus {
+  outline: none;
+}
+
+.mupa-card:focus-visible,
+.mupa-card--estado-focus {
+  outline: 3px solid rgba(6, 96, 255, 0.35);
+  outline-offset: 0;
+}
+
+/* Deshabilitada */
+
+.mupa-card--deshabilitada {
+  --mupa-card-sombra: none;
+  border-color: var(--color-neutral-200);
+  background: var(--color-neutral-50);
+  color: var(--fg-disabled);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.mupa-card--deshabilitada .mupa-card__titulo,
+.mupa-card--deshabilitada .mupa-card__descripcion,
+.mupa-card--deshabilitada .mupa-card__etiqueta,
+.mupa-card--deshabilitada .mupa-card__footer {
+  color: var(--fg-disabled);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mupa-card {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .mupa-card {
+    border-color: CanvasText;
+  }
+
+  .mupa-card:focus-visible,
+  .mupa-card--estado-focus {
+    outline-color: Highlight;
+  }
+
+  .mupa-card--deshabilitada {
+    border-color: GrayText;
+    color: GrayText;
+  }
+}

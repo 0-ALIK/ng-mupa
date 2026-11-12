@@ -1,0 +1,116 @@
+/*
+ * Port fiel del Lego Design System — Alcaldía de Panamá.
+ * La sombra literal de 0 12px 32px rgba(14,34,93,.14) se conserva tal cual
+ * porque el componente original no usa un token para ella.
+ */
+
+:host {
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.mupa-toast {
+  position: relative;
+  display: flex;
+  width: 380px;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: var(--bg-surface);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  box-shadow: 0 12px 32px rgba(14, 34, 93, 0.14);
+  font-family: var(--font-body);
+}
+
+.mupa-toast__barra {
+  width: 6px;
+  flex: none;
+}
+
+.mupa-toast__contenido {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  gap: 12px;
+  padding: 14px 12px 14px 14px;
+  align-items: flex-start;
+}
+
+.mupa-toast__icono {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 8px;
+  border: 1.5px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mupa-toast__texto {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+  padding-top: 1px;
+}
+
+.mupa-toast__titulo {
+  font: 700 14.5px/1.35 var(--font-body);
+  color: var(--fg-strong);
+}
+
+.mupa-toast__descripcion {
+  font: 400 13.5px/1.45 var(--font-body);
+  color: var(--fg-default);
+  text-wrap: pretty;
+}
+
+.mupa-toast__accion {
+  justify-self: start;
+  margin-top: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font: 700 13.5px/1.3 var(--font-body);
+  color: var(--color-primary-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.mupa-toast__cerrar {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  background: transparent;
+  color: var(--fg-muted);
+}
+
+.mupa-toast__cerrar:hover,
+.mupa-toast__cerrar:focus-visible {
+  border-color: var(--border-default);
+  background: var(--color-neutral-50);
+}
+
+.mupa-toast__cerrar:focus-visible,
+.mupa-toast__accion:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 2px;
+}
+
+.mupa-toast__progreso {
+  position: absolute;
+  left: 6px;
+  bottom: 0;
+  height: 3px;
+  opacity: 0.5;
+}

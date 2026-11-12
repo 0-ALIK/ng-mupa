@@ -1,0 +1,83 @@
+/*
+ * Port fiel de `NavLink` en el Lego Design System — Alcaldía de Panamá.
+ * Espécimen estático de estados; no tiene interacción.
+ */
+
+:host {
+  display: inline-flex;
+}
+
+.mupa-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 8px;
+  font: 500 15px/1 var(--font-body);
+  color: var(--fg-default);
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  transition:
+    color 0.15s,
+    background 0.15s;
+}
+
+.mupa-nav-link--hover {
+  color: var(--color-primary-700);
+}
+
+.mupa-nav-link--pressed {
+  color: var(--color-primary-700);
+  background: var(--color-primary-50);
+}
+
+.mupa-nav-link--selected {
+  color: var(--fg-strong);
+  font-weight: 700;
+}
+
+.mupa-nav-link--focus {
+  box-shadow: 0 0 0 3px rgba(6, 96, 255, 0.3);
+}
+
+.mupa-nav-link__etiqueta {
+  display: grid;
+}
+
+.mupa-nav-link__etiqueta > span {
+  grid-area: 1 / 1;
+}
+
+.mupa-nav-link__etiqueta-fantasma {
+  font-weight: 700;
+  visibility: hidden;
+}
+
+.mupa-nav-link__indicador {
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 24px;
+  height: 3px;
+  margin-left: -12px;
+  border-radius: 999px;
+  background: transparent;
+  transition: background 0.15s;
+}
+
+.mupa-nav-link--hover .mupa-nav-link__indicador {
+  background: var(--color-primary-200);
+}
+
+.mupa-nav-link--pressed .mupa-nav-link__indicador {
+  background: var(--color-primary-300);
+}
+
+.mupa-nav-link--selected .mupa-nav-link__indicador {
+  background: var(--color-primary-500);
+}

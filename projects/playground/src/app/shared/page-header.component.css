@@ -1,0 +1,30 @@
+:host {
+  display: block;
+}
+
+.pg-cabecera {
+  display: grid;
+  gap: 8px;
+}
+
+.pg-cabecera__categoria {
+  margin: 0;
+  font: var(--text-overline);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--link);
+}
+
+.pg-cabecera__titulo {
+  margin: 0;
+  font: var(--text-h1);
+  color: var(--fg-strong);
+  letter-spacing: -0.01em;
+}
+
+.pg-cabecera__descripcion {
+  margin: 0;
+  max-width: 760px;
+  font: var(--text-body-lg);
+  color: var(--fg-muted);
+}

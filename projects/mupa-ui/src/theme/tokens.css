@@ -1,0 +1,234 @@
+/* ============================================================
+   LEGO DESIGN SYSTEM — Alcaldía de Panamá
+   Foundations: Color + Typography tokens
+   ============================================================ */
+
+/* ---------- FONTS ---------- */
+
+/* Montserrat — única familia de interfaz: títulos, cuerpo y controles */
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-Thin.ttf") format("truetype");           font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-ThinItalic.ttf") format("truetype");     font-weight: 100; font-style: italic;  font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-ExtraLight.ttf") format("truetype");     font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-ExtraLightItalic.ttf") format("truetype");font-weight: 200; font-style: italic; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-Light.ttf") format("truetype");          font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-LightItalic.ttf") format("truetype");    font-weight: 300; font-style: italic;  font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-Regular.ttf") format("truetype");        font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-Italic.ttf") format("truetype");         font-weight: 400; font-style: italic;  font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-Medium.ttf") format("truetype");         font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-MediumItalic.ttf") format("truetype");   font-weight: 500; font-style: italic;  font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-SemiBold.ttf") format("truetype");       font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-SemiBoldItalic.ttf") format("truetype"); font-weight: 600; font-style: italic;  font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-Bold.ttf") format("truetype");           font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-BoldItalic.ttf") format("truetype");     font-weight: 700; font-style: italic;  font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-ExtraBold.ttf") format("truetype");      font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-ExtraBoldItalic.ttf") format("truetype");font-weight: 800; font-style: italic;  font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-Black.ttf") format("truetype");          font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-BlackItalic.ttf") format("truetype");    font-weight: 900; font-style: italic;  font-display: swap; }
+
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+  /* ---------- PRIMARY BLUE — Brand / Acción ---------- */
+  --color-primary-50:  #EDF7FF;
+  --color-primary-100: #D6EAFF;
+  --color-primary-200: #B5DCFF;
+  --color-primary-300: #83C8FF;
+  --color-primary-400: #48A9FF;
+  --color-primary-500: #0660FF;  /* ★ Azul institucional — acción principal */
+  --color-primary-600: #0046EF;
+  --color-primary-700: #083AC5;
+  --color-primary-800: #0D369B;
+  --color-primary-900: #0E225D;
+
+  /* ---------- SECONDARY BLUE — Soporte visual ---------- */
+  --color-secondary-100: #D6EAFF;
+  --color-secondary-200: #B5DCFF;
+  --color-secondary-300: #83C8FF;
+  --color-secondary-400: #48A9FF;
+
+  /* ---------- NEUTRALS — texto y fondo ---------- */
+  --color-neutral-0:   #FCFDFD;
+  --color-neutral-50:  #F4F6F7;
+  --color-neutral-100: #D9D9D9;
+  --color-neutral-200: #CAD2D7;
+  --color-neutral-300: #A4B1BC;
+  --color-neutral-400: #627485;
+  --color-neutral-500: #4F5B6B;
+  --color-neutral-600: #363B43;
+  --color-neutral-900: #21252B;
+
+  /* ---------- COMPLEMENTARY (categorías) ---------- */
+  /* Morado — cultura / destacados */
+  --color-purple-100: #EFEAFE; --color-purple-200: #CFC5FB; --color-purple-300: #7C6AE6; --color-purple-400: #5B4BC4;
+  /* Cyan — urbano / servicios digitales / mapas / smart city */
+  --color-cyan-100: #E6FAFE; --color-cyan-200: #B9F2FB; --color-cyan-300: #22D3EE; --color-cyan-400: #0EA5C6;
+  /* Terracota — eventos presenciales / espacios físicos */
+  --color-brown-100: #F5ECE6; --color-brown-200: #E2C9B8; --color-brown-300: #B45309; --color-brown-400: #8A3F06;
+  /* Verde lima — deportes / energía / actividad */
+  --color-lime-100: #F2FBE7; --color-lime-200: #D9F2B8; --color-lime-300: #84CC16; --color-lime-400: #65A30D;
+  /* Coral — campañas sociales / inclusión */
+  --color-coral-100: #FFF1F4; --color-coral-200: #FFD6DD; --color-coral-300: #FDA4AF; --color-coral-400: #FB7185;
+
+  /* Tonos de texto: usar sobre los fondos de categoría 100. */
+  --color-purple-700: #5B3FB8; --color-cyan-700: #0E6E80;
+  --color-lime-700: #4A6B12; --color-coral-700: #B23A2E; --color-brown-700: #8A3F06;
+
+  /* ---------- SEMANTIC ---------- */
+  --color-success-100: #E6F6EC; --color-success-300: #7DDBA5; --color-success-500: #2ECC71; --color-success-700: #176B3D;
+  --color-warning-100: #FFF4E5; --color-warning-300: #FFD28A; --color-warning-500: #F59E0B; --color-warning-700: #B45309;
+  --color-error-100:   #FDECEA; --color-error-300:   #F1998E; --color-error-500:   #E53935; --color-error-700:   #B71C1C;
+  --color-info-100:    #EDF7FF; --color-info-300:    #83C8FF; --color-info-500:    #0660FF; --color-info-700:    #0046EF;
+
+  /* ---------- PRINT ---------- */
+  --color-print-reflex-blue: #001489; /* Pantone Reflex Blue C */
+
+  /* ============================================================
+     SEMANTIC ALIASES (use these in product UI)
+     ============================================================ */
+  --bg-base:        var(--color-neutral-50);   /* app background */
+  --bg-surface:     var(--color-neutral-0);    /* cards, sheets */
+  --bg-subtle:      var(--color-primary-50);   /* soft info zones */
+  --bg-inverse:     var(--color-primary-500);  /* brand fill */
+
+  --fg-strong:      var(--color-neutral-900);  /* headings / primary text */
+  --fg-default:     var(--color-neutral-600);  /* body text */
+  --fg-muted:       var(--color-neutral-500);  /* captions / secondary */
+  --fg-disabled:    var(--color-neutral-300);
+  --fg-on-brand:    #FFFFFF;                    /* text on blue */
+
+  --border-subtle:  var(--color-neutral-100);
+  --border-default: var(--color-neutral-200);
+  --border-strong:  var(--color-neutral-300);
+  --border-control: var(--color-neutral-400);
+  --fg-on-success: #FFFFFF;
+  --fg-on-error: #FFFFFF;
+  --z-sticky: 20; --z-dropdown: 40; --z-modal: 100; --z-toast: 120;
+
+  --action:         var(--color-primary-500);  /* primary action */
+  --action-hover:   var(--color-primary-600);
+  --action-press:   var(--color-primary-700);
+  --action-subtle:  var(--color-primary-50);
+  --focus-ring:     var(--color-primary-500);
+  --link:           var(--color-primary-600);
+
+  /* ---------- TYPE FAMILIES ---------- */
+  --font-display: var(--font-body);  /* títulos / headlines */
+  --font-body:    "Montserrat", system-ui, sans-serif;          /* todo lo demás */
+  --font-brand:   var(--font-body);          /* nombres institucionales; logos como assets */
+
+  /* ---------- TYPE SCALE (mobile-first) ---------- */
+  --text-display:  700 44px/1.05 var(--font-display);
+  --text-h1:       700 32px/1.12 var(--font-display);
+  --text-h2:       700 26px/1.18 var(--font-display);
+  --text-h3:       500 21px/1.25 var(--font-display);
+  --text-title:    600 18px/1.3  var(--font-body);
+  --text-body-lg:  400 17px/1.5  var(--font-body);
+  --text-body:     400 15px/1.55 var(--font-body);
+  --text-body-sm:  400 13px/1.5  var(--font-body);
+  --text-label:    600 14px/1.2  var(--font-body);
+  --text-button:   600 15px/1    var(--font-body);
+  --text-caption:  500 12px/1.35 var(--font-body);
+  --text-overline: 700 11px/1.2  var(--font-body); /* uppercase, tracked */
+
+  /* ---------- RADII (sistema oficial) ----------
+     tags + inputs = 8px · tarjetas = 16px · botones = full (pill) */
+  --radius-xs:   6px;
+  --radius-sm:   8px;   /* inputs, tags, chips */
+  --radius-md:   12px;  /* contenedores internos */
+  --radius-card: 16px;  /* ★ tarjetas */
+  --radius-lg:   16px;  /* sheets, tarjetas grandes */
+  --radius-xl:   24px;  /* banners, modales */
+  --radius-pill: 999px; /* ★ botones, pills redondas, FAB */
+
+  /* ---------- SPACING (4pt base) ---------- */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px; --space-12: 48px;
+
+  /* ---------- ELEVATION ---------- */
+  --shadow-xs: 0 1px 2px rgba(14, 34, 93, 0.06);
+  --shadow-sm: 0 2px 8px rgba(14, 34, 93, 0.08);
+  --shadow-md: 0 6px 18px rgba(14, 34, 93, 0.10);
+  --shadow-lg: 0 14px 34px rgba(14, 34, 93, 0.14);
+  --shadow-focus: 0 0 0 3px rgba(72, 169, 255, 0.45);
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT DEFAULTS (optional helpers)
+   ============================================================ */
+.ds-display  { font: var(--text-display); color: var(--fg-strong); letter-spacing: -0.01em; }
+.ds-h1       { font: var(--text-h1);  color: var(--fg-strong); letter-spacing: -0.01em; }
+.ds-h2       { font: var(--text-h2);  color: var(--fg-strong); }
+.ds-h3       { font: var(--text-h3);  color: var(--fg-strong); }
+.ds-title    { font: var(--text-title); color: var(--fg-strong); }
+.ds-body     { font: var(--text-body); color: var(--fg-default); }
+.ds-body-lg  { font: var(--text-body-lg); color: var(--fg-default); }
+.ds-body-sm  { font: var(--text-body-sm); color: var(--fg-muted); }
+.ds-label    { font: var(--text-label); color: var(--fg-strong); }
+.ds-caption  { font: var(--text-caption); color: var(--fg-muted); }
+.ds-overline { font: var(--text-overline); color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* ============================================================
+   DARK MODE — activar con data-theme="dark" en un contenedor
+   ============================================================ */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --border-control: #8A97A8;
+  --fg-on-success: #0F1319;
+  --fg-on-error: #0F1319;
+  --color-neutral-0:   #171C24;
+  --color-neutral-50:  #1B2129;
+  --color-neutral-100: #232A34;
+  --color-neutral-200: #2E3744;
+  --color-neutral-300: #45505F;
+  --color-primary-50:  #14243F;
+  --color-primary-100: #1A3260;
+  --color-primary-200: #24467F;
+  --color-primary-300: #2F5CA6;
+  --color-primary-700: #8DBDFF;
+  --color-secondary-300: #2C5A93;
+  --color-info-100:    rgba(72,169,255,.14);
+  --color-success-100: rgba(34,160,90,.16);  --color-success-300: #2E7A50; --color-success-700: #5FD394;
+  --color-warning-100: rgba(245,164,0,.16);  --color-warning-300: #8A6514; --color-warning-700: #F5C04D;
+  --color-error-100:   rgba(229,72,77,.16);  --color-error-300:   #8A3A3D; --color-error-700:   #FF8A8E;
+  --bg-base:    #0F1319;
+  --bg-surface: #171C24;
+  --bg-subtle:  #14243F;
+  --fg-strong:  #F1F4F8;
+  --fg-default: #C9D1DB;
+  --fg-muted:   #8A97A8;
+  --fg-disabled:#5B6676;
+  --border-subtle:  #262D38;
+  --border-default: #323B48;
+  --border-strong:  #45505F;
+  --action-press: #0A4AD0;
+  --action-subtle: #14243F;
+  --link: #8DBDFF;
+  --shadow-xs: 0 1px 2px rgba(0,0,0,.4);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.45);
+  --shadow-md: 0 6px 18px rgba(0,0,0,.5);
+  --shadow-lg: 0 14px 34px rgba(0,0,0,.55);
+}
+
+/* Sidebar institucional: superficie blanca en todas las apariencias. */
+[data-sidebar="white"] {
+  color-scheme: light;
+  --border-control: #627485;
+  --fg-on-success: #FFFFFF; --fg-on-error: #FFFFFF;
+  --bg-surface: #FFFFFF;
+  --fg-strong: #21252B;
+  --fg-default: #4F5B6B;
+  --fg-muted: #627485;
+  --border-subtle: #D9D9D9;
+  --border-default: #CAD2D7;
+  --color-neutral-50: #F4F6F7;
+  --color-neutral-100: #EEF2F5;
+  --color-primary-50: #EDF7FF;
+  --color-primary-200: #BFD9FF;
+  --color-primary-700: #083AC5;
+  --link: #0660FF;
+}
+
+/* lego-typography base */
+body { font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif; }

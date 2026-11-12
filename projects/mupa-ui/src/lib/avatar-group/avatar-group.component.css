@@ -1,0 +1,56 @@
+/*
+ * Port fiel de `AvatarGroup` en el Lego Design System — Alcaldía de Panamá.
+ * El solapamiento, tamaños y z-index se calculan en el componente.
+ */
+
+:host {
+  display: inline-flex;
+}
+
+.mupa-avatar-group {
+  display: flex;
+  align-items: center;
+}
+
+.mupa-avatar-group__item {
+  display: inline-flex;
+  position: relative;
+}
+
+.mupa-avatar-group__accion {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 999px;
+  display: inline-flex;
+  position: relative;
+}
+
+.mupa-avatar-group__mas {
+  flex: none;
+  border-radius: 999px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-500);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  font-weight: 700;
+  line-height: 1;
+  font-family: var(--font-body);
+  font-variant-numeric: tabular-nums;
+  transition: background 0.15s;
+}
+
+.mupa-avatar-group__accion:hover .mupa-avatar-group__mas,
+.mupa-avatar-group__accion:focus-visible .mupa-avatar-group__mas {
+  background: var(--color-primary-700);
+}
+
+.mupa-avatar-group__accion:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 2px;
+}

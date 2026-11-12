@@ -1,0 +1,15 @@
+/* Port fiel de `Toaster` en el Lego Design System — Alcaldía de Panamá. */
+
+:host {
+  display: contents;
+}
+
+.mupa-toaster {
+  position: fixed;
+  z-index: 9000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  pointer-events: none;
+}

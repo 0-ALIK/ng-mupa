@@ -1,0 +1,157 @@
+/*
+ * Port fiel del Lego Design System — Alcaldía de Panamá.
+ * La grilla comienza en lunes; el día actual se marca con borde y el rango
+ * seleccionado usa el azul institucional.
+ */
+
+:host {
+  display: block;
+  max-width: 100%;
+}
+
+.mupa-datepicker {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sm);
+  padding: 12px;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-body);
+}
+
+.mupa-datepicker__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.mupa-datepicker__nav {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1.5px solid var(--border-default);
+  background: var(--bg-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.mupa-datepicker__mes {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15.5px;
+  color: var(--fg-strong);
+  text-transform: capitalize;
+}
+
+.mupa-datepicker__grilla {
+  width: 100%;
+}
+
+.mupa-datepicker__semana {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  margin-bottom: 3px;
+}
+
+.mupa-datepicker__semana--cabecera {
+  margin-bottom: 4px;
+}
+
+.mupa-datepicker__dia-semana {
+  text-align: center;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--fg-muted);
+  padding: 4px 0;
+}
+
+.mupa-datepicker__celda {
+  padding: 2px 0;
+}
+
+.mupa-datepicker__dia {
+  width: 100%;
+  min-width: 24px;
+  height: 44px;
+  padding: 0;
+  font-family: inherit;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0 auto;
+  background: transparent;
+  color: var(--fg-strong);
+  border: none;
+}
+
+.mupa-datepicker__dia:disabled {
+  color: var(--fg-disabled);
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.mupa-datepicker__dia--hoy {
+  border: 1.5px solid var(--color-primary-500);
+  color: var(--color-primary-600);
+}
+
+.mupa-datepicker__dia--seleccionado {
+  background: var(--color-primary-500);
+  color: #fff;
+  border: none;
+}
+
+.mupa-datepicker__dia--rango {
+  background: var(--color-primary-50);
+  color: var(--color-primary-700);
+}
+
+.mupa-datepicker button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.mupa-datepicker__ayuda {
+  margin: 12px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--fg-muted);
+}
+
+.mupa-datepicker__estado {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--fg-default);
+}
+
+.mupa-datepicker__error {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-error-700);
+}
+
+.mupa-datepicker--error {
+  border-color: var(--color-error-500);
+}
+
+.mupa-datepicker--deshabilitado {
+  opacity: 0.6;
+}
+
+.mupa-datepicker--deshabilitado .mupa-datepicker__nav,
+.mupa-datepicker--deshabilitado .mupa-datepicker__dia {
+  cursor: not-allowed;
+}

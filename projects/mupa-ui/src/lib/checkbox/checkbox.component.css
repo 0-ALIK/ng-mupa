@@ -1,0 +1,89 @@
+/*
+ * Port fiel del Lego Design System — Alcaldía de Panamá.
+ * Los estilos inline originales se trasladan a CSS con los mismos valores.
+ */
+
+:host {
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.mupa-checkbox {
+  position: relative;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.mupa-checkbox--deshabilitado {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.mupa-checkbox__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mupa-checkbox__caja {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  flex: none;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  border: 1.5px solid var(--border-strong);
+  background: var(--bg-surface);
+}
+
+.mupa-checkbox--activo .mupa-checkbox__caja {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-500);
+}
+
+.mupa-checkbox--deshabilitado .mupa-checkbox__caja {
+  border-color: var(--border-default);
+  background: var(--color-neutral-100);
+}
+
+.mupa-checkbox--deshabilitado.mupa-checkbox--activo .mupa-checkbox__caja {
+  background: var(--color-neutral-200);
+}
+
+.mupa-checkbox__input:focus-visible + .mupa-checkbox__caja {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.mupa-checkbox--error .mupa-checkbox__caja {
+  border-color: var(--color-error-500);
+}
+
+.mupa-checkbox__caja svg {
+  color: var(--fg-on-brand);
+}
+
+.mupa-checkbox__guion {
+  width: 10px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--bg-surface);
+}
+
+.mupa-checkbox__etiqueta {
+  font: var(--text-body);
+  font-size: 14.5px;
+  color: var(--fg-default);
+}
+
+.mupa-checkbox--deshabilitado .mupa-checkbox__etiqueta {
+  color: var(--fg-disabled);
+}

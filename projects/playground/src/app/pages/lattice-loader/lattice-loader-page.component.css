@@ -1,0 +1,137 @@
+/* Demo del Lattice Loader, basada en el Lego Design System — Alcaldía de Panamá. */
+
+.pg-lattice-demo {
+  display: grid;
+  gap: 0;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pg-lattice-controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.pg-lattice-campo {
+  display: grid;
+  flex: 1 1 150px;
+  gap: 6px;
+  min-width: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pg-lattice-campo select {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1.5px solid var(--border-control);
+  border-radius: 8px;
+  background: var(--bg-surface);
+  color: var(--fg-default);
+  font: 500 14px/1.4 var(--font-body);
+}
+
+.pg-lattice-campo select:focus-visible,
+.pg-lattice-toggle input:focus-visible {
+  outline: 3px solid var(--action);
+  outline-offset: 3px;
+}
+
+.pg-lattice-toggles,
+.pg-lattice-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.pg-lattice-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 13px;
+}
+
+.pg-lattice-toggle input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--action);
+}
+
+.pg-lattice-escenario {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  min-height: 140px;
+  margin: 16px 0;
+  padding: 24px;
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+}
+
+.pg-lattice-escenario p {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: 12px;
+}
+
+.pg-lattice-acciones .mupa-button,
+.pg-lattice-acciones mupa-button {
+  min-height: 44px;
+}
+
+.pg-lattice-pista {
+  margin: 12px 0 0;
+  color: var(--fg-muted);
+  font-size: 12px;
+}
+
+.pg-lattice-seccion {
+  margin-top: 28px;
+}
+
+.pg-lattice-seccion h3 {
+  margin: 0 0 12px;
+  color: var(--fg-strong);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.pg-lattice-estados,
+.pg-lattice-patrones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  gap: 12px;
+}
+
+.pg-lattice-muestra {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+}
+
+.pg-lattice-muestra > span {
+  color: var(--fg-muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .pg-lattice-escenario {
+    padding: 16px;
+  }
+
+  .pg-lattice-controles {
+    gap: 12px;
+  }
+}

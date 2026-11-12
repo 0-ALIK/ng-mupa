@@ -1,0 +1,297 @@
+/* Demos de la tarjeta. Los valores recrean el Lego Design System — Alcaldía de Panamá. */
+
+.pg-muestra-tramite {
+  display: grid;
+  gap: 28px;
+  width: 100%;
+  padding: 28px 32px;
+  border-radius: var(--radius-md);
+  background: var(--bg-base);
+}
+
+.pg-tramite-estados {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: 16px;
+}
+
+.pg-tramite-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: 12px;
+}
+
+.pg-estado {
+  display: grid;
+  gap: 8px;
+}
+
+.pg-estado__etiqueta {
+  color: var(--fg-strong);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+mupa-card.pg-tramite {
+  min-height: 108px;
+}
+
+.pg-tramite__icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid var(--color-primary-200);
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-50);
+  color: var(--color-primary-700);
+  transition: background 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pg-tramite__icono--off {
+  border-color: var(--color-neutral-200);
+  background: var(--color-neutral-100);
+  color: var(--fg-disabled);
+}
+
+.pg-tramite__flecha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-500);
+  color: var(--fg-on-brand);
+  transition: background 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pg-tramite__flecha--off {
+  background: var(--color-neutral-300);
+}
+
+.pg-tramite__flecha-icono {
+  display: flex;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+mupa-card.pg-tramite:not(.pg-tramite--off):hover .pg-tramite__flecha,
+mupa-card.pg-tramite--hover .pg-tramite__flecha {
+  background: var(--color-primary-600);
+}
+
+mupa-card.pg-tramite:not(.pg-tramite--off):active .pg-tramite__flecha,
+mupa-card.pg-tramite--pressed .pg-tramite__flecha {
+  background: var(--color-primary-700);
+}
+
+mupa-card.pg-tramite:not(.pg-tramite--off):hover .pg-tramite__flecha-icono,
+mupa-card.pg-tramite--hover .pg-tramite__flecha-icono,
+mupa-card.pg-tramite--pressed .pg-tramite__flecha-icono {
+  transform: translateX(4px);
+}
+
+/* Tarjetas de servicio */
+
+.pg-servicios {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: 100%;
+  padding: 22px 28px;
+  border-radius: var(--radius-md);
+  background: var(--color-neutral-50);
+}
+
+mupa-card.pg-servicio {
+  flex: 1 1 260px;
+  min-width: 0;
+  max-width: 300px;
+}
+
+.pg-servicio__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 88px;
+  color: var(--fg-strong);
+}
+
+.pg-servicio__media--cyan {
+  background: var(--color-cyan-300);
+}
+
+.pg-servicio__media--lime {
+  background: var(--color-lime-300);
+}
+
+.pg-servicio__etiqueta {
+  display: inline-block;
+  margin-bottom: 9px;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.pg-servicio__etiqueta--cyan {
+  background: var(--color-cyan-100);
+  color: var(--color-cyan-700);
+}
+
+.pg-servicio__etiqueta--lime {
+  background: var(--color-lime-100);
+  color: var(--color-lime-700);
+}
+
+.pg-servicio__titulo {
+  margin: 0 0 5px;
+  color: var(--fg-strong);
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.pg-servicio__descripcion {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.pg-servicio__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  color: var(--fg-muted);
+  font-size: 11.5px;
+}
+
+/* Tarjetas con imagen */
+
+.pg-muestra-imagenes {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+}
+
+.pg-imagenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: 20px;
+  width: 100%;
+  padding: 24px;
+  border-radius: var(--radius-md);
+  background: var(--bg-base);
+}
+
+.pg-imagen-card--lateral {
+  grid-column: 1 / -1;
+}
+
+.pg-imagen__media {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  background: var(--color-neutral-100);
+}
+
+.pg-imagen__media--lateral {
+  width: 112px;
+  height: 112px;
+  flex: none;
+  border-radius: var(--radius-md);
+}
+
+.pg-imagen__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pg-imagen__media--lateral .pg-imagen__img {
+  object-position: 68% center;
+}
+
+.pg-imagen__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pg-imagen__check {
+  display: inline-flex;
+  margin-left: auto;
+  color: var(--color-primary-500);
+}
+
+.pg-imagen__flecha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-500);
+  color: var(--fg-on-brand);
+  transition: background 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pg-imagen__flecha-icono {
+  display: flex;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+mupa-card.pg-imagen-card--lateral:hover .pg-imagen__flecha {
+  background: var(--color-primary-600);
+}
+
+mupa-card.pg-imagen-card--lateral:active .pg-imagen__flecha {
+  background: var(--color-primary-700);
+}
+
+mupa-card.pg-imagen-card--lateral:hover .pg-imagen__flecha-icono {
+  transform: translateX(4px);
+}
+
+/* Selección */
+
+.pg-seleccion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.pg-seleccion__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pg-seleccion__check {
+  display: inline-flex;
+  margin-left: auto;
+  color: var(--color-primary-500);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pg-tramite__icono,
+  .pg-tramite__flecha,
+  .pg-tramite__flecha-icono,
+  .pg-imagen__flecha,
+  .pg-imagen__flecha-icono {
+    transition: none;
+  }
+}
