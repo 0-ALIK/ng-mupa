@@ -1,0 +1,82 @@
+/*
+ * Port fiel de DESARROLLO/marquee/Marquee.jsx (TestimonialCard).
+ * Se conservan las medidas, colores y transiciones de la tarjeta original.
+ */
+
+.mupa-testimonio {
+  margin: 0;
+  width: 280px;
+  flex: none;
+  box-sizing: border-box;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+  font-family: var(--font-body);
+}
+
+.mupa-testimonio--hover {
+  background: var(--color-neutral-50);
+  border-color: var(--color-primary-300);
+}
+
+.mupa-testimonio__cabecera {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mupa-testimonio__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  object-fit: cover;
+  flex: none;
+}
+
+.mupa-testimonio__iniciales {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-50);
+  border: 1.5px solid var(--color-primary-200);
+  color: var(--color-primary-700);
+  font: 700 13px/1 var(--font-body);
+}
+
+.mupa-testimonio__identidad {
+  min-width: 0;
+}
+
+.mupa-testimonio__nombre {
+  font: 700 14px/1.3 var(--font-body);
+  color: var(--fg-strong);
+}
+
+.mupa-testimonio__meta {
+  font: 500 12.5px/1.3 var(--font-body);
+  color: var(--fg-muted);
+}
+
+.mupa-testimonio__calificacion {
+  font: 400 14px/1 var(--font-body);
+  letter-spacing: 2px;
+  color: var(--color-warning-500);
+}
+
+.mupa-testimonio__estrellas-vacias {
+  color: var(--color-neutral-200);
+}
+
+.mupa-testimonio__cuerpo {
+  margin: 0;
+  font: 400 14px/1.5 var(--font-body);
+  color: var(--fg-default);
+  text-wrap: pretty;
+}

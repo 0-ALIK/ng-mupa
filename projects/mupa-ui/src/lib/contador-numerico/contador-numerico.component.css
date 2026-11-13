@@ -1,0 +1,23 @@
+/*
+ * Port fiel de DESARROLLO/number-ticker/NumberTicker.jsx.
+ * Las medidas tipográficas son las del original.
+ */
+
+:host {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  white-space: pre;
+}
+
+.mupa-contador-numerico__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

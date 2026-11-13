@@ -1,0 +1,61 @@
+/*
+ * Port fiel de DESARROLLO/confetti/Confetti.jsx.
+ * Se conservan las medidas, colores y transiciones del botón original.
+ */
+
+:host {
+  display: inline-flex;
+}
+
+.mupa-boton-confeti {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-primary-500);
+  cursor: pointer;
+  font: 600 15px/1.2 var(--font-body);
+  background: var(--color-primary-500);
+  color: var(--fg-on-brand);
+  transition:
+    background 0.15s,
+    transform 0.1s;
+}
+
+.mupa-boton-confeti:hover {
+  background: var(--action-hover);
+}
+
+.mupa-boton-confeti:active,
+.mupa-boton-confeti--presionado {
+  background: var(--action-press);
+  transform: scale(0.98);
+}
+
+.mupa-boton-confeti--secundario {
+  background: var(--bg-surface);
+  color: var(--color-primary-700);
+}
+
+.mupa-boton-confeti--secundario:hover {
+  background: var(--color-primary-50);
+}
+
+.mupa-boton-confeti--secundario:active,
+.mupa-boton-confeti--secundario.mupa-boton-confeti--presionado {
+  transform: scale(0.98);
+}
+
+.mupa-boton-confeti:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.mupa-boton-confeti:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}

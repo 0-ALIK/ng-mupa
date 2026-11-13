@@ -1,0 +1,8 @@
+.pg-contador-muestra {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+}

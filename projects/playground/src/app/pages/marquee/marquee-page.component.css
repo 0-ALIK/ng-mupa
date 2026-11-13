@@ -1,0 +1,17 @@
+.pg-marco-marquee {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
+  background: var(--bg-surface);
+  overflow: hidden;
+}
+
+.pg-marco-marquee--vertical {
+  height: 380px;
+}
+
+.pg-marco-marquee--vertical mupa-marquee,
+.pg-marco-marquee--vertical .mupa-marquee {
+  height: 100%;
+}

@@ -161,3 +161,25 @@ export type {
   RamaSidebar,
   UsuarioSidebar,
 } from './lib/sidebar/sidebar.types';
+
+// Recursos visuales
+export { MupaConfetti } from './lib/confetti/confetti.component';
+export { MupaBotonConfeti } from './lib/confetti/boton-confeti.component';
+export { MupaDisparadorConfeti } from './lib/confetti/disparador-confeti.directive';
+export { MupaConfettiService } from './lib/confetti/confetti.service';
+export { COLORES_CONFETI, dispararConfeti } from './lib/confetti/confetti.util';
+export type { OpcionesConfeti, VarianteBotonConfeti } from './lib/confetti/confetti.types';
+
+export { MupaMarquee } from './lib/marquee/marquee.component';
+export { MupaTestimonio } from './lib/marquee/testimonio.component';
+
+export { MupaContadorNumerico } from './lib/contador-numerico/contador-numerico.component';
+export type { DireccionContador } from './lib/contador-numerico/contador-numerico.types';
+
+export { MupaLogoLoop } from './lib/logo-loop/logo-loop.component';
+export type {
+  DireccionLogoLoop,
+  ItemImagenLogoLoop,
+  ItemLogoLoop,
+  ItemPlantillaLogoLoop,
+} from './lib/logo-loop/logo-loop.types';

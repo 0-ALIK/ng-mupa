@@ -100,6 +100,7 @@ export class AppComponent {
     'navegacion',
     'contenido',
     'mensajes',
+    'recursos-visuales',
   ];
 
   protected readonly grupos: readonly GrupoSidebar[] = [
@@ -281,6 +282,37 @@ export class AppComponent {
               etiqueta: 'Data table',
               href: '/componentes/data-table',
               icono: 'clipboard-list',
+            },
+          ],
+        },
+        {
+          id: 'recursos-visuales',
+          etiqueta: 'Recursos visuales',
+          icono: 'star',
+          hijos: [
+            {
+              id: 'confetti',
+              etiqueta: 'Confetti',
+              href: '/componentes/confetti',
+              icono: 'party-popper',
+            },
+            {
+              id: 'marquee',
+              etiqueta: 'Marquee',
+              href: '/componentes/marquee',
+              icono: 'arrow-right',
+            },
+            {
+              id: 'contador-numerico',
+              etiqueta: 'Contador numérico',
+              href: '/componentes/contador-numerico',
+              icono: 'arrow-up-down',
+            },
+            {
+              id: 'logo-loop',
+              etiqueta: 'Logo loop',
+              href: '/componentes/logo-loop',
+              icono: 'building-2',
             },
           ],
         },

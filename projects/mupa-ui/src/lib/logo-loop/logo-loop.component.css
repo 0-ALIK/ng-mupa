@@ -1,0 +1,89 @@
+/*
+ * Port fiel de DESARROLLO/logo-loop/LogoLoop.jsx.
+ * La medición, las copias dinámicas y la velocidad suavizada se conservan.
+ */
+
+:host {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  contain: inline-size;
+}
+
+.mupa-logo-loop {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.mupa-logo-loop__pista {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  will-change: transform;
+  user-select: none;
+}
+
+.mupa-logo-loop__pista--vertical {
+  flex-direction: column;
+  width: 100%;
+}
+
+.mupa-logo-loop__lista {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex: none;
+}
+
+.mupa-logo-loop__lista--vertical {
+  flex-direction: column;
+}
+
+.mupa-logo-loop__item {
+  flex: none;
+  display: flex;
+  align-items: center;
+}
+
+.mupa-logo-loop__borde {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.mupa-logo-loop__borde--izquierda,
+.mupa-logo-loop__borde--derecha {
+  top: 0;
+  bottom: 0;
+  width: clamp(24px, 10%, 120px);
+}
+
+.mupa-logo-loop__borde--izquierda {
+  left: 0;
+}
+
+.mupa-logo-loop__borde--derecha {
+  right: 0;
+}
+
+.mupa-logo-loop__borde--arriba,
+.mupa-logo-loop__borde--abajo {
+  left: 0;
+  right: 0;
+  height: clamp(24px, 10%, 120px);
+}
+
+.mupa-logo-loop__borde--arriba {
+  top: 0;
+}
+
+.mupa-logo-loop__borde--abajo {
+  bottom: 0;
+}

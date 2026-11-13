@@ -148,6 +148,34 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'componentes/confetti',
+    loadComponent: () =>
+      import('./pages/confetti/confetti-page.component').then(
+        (modulo) => modulo.ConfettiPageComponent,
+      ),
+  },
+  {
+    path: 'componentes/marquee',
+    loadComponent: () =>
+      import('./pages/marquee/marquee-page.component').then(
+        (modulo) => modulo.MarqueePageComponent,
+      ),
+  },
+  {
+    path: 'componentes/contador-numerico',
+    loadComponent: () =>
+      import('./pages/contador-numerico/contador-numerico-page.component').then(
+        (modulo) => modulo.ContadorNumericoPageComponent,
+      ),
+  },
+  {
+    path: 'componentes/logo-loop',
+    loadComponent: () =>
+      import('./pages/logo-loop/logo-loop-page.component').then(
+        (modulo) => modulo.LogoLoopPageComponent,
+      ),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

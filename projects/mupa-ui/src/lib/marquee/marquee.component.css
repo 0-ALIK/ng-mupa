@@ -1,0 +1,89 @@
+/*
+ * Port fiel de DESARROLLO/marquee/Marquee.jsx.
+ * Los keyframes se inyectan globalmente desde el componente para que la
+ * animación inline conserve el mismo nombre.
+ */
+
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.mupa-marquee {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.mupa-marquee__pista-contenedor {
+  display: flex;
+  flex-direction: row;
+  gap: var(--mq-gap);
+  padding: 4px 0;
+}
+
+.mupa-marquee__pista-contenedor--vertical {
+  flex-direction: column;
+  gap: var(--mq-gap);
+  padding: 0;
+  height: 100%;
+}
+
+.mupa-marquee__carril {
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  gap: var(--mq-gap);
+  will-change: transform;
+}
+
+.mupa-marquee__carril--vertical {
+  flex-direction: column;
+}
+
+.mupa-marquee__grupo {
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  gap: var(--mq-gap);
+}
+
+.mupa-marquee__grupo--vertical {
+  flex-direction: column;
+}
+
+.mupa-marquee__borde {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mupa-marquee__borde--izquierda,
+.mupa-marquee__borde--derecha {
+  top: 0;
+  bottom: 0;
+  width: 18%;
+}
+
+.mupa-marquee__borde--izquierda {
+  left: 0;
+}
+
+.mupa-marquee__borde--derecha {
+  right: 0;
+}
+
+.mupa-marquee__borde--arriba,
+.mupa-marquee__borde--abajo {
+  left: 0;
+  right: 0;
+  height: 18%;
+}
+
+.mupa-marquee__borde--arriba {
+  top: 0;
+}
+
+.mupa-marquee__borde--abajo {
+  bottom: 0;
+}
