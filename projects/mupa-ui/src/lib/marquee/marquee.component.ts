@@ -36,7 +36,7 @@ function inyectarKeyframes(documento: Document, renderer: Renderer2): void {
 /**
  * Cinta infinita horizontal o vertical.
  *
- * Réplica de `Marquee` de `DESARROLLO/marquee/Marquee.jsx`: duplica el
+ * Réplica de `Marquee` del Lego Design System — Alcaldía de Panamá: duplica el
  * contenido para un bucle sin saltos, pausa al pasar o enfocar y respeta
  * `prefers-reduced-motion`.
  */

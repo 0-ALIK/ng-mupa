@@ -6,7 +6,7 @@ import type { OpcionesConfeti } from './confetti.types';
 /**
  * Disparador headless de confeti.
  *
- * Réplica de `Confetti` de `DESARROLLO/confetti/Confetti.jsx`: no renderiza
+ * Réplica de `Confetti` del Lego Design System — Alcaldía de Panamá: no renderiza
  * interfaz y lanza una explosión cuando cambia `disparador`.
  *
  * ```html

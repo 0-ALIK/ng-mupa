@@ -232,6 +232,59 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'componentes/tabs',
+    loadComponent: () =>
+      import('./pages/tabs/tabs-page.component').then((modulo) => modulo.TabsPageComponent),
+  },
+  {
+    path: 'componentes/switch',
+    loadComponent: () =>
+      import('./pages/switch/switch-page.component').then((modulo) => modulo.SwitchPageComponent),
+  },
+  {
+    path: 'componentes/segmented',
+    loadComponent: () =>
+      import('./pages/segmented/segmented-page.component').then(
+        (modulo) => modulo.SegmentedPageComponent,
+      ),
+  },
+  {
+    path: 'componentes/radio',
+    loadComponent: () =>
+      import('./pages/radio/radio-page.component').then((modulo) => modulo.RadioPageComponent),
+  },
+  {
+    path: 'componentes/accordion',
+    loadComponent: () =>
+      import('./pages/accordion/accordion-page.component').then(
+        (modulo) => modulo.AccordionPageComponent,
+      ),
+  },
+  {
+    path: 'componentes/menu',
+    loadComponent: () =>
+      import('./pages/menu/menu-page.component').then((modulo) => modulo.MenuPageComponent),
+  },
+  {
+    path: 'componentes/progress',
+    loadComponent: () =>
+      import('./pages/progress/progress-page.component').then(
+        (modulo) => modulo.ProgressPageComponent,
+      ),
+  },
+  {
+    path: 'componentes/file-upload',
+    loadComponent: () =>
+      import('./pages/file-upload/file-upload-page.component').then(
+        (modulo) => modulo.FileUploadPageComponent,
+      ),
+  },
+  {
+    path: 'componentes/range',
+    loadComponent: () =>
+      import('./pages/range/range-page.component').then((modulo) => modulo.RangePageComponent),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

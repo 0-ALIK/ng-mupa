@@ -1,0 +1,18 @@
+.pg-menu-demo {
+  display: grid;
+  gap: 14px;
+  max-width: 340px;
+}
+
+.pg-menu-demo mupa-menu {
+  padding: 12px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+}
+
+.pg-menu-estado {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: 13px;
+}

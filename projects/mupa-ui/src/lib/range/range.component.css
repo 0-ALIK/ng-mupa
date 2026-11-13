@@ -1,0 +1,54 @@
+/*
+ * Port fiel del patrón input[type=range] del Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.mupa-range {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  font-family: var(--font-body);
+}
+
+.mupa-range__cabecera {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--fg-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.mupa-range__etiqueta {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.mupa-range__valor {
+  color: var(--fg-strong);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.mupa-range__input {
+  width: 100%;
+  min-height: 44px;
+  margin: 0;
+  accent-color: var(--color-primary-500);
+  cursor: pointer;
+}
+
+.mupa-range__input:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 2px;
+}
+
+.mupa-range__input:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

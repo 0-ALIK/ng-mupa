@@ -1,0 +1,92 @@
+/*
+ * Port fiel del patrón .sw del Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: inline-block;
+  min-width: 0;
+}
+
+.mupa-switch {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--fg-default);
+  font-family: var(--font-body);
+  text-align: left;
+  cursor: pointer;
+}
+
+.mupa-switch:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.mupa-switch:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.mupa-switch__pista {
+  position: relative;
+  flex: none;
+  width: 42px;
+  height: 24px;
+  margin-top: 1px;
+  border-radius: var(--radius-pill);
+  background: var(--color-neutral-200);
+  transition: background 0.15s;
+}
+
+.mupa-switch__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-pill);
+  background: #ffffff;
+  box-shadow: var(--shadow-xs);
+  transition: left 0.15s;
+}
+
+.mupa-switch--activo .mupa-switch__pista {
+  background: var(--color-primary-500);
+}
+
+.mupa-switch--activo .mupa-switch__thumb {
+  left: 21px;
+}
+
+.mupa-switch__texto {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.mupa-switch__etiqueta {
+  color: var(--fg-strong);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.mupa-switch__descripcion {
+  color: var(--fg-muted);
+  font-size: 12px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mupa-switch__pista,
+  .mupa-switch__thumb {
+    transition: none;
+  }
+}

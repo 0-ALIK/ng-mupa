@@ -216,3 +216,19 @@ export type {
   ItemLogoLoop,
   ItemPlantillaLogoLoop,
 } from './lib/logo-loop/logo-loop.types';
+
+// Interacción y formularios
+export { MupaTabs } from './lib/tabs/tabs.component';
+export type { Pestana } from './lib/tabs/tabs.types';
+export { MupaSwitch } from './lib/switch/switch.component';
+export { MupaSegmented } from './lib/segmented/segmented.component';
+export type { OpcionSegmentada } from './lib/segmented/segmented.types';
+export { MupaRadio } from './lib/radio/radio.component';
+export type { OpcionRadio, OrientacionRadio, VarianteRadio } from './lib/radio/radio.types';
+export { MupaAccordion } from './lib/accordion/accordion.component';
+export type { ItemAcordeon } from './lib/accordion/accordion.types';
+export { MupaMenu } from './lib/menu/menu.component';
+export type { GrupoMenu, ItemMenu } from './lib/menu/menu.types';
+export { MupaProgress } from './lib/progress/progress.component';
+export { MupaFileUpload } from './lib/file-upload/file-upload.component';
+export { MupaRange } from './lib/range/range.component';

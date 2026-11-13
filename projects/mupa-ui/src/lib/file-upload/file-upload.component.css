@@ -1,0 +1,111 @@
+/*
+ * Port fiel del patrón .dash del Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.mupa-file-upload {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  font-family: var(--font-body);
+}
+
+.mupa-file-upload__zona {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 6px;
+  min-height: 150px;
+  padding: 24px;
+  border: 1.5px dashed var(--border-strong);
+  border-radius: 16px;
+  background: var(--color-neutral-50);
+  color: var(--fg-muted);
+  text-align: center;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+
+.mupa-file-upload__zona--arrastrando {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-50);
+}
+
+.mupa-file-upload__zona--deshabilitada {
+  opacity: 0.55;
+}
+
+.mupa-file-upload__etiqueta {
+  color: var(--fg-strong);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.mupa-file-upload__descripcion,
+.mupa-file-upload__ayuda {
+  max-width: 60ch;
+  color: var(--fg-muted);
+  font-size: 12px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.mupa-file-upload__input {
+  display: none;
+}
+
+.mupa-file-upload__lista {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mupa-file-upload__lista li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--fg-default);
+  font-size: 12px;
+}
+
+.mupa-file-upload__nombre {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mupa-file-upload__tamano {
+  color: var(--fg-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.mupa-file-upload__error {
+  margin: 0;
+  color: var(--color-error-700);
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mupa-file-upload__zona {
+    transition: none;
+  }
+}

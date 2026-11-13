@@ -1,0 +1,15 @@
+.pg-switch-demo {
+  display: grid;
+  gap: 14px;
+}
+
+.pg-switch-lista {
+  display: grid;
+  gap: 18px;
+}
+
+.pg-switch-estado {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: 13px;
+}

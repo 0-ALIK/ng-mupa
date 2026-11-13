@@ -13,7 +13,7 @@ import type { ItemImagenLogoLoop, ItemLogoLoop, ItemPlantillaLogoLoop } from './
 /**
  * Item interno de `mupa-logo-loop`.
  *
- * Réplica del `Item` de `DESARROLLO/logo-loop/LogoLoop.jsx`: imagen o
+ * Réplica del `Item` de LogoLoop del Lego Design System — Alcaldía de Panamá: imagen o
  * plantilla, enlace opcional, escala y escala de grises al pasar.
  */
 @Component({

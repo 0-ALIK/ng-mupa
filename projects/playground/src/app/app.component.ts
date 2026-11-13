@@ -102,6 +102,7 @@ export class AppComponent {
     'mensajes',
     'graficos',
     'recursos-visuales',
+    'interaccion',
   ];
 
   protected readonly grupos: readonly GrupoSidebar[] = [
@@ -369,6 +370,67 @@ export class AppComponent {
               etiqueta: 'Logo loop',
               href: '/componentes/logo-loop',
               icono: 'building-2',
+            },
+          ],
+        },
+        {
+          id: 'interaccion',
+          etiqueta: 'Interacción',
+          icono: 'sliders-horizontal',
+          hijos: [
+            {
+              id: 'tabs',
+              etiqueta: 'Tabs',
+              href: '/componentes/tabs',
+              icono: 'list',
+            },
+            {
+              id: 'switch',
+              etiqueta: 'Switch',
+              href: '/componentes/switch',
+              icono: 'settings',
+            },
+            {
+              id: 'segmented',
+              etiqueta: 'Segmented',
+              href: '/componentes/segmented',
+              icono: 'sliders-horizontal',
+            },
+            {
+              id: 'radio',
+              etiqueta: 'Radio',
+              href: '/componentes/radio',
+              icono: 'circle',
+            },
+            {
+              id: 'accordion',
+              etiqueta: 'Acordeón',
+              href: '/componentes/accordion',
+              icono: 'chevron-down',
+            },
+            {
+              id: 'menu',
+              etiqueta: 'Menú',
+              href: '/componentes/menu',
+              icono: 'menu',
+            },
+            {
+              id: 'progress',
+              etiqueta: 'Progreso',
+              href: '/componentes/progress',
+              icono: 'chart-column',
+            },
+            {
+              id: 'file-upload',
+              etiqueta: 'Carga de archivos',
+              href: '/componentes/file-upload',
+              icono: 'upload',
+            },
+            {
+              id: 'range',
+              etiqueta: 'Range',
+              href: '/componentes/range',
+              icono: 'arrow-up-down',
             },
           ],
         },

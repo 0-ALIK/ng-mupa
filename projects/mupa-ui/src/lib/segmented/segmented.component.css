@@ -1,0 +1,56 @@
+/*
+ * Port fiel del patrón .seg del Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.mupa-segmented {
+  display: flex;
+  gap: 6px;
+}
+
+.mupa-segmented__opcion {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 9px;
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface);
+  color: var(--fg-default);
+  font: 600 13px/1.2 var(--font-body);
+  text-align: center;
+  cursor: pointer;
+}
+
+.mupa-segmented__opcion:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 2px;
+}
+
+.mupa-segmented__opcion--activa {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-50);
+  color: var(--color-primary-700);
+}
+
+.mupa-segmented__opcion:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .mupa-segmented {
+    flex-wrap: wrap;
+  }
+
+  .mupa-segmented__opcion {
+    flex: 1 1 40%;
+  }
+}

@@ -1,0 +1,28 @@
+.pg-tabs-demo {
+  display: grid;
+  gap: 16px;
+}
+
+.pg-tabs-panel {
+  padding: 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--fg-default);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.pg-tabs-panel strong {
+  color: var(--fg-strong);
+}
+
+.pg-tabs-panel p {
+  margin: 4px 0 0;
+}
+
+.pg-tabs-estado {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: 13px;
+}

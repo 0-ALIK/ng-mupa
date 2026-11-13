@@ -1,0 +1,61 @@
+/*
+ * Port fiel del patrón .tabs del Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.mupa-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  background: var(--color-neutral-50);
+}
+
+.mupa-tabs__pestana {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 8px;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--fg-muted);
+  font: 600 13px/1.2 var(--font-body);
+  text-align: center;
+  cursor: pointer;
+}
+
+.mupa-tabs__pestana:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 2px;
+}
+
+.mupa-tabs__pestana--activa {
+  border-color: var(--color-primary-500);
+  background: var(--bg-surface);
+  color: var(--color-primary-700);
+}
+
+.mupa-tabs__pestana:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .mupa-tabs {
+    flex-wrap: wrap;
+  }
+
+  .mupa-tabs__pestana {
+    flex: 1 1 40%;
+  }
+}

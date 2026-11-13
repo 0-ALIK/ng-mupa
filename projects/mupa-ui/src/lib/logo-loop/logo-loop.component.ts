@@ -23,7 +23,7 @@ const MAX_COPIAS = 100;
 /**
  * Cinta continua de logos o de elementos con plantilla.
  *
- * Réplica de `LogoLoop` de `DESARROLLO/logo-loop/LogoLoop.jsx`: mide el
+ * Réplica de `LogoLoop` del Lego Design System — Alcaldía de Panamá: mide el
  * contenido, calcula las copias necesarias, suaviza la velocidad y permite
  * pausar o reducir la marcha al pasar el cursor.
  */

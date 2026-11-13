@@ -13,7 +13,7 @@ function calcularIniciales(nombre: string): string {
 /**
  * Tarjeta de testimonio para usar dentro de `mupa-marquee`.
  *
- * Réplica de `TestimonialCard` de `DESARROLLO/marquee/Marquee.jsx`.
+ * Réplica de `TestimonialCard` del Lego Design System — Alcaldía de Panamá.
  */
 @Component({
   selector: 'mupa-testimonio',

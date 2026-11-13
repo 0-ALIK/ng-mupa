@@ -104,6 +104,7 @@ export const NOMBRES_ICONOS = [
   'radar',
   'list',
   'gauge',
+  'upload',
 ] as const;
 
 export type NombreIcono = (typeof NOMBRES_ICONOS)[number];
@@ -384,6 +385,11 @@ export const ICONOS: Record<NombreIcono, readonly IconoNodo[]> = {
     ['path', {"d":"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"}],
     ['polyline', {"points":"7 10 12 15 17 10"}],
     ['line', {"x1":"12","x2":"12","y1":"15","y2":"3"}],
+  ],
+  'upload': [
+    ['path', {"d":"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"}],
+    ['polyline', {"points":"17 8 12 3 7 8"}],
+    ['line', {"x1":"12","x2":"12","y1":"3","y2":"15"}],
   ],
   'pencil': [
     ['path', {"d":"M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"}],

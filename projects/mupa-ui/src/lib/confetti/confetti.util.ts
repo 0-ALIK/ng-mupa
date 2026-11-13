@@ -151,7 +151,7 @@ function animar(): void {
 /**
  * Lanza una explosión de confeti a pantalla completa.
  *
- * Réplica de `fireConfetti` de `DESARROLLO/confetti/Confetti.jsx`.
+ * Réplica de `fireConfetti` del Lego Design System — Alcaldía de Panamá.
  */
 export function dispararConfeti(opciones: OpcionesConfeti = {}): void {
   if (

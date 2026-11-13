@@ -1,0 +1,73 @@
+/*
+ * Port fiel del patrón .acc del Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.mupa-accordion {
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+  background: var(--bg-surface);
+  font-family: var(--font-body);
+}
+
+.mupa-accordion__item {
+  padding: 14px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.mupa-accordion__item:last-child {
+  border-bottom: 0;
+}
+
+.mupa-accordion__pregunta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--fg-strong);
+  font: 600 13px/1.4 var(--font-body);
+  text-align: left;
+  cursor: pointer;
+}
+
+.mupa-accordion__pregunta:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.mupa-accordion__pregunta:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.mupa-accordion__pregunta mupa-icon {
+  transition: transform 0.15s;
+}
+
+.mupa-accordion__item--abierto .mupa-accordion__pregunta mupa-icon {
+  transform: rotate(180deg);
+}
+
+.mupa-accordion__respuesta {
+  margin-top: 10px;
+  color: var(--fg-default);
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mupa-accordion__pregunta mupa-icon {
+    transition: none;
+  }
+}

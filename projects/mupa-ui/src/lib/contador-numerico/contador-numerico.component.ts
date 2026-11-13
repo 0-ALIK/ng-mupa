@@ -27,7 +27,7 @@ function suavizar(progreso: number): number {
 /**
  * Contador numérico animado.
  *
- * Réplica de `DESARROLLO/number-ticker/NumberTicker.jsx`: cuenta hacia el valor
+ * Réplica de `NumberTicker` del Lego Design System — Alcaldía de Panamá: cuenta hacia el valor
  * final al entrar en el viewport, con formato regional, prefijo/sufijo y
  * respeto por `prefers-reduced-motion`.
  */

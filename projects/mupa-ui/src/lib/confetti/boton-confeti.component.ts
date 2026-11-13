@@ -15,7 +15,7 @@ import type { OpcionesConfeti, VarianteBotonConfeti } from './confetti.types';
 /**
  * Botón de sistema de diseño que lanza confeti desde su centro.
  *
- * Réplica de `ConfettiButton` de `DESARROLLO/confetti/Confetti.jsx`.
+ * Réplica de `ConfettiButton` del Lego Design System — Alcaldía de Panamá.
  */
 @Component({
   selector: 'mupa-boton-confeti',
