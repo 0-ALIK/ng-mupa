@@ -19,6 +19,11 @@
       "input": "src/theme/fonts",
       "output": "fonts",
       "glob": "*.ttf"
+    },
+    {
+      "input": "src/lib/logo/assets",
+      "output": "assets/branding",
+      "glob": "**/*"
     }
   ]
 }

@@ -1,0 +1,30 @@
+/*
+ * Logo institucional del Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: inline-block;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.mupa-logo {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.mupa-logo img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.mupa-logo:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 4px;
+  border-radius: 4px;
+}

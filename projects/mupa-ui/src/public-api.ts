@@ -216,6 +216,9 @@ export type {
   ItemLogoLoop,
   ItemPlantillaLogoLoop,
 } from './lib/logo-loop/logo-loop.types';
+export { MupaLogo } from './lib/logo/logo.component';
+export { ALTURAS_LOGO, ARCHIVOS_LOGO } from './lib/logo/logo.types';
+export type { TamanoLogo, TemaLogo, VarianteLogo } from './lib/logo/logo.types';
 
 // Interacción y formularios
 export { MupaTabs } from './lib/tabs/tabs.component';

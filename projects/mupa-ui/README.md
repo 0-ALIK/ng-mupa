@@ -92,6 +92,7 @@ En este workspace, durante el desarrollo de la librería:
 | Progreso               | `mupa-progress`                                                           | `src/lib/progress/progress.md`                   |
 | Carga de archivos      | `mupa-file-upload`                                                        | `src/lib/file-upload/file-upload.md`             |
 | Range                  | `mupa-range`                                                              | `src/lib/range/range.md`                         |
+| Logo institucional     | `mupa-logo`                                                               | `src/lib/logo/logo.md`                           |
 | Confetti               | `mupa-confetti`                                                           | `src/lib/confetti/confetti.md`                   |
 | Botón de confeti       | `mupa-boton-confeti`                                                      | `src/lib/confetti/confetti.md`                   |
 | Marquee                | `mupa-marquee`                                                            | `src/lib/marquee/marquee.md`                     |
@@ -110,6 +111,21 @@ import { MupaButton, MupaIcon, MupaCheckbox } from 'mupa-ui';
 
 <mupa-checkbox etiqueta="Acepto los términos" [(marcado)]="aceptado" />
 ```
+
+## Assets de marca
+
+Los logos institucionales se publican en `node_modules/mupa-ui/assets/branding`.
+Para usarlos con `mupa-logo`, copia esa carpeta en los assets de tu aplicación:
+
+```json
+{
+  "glob": "**/*",
+  "input": "node_modules/mupa-ui/assets/branding",
+  "output": "assets/branding"
+}
+```
+
+Si prefieres otra ubicación, pasa `src` a `mupa-logo` con la URL correspondiente.
 
 ## Convenciones
 

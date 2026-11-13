@@ -348,6 +348,12 @@ export class AppComponent {
           icono: 'star',
           hijos: [
             {
+              id: 'marca',
+              etiqueta: 'Marca',
+              href: '/componentes/marca',
+              icono: 'building-2',
+            },
+            {
               id: 'confetti',
               etiqueta: 'Confetti',
               href: '/componentes/confetti',

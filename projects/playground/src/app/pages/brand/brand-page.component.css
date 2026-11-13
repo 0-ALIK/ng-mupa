@@ -1,0 +1,56 @@
+.pg-marca-demo {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+}
+
+.pg-marca-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.pg-marca-tamanos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.pg-marca-item {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.pg-marca-etiqueta {
+  color: var(--fg-muted);
+  font-size: 12px;
+}
+
+.pg-marca-fondo-claro .pg-marca-etiqueta {
+  color: var(--color-neutral-500);
+}
+
+.pg-marca-etiqueta--blanca {
+  color: var(--fg-on-brand);
+}
+
+.pg-marca-fondo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 24px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-500);
+}
+
+.pg-marca-fondo-claro {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+}

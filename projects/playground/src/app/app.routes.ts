@@ -204,6 +204,11 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'componentes/marca',
+    loadComponent: () =>
+      import('./pages/brand/brand-page.component').then((modulo) => modulo.BrandPageComponent),
+  },
+  {
     path: 'componentes/confetti',
     loadComponent: () =>
       import('./pages/confetti/confetti-page.component').then(

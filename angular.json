@@ -60,6 +60,11 @@
                 "glob": "tokens.md",
                 "input": "projects/mupa-ui/src/theme",
                 "output": "docs/fundamentos"
+              },
+              {
+                "glob": "**/*",
+                "input": "projects/mupa-ui/src/lib/logo/assets",
+                "output": "assets/branding"
               }
             ],
             "styles": [
