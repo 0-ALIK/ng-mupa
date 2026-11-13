@@ -76,6 +76,23 @@ import { PageHeaderComponent } from '../../shared/page-header.component';
         </div>
       </pg-demo-card>
 
+      <pg-demo-card
+        titulo="Solo el gráfico"
+        descripcion="Sin cabecera, sin tabla de datos y sin borde: solo las barras y sus etiquetas."
+        [codigo]="ejemploSoloGrafico"
+      >
+        <div class="pg-ancho">
+          <mupa-bar-chart
+            titulo="Pagos de impuestos"
+            [datos]="datosPagos"
+            [series]="seriesPagos"
+            [mostrarCabecera]="false"
+            [mostrarDatos]="false"
+            [mostrarBorde]="false"
+          />
+        </div>
+      </pg-demo-card>
+
       <section class="pg-docs">
         <pg-markdown-view ruta="docs/bar-chart/bar-chart.md" />
       </section>
@@ -118,5 +135,14 @@ export class BarChartPageComponent {
   [radio]="10"
   tendencia="Bajó 2,1% este mes"
   direccionTendencia="down"
+/>`;
+
+  protected readonly ejemploSoloGrafico = `<mupa-bar-chart
+  titulo="Pagos de impuestos"
+  [datos]="datosPagos"
+  [series]="seriesPagos"
+  [mostrarCabecera]="false"
+  [mostrarDatos]="false"
+  [mostrarBorde]="false"
 />`;
 }

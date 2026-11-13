@@ -18,19 +18,37 @@ Réplica del AreaChart del Lego Design System — Alcaldía de Panamá.
 />
 ```
 
+Solo el gráfico, sin cabecera, tabla ni borde:
+
+```html
+<mupa-area-chart
+  titulo="Reportes ciudadanos"
+  [datos]="datos"
+  [series]="series"
+  [mostrarCabecera]="false"
+  [mostrarDatos]="false"
+  [mostrarBorde]="false"
+/>
+```
+
 ## Inputs
 
-| Input             | Tipo               | Default             | Descripción                             |
-| ----------------- | ------------------ | ------------------- | --------------------------------------- |
-| `titulo`          | `string`           | `'Gráfico de área'` | Título de la tarjeta.                   |
-| `descripcion`     | `string`           | —                   | Descripción bajo el título.             |
-| `datos`           | `DatoAreaChart[]`  | `[]`                | Filas con `date` y una clave por serie. |
-| `series`          | `SerieAreaChart[]` | `[]`                | Series que se dibujan.                  |
-| `rangos`          | `RangoAreaChart[]` | `RANGOS_AREA`       | Periodos disponibles.                   |
-| `rangoPorDefecto` | `string`           | Primer rango        | Rango inicial.                          |
-| `apilado`         | `boolean`          | `true`              | Apila las series.                       |
-| `altura`          | `number`           | `250`               | Altura del SVG en píxeles.              |
-| `locale`          | `string`           | `'es-PA'`           | Locale para fechas y números.           |
+| Input                | Tipo               | Default             | Descripción                              |
+| -------------------- | ------------------ | ------------------- | ---------------------------------------- |
+| `titulo`             | `string`           | `'Gráfico de área'` | Título de la tarjeta.                    |
+| `descripcion`        | `string`           | —                   | Descripción bajo el título.              |
+| `datos`              | `DatoAreaChart[]`  | `[]`                | Filas con `date` y una clave por serie.  |
+| `series`             | `SerieAreaChart[]` | `[]`                | Series que se dibujan.                   |
+| `rangos`             | `RangoAreaChart[]` | `RANGOS_AREA`       | Periodos disponibles.                    |
+| `rangoPorDefecto`    | `string`           | Primer rango        | Rango inicial.                           |
+| `apilado`            | `boolean`          | `true`              | Apila las series.                        |
+| `mostrarCabecera`    | `boolean`          | `true`              | Muestra u oculta toda la cabecera.       |
+| `mostrarTitulo`      | `boolean`          | `true`              | Muestra u oculta solo el título.         |
+| `mostrarDescripcion` | `boolean`          | `true`              | Muestra u oculta solo la descripción.    |
+| `mostrarDatos`       | `boolean`          | `true`              | Muestra u oculta la tabla de datos.      |
+| `mostrarBorde`       | `boolean`          | `true`              | Muestra u oculta el borde de la tarjeta. |
+| `altura`             | `number`           | `250`               | Altura del SVG en píxeles.               |
+| `locale`             | `string`           | `'es-PA'`           | Locale para fechas y números.            |
 
 ## Tipos
 

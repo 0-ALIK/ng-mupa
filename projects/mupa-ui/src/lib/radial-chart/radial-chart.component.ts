@@ -27,6 +27,11 @@ interface ItemRadialCalculado extends ItemRadialChart {
       [titulo]="titulo()"
       [descripcion]="descripcion()"
       [datos]="datos()"
+      [mostrarCabecera]="mostrarCabecera()"
+      [mostrarTitulo]="mostrarTitulo()"
+      [mostrarDescripcion]="mostrarDescripcion()"
+      [mostrarDatos]="mostrarDatos()"
+      [mostrarBorde]="mostrarBorde()"
       [alineacion]="'centro'"
       [tendencia]="tendencia()"
       [direccionTendencia]="direccionTendencia()"
@@ -149,6 +154,11 @@ export class MupaRadialChart {
   readonly datos = input<readonly ItemRadialChart[]>([]);
   readonly etiquetaValor = input<string>();
   readonly mostrarEtiquetas = input(true, { transform: booleanAttribute });
+  readonly mostrarCabecera = input(true, { transform: booleanAttribute });
+  readonly mostrarTitulo = input(true, { transform: booleanAttribute });
+  readonly mostrarDescripcion = input(true, { transform: booleanAttribute });
+  readonly mostrarDatos = input(true, { transform: booleanAttribute });
+  readonly mostrarBorde = input(true, { transform: booleanAttribute });
   readonly anguloMaximo = input(300);
   readonly tendencia = input<string>();
   readonly direccionTendencia = input<DireccionTendencia>('up');

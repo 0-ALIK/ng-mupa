@@ -1,4 +1,4 @@
-import { Component, computed, input, signal } from '@angular/core';
+import { booleanAttribute, Component, computed, input, signal } from '@angular/core';
 
 import { MupaChartCard } from '../chart-utils/chart-card.component';
 import { MupaChartLegend } from '../chart-utils/chart-legend.component';
@@ -24,6 +24,11 @@ interface SerieCalculada extends SerieRadarChart {
       [titulo]="titulo()"
       [descripcion]="descripcion()"
       [datos]="datos()"
+      [mostrarCabecera]="mostrarCabecera()"
+      [mostrarTitulo]="mostrarTitulo()"
+      [mostrarDescripcion]="mostrarDescripcion()"
+      [mostrarDatos]="mostrarDatos()"
+      [mostrarBorde]="mostrarBorde()"
       [alineacion]="'centro'"
       [tendencia]="tendencia()"
       [direccionTendencia]="direccionTendencia()"
@@ -141,6 +146,11 @@ export class MupaRadarChart {
   readonly series = input<readonly SerieRadarChart[]>([]);
   readonly cuadricula = input<CuadriculaRadar>('polygon');
   readonly opacidadRelleno = input<number>();
+  readonly mostrarCabecera = input(true, { transform: booleanAttribute });
+  readonly mostrarTitulo = input(true, { transform: booleanAttribute });
+  readonly mostrarDescripcion = input(true, { transform: booleanAttribute });
+  readonly mostrarDatos = input(true, { transform: booleanAttribute });
+  readonly mostrarBorde = input(true, { transform: booleanAttribute });
   readonly tendencia = input<string>();
   readonly direccionTendencia = input<DireccionTendencia>('up');
   readonly notaAlPie = input<string>();

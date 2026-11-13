@@ -85,6 +85,42 @@ import { PageHeaderComponent } from '../../shared/page-header.component';
       </pg-demo-card>
 
       <pg-demo-card
+        titulo="Solo el gráfico"
+        descripcion="Sin cabecera, sin tabla de datos y sin borde: únicamente la línea y sus ejes."
+        [codigo]="ejemploSoloGrafico"
+      >
+        <div class="pg-ancho">
+          <mupa-line-chart
+            titulo="Visitas a trámites en línea"
+            [datos]="datosLinea"
+            [series]="seriesLinea"
+            [mostrarCabecera]="false"
+            [mostrarDatos]="false"
+            [mostrarBorde]="false"
+          />
+        </div>
+      </pg-demo-card>
+
+      <pg-demo-card
+        titulo="Sin título, con selector de series"
+        descripcion="Oculta título y descripción, conserva las pestañas de series y quita tabla y borde."
+        [codigo]="ejemploConSelector"
+      >
+        <div class="pg-ancho">
+          <mupa-line-chart
+            titulo="Visitas a trámites en línea"
+            descripcion="Total de visitas en los últimos 3 meses"
+            [datos]="datosLinea"
+            [series]="seriesLinea"
+            [mostrarTitulo]="false"
+            [mostrarDescripcion]="false"
+            [mostrarDatos]="false"
+            [mostrarBorde]="false"
+          />
+        </div>
+      </pg-demo-card>
+
+      <pg-demo-card
         titulo="Variante propia"
         descripcion="Una sola serie durante siete días, sin selector de series."
         [codigo]="ejemploPropio"
@@ -151,6 +187,26 @@ export class LineChartPageComponent {
   [etiquetasPunto]="etiquetasCanal"
   [mostrarEjeX]="false"
   color="#48A9FF"
+/>`;
+
+  protected readonly ejemploSoloGrafico = `<mupa-line-chart
+  titulo="Visitas a trámites en línea"
+  [datos]="datosLinea"
+  [series]="seriesLinea"
+  [mostrarCabecera]="false"
+  [mostrarDatos]="false"
+  [mostrarBorde]="false"
+/>`;
+
+  protected readonly ejemploConSelector = `<mupa-line-chart
+  titulo="Visitas a trámites en línea"
+  descripcion="Total de visitas en los últimos 3 meses"
+  [datos]="datosLinea"
+  [series]="seriesLinea"
+  [mostrarTitulo]="false"
+  [mostrarDescripcion]="false"
+  [mostrarDatos]="false"
+  [mostrarBorde]="false"
 />`;
 
   protected readonly ejemploPropio = `<mupa-line-chart

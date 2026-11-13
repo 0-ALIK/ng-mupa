@@ -26,6 +26,10 @@ Réplica del DistributionBar del Lego Design System — Alcaldía de Panamá.
 | -------------------- | -------------------- | -------------------------- | ------------------------------------- |
 | `titulo`             | `string`             | `'Distribución del total'` | Título.                               |
 | `descripcion`        | `string`             | —                          | Descripción.                          |
+| `mostrarCabecera`    | `boolean`            | `true`                     | Muestra u oculta cabecera y total.    |
+| `mostrarTitulo`      | `boolean`            | `true`                     | Muestra u oculta solo el título.      |
+| `mostrarDescripcion` | `boolean`            | `true`                     | Muestra u oculta solo la descripción. |
+| `mostrarBorde`       | `boolean`            | `true`                     | Muestra u oculta el borde.            |
 | `elementos`          | `ItemDistribucion[]` | `[]`                       | Categorías excluyentes.               |
 | `total`              | `number`             | —                          | Total esperado para validar la suma.  |
 | `etiquetaTotal`      | `string`             | `'Total'`                  | Etiqueta del total.                   |

@@ -43,65 +43,76 @@ interface CapaArea extends SerieCalculada {
       [titulo]="titulo()"
       [descripcion]="descripcion()"
       [datos]="filas()"
+      [mostrarCabecera]="mostrarCabecera()"
+      [mostrarTitulo]="mostrarTitulo()"
+      [mostrarDescripcion]="mostrarDescripcion()"
+      [mostrarDatos]="mostrarDatos()"
+      [mostrarBorde]="mostrarBorde()"
       [cabeceraPersonalizada]="true"
       nombreContenedor="mupa-area"
     >
-      <div mupaChartHeader class="mupa-area-chart__cabecera">
-        <div class="mupa-area-chart__titulo-bloque">
-          <div class="mupa-area-chart__titulo">{{ titulo() }}</div>
-          @if (descripcion()) {
-            <div class="mupa-area-chart__descripcion">
-              {{ descripcion() }}
+      @if (mostrarCabecera()) {
+        <div mupaChartHeader class="mupa-area-chart__cabecera">
+          @if (mostrarTitulo() || (mostrarDescripcion() && descripcion())) {
+            <div class="mupa-area-chart__titulo-bloque">
+              @if (mostrarTitulo()) {
+                <div class="mupa-area-chart__titulo">{{ titulo() }}</div>
+              }
+              @if (mostrarDescripcion() && descripcion()) {
+                <div class="mupa-area-chart__descripcion">
+                  {{ descripcion() }}
+                </div>
+              }
+            </div>
+          }
+
+          @if (rangos().length > 1) {
+            <label class="mupa-area-chart__periodo" [attr.for]="idPeriodo">
+              Periodo
+              <span class="mupa-area-chart__select-wrap">
+                <select
+                  [id]="idPeriodo"
+                  class="mupa-area-chart__select"
+                  [value]="rango()"
+                  (change)="elegirRangoDesdeEvento($event)"
+                >
+                  @for (opcion of rangos(); track opcion.value) {
+                    <option [value]="opcion.value">
+                      {{ opcion.etiqueta }}
+                    </option>
+                  }
+                </select>
+                <svg
+                  class="mupa-area-chart__chevron"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </span>
+            </label>
+
+            <div class="mupa-area-chart__rangos" role="group" aria-label="Periodo">
+              @for (opcion of rangos(); track opcion.value) {
+                <button
+                  type="button"
+                  class="mupa-area-chart__rango"
+                  [class.mupa-area-chart__rango--activo]="opcion.value === rango()"
+                  [attr.aria-pressed]="opcion.value === rango()"
+                  (click)="elegirRango(opcion.value)"
+                >
+                  {{ opcion.etiqueta }}
+                </button>
+              }
             </div>
           }
         </div>
-
-        @if (rangos().length > 1) {
-          <label class="mupa-area-chart__periodo" [attr.for]="idPeriodo">
-            Periodo
-            <span class="mupa-area-chart__select-wrap">
-              <select
-                [id]="idPeriodo"
-                class="mupa-area-chart__select"
-                [value]="rango()"
-                (change)="elegirRangoDesdeEvento($event)"
-              >
-                @for (opcion of rangos(); track opcion.value) {
-                  <option [value]="opcion.value">
-                    {{ opcion.etiqueta }}
-                  </option>
-                }
-              </select>
-              <svg
-                class="mupa-area-chart__chevron"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                aria-hidden="true"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </span>
-          </label>
-
-          <div class="mupa-area-chart__rangos" role="group" aria-label="Periodo">
-            @for (opcion of rangos(); track opcion.value) {
-              <button
-                type="button"
-                class="mupa-area-chart__rango"
-                [class.mupa-area-chart__rango--activo]="opcion.value === rango()"
-                [attr.aria-pressed]="opcion.value === rango()"
-                (click)="elegirRango(opcion.value)"
-              >
-                {{ opcion.etiqueta }}
-              </button>
-            }
-          </div>
-        }
-      </div>
+      }
 
       <div class="mupa-area-chart__cuerpo">
         <div class="mupa-area-chart__plot" mupaChartResize (anchoCambio)="ancho.set($event)">
@@ -223,6 +234,11 @@ export class MupaAreaChart {
   readonly rangos = input<readonly RangoAreaChart[]>(RANGOS_AREA);
   readonly rangoPorDefecto = input<string>();
   readonly apilado = input(true, { transform: booleanAttribute });
+  readonly mostrarCabecera = input(true, { transform: booleanAttribute });
+  readonly mostrarTitulo = input(true, { transform: booleanAttribute });
+  readonly mostrarDescripcion = input(true, { transform: booleanAttribute });
+  readonly mostrarDatos = input(true, { transform: booleanAttribute });
+  readonly mostrarBorde = input(true, { transform: booleanAttribute });
   readonly altura = input(250);
   readonly locale = input('es-PA');
 

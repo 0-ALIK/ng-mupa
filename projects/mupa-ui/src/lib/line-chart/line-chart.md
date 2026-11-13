@@ -18,18 +18,40 @@ Réplica del LineChart del Lego Design System — Alcaldía de Panamá.
 />
 ```
 
+Solo el gráfico, sin cabecera, tabla ni borde:
+
+```html
+<mupa-line-chart
+  titulo="Visitas a trámites en línea"
+  [datos]="visitas"
+  [series]="series"
+  [mostrarCabecera]="false"
+  [mostrarDatos]="false"
+  [mostrarBorde]="false"
+/>
+```
+
+Para conservar el selector de series sin título ni descripción, usa
+`[mostrarTitulo]="false"` y `[mostrarDescripcion]="false"` en lugar de
+`mostrarCabecera`.
+
 ## Inputs
 
-| Input             | Tipo               | Default               | Descripción                                   |
-| ----------------- | ------------------ | --------------------- | --------------------------------------------- |
-| `titulo`          | `string`           | `'Gráfico de líneas'` | Título.                                       |
-| `descripcion`     | `string`           | —                     | Descripción.                                  |
-| `datos`           | `DatoLineChart[]`  | `[]`                  | Filas con `date` y claves de serie.           |
-| `series`          | `SerieLineChart[]` | `[]`                  | Series disponibles.                           |
-| `seriePorDefecto` | `string`           | Primera serie         | Serie activa inicial.                         |
-| `mostrarTotales`  | `boolean`          | `true`                | Muestra selector y totales con varias series. |
-| `altura`          | `number`           | `250`                 | Altura del SVG.                               |
-| `locale`          | `string`           | `'es-PA'`             | Formato de fechas y números.                  |
+| Input                | Tipo               | Default               | Descripción                                   |
+| -------------------- | ------------------ | --------------------- | --------------------------------------------- |
+| `titulo`             | `string`           | `'Gráfico de líneas'` | Título.                                       |
+| `descripcion`        | `string`           | —                     | Descripción.                                  |
+| `datos`              | `DatoLineChart[]`  | `[]`                  | Filas con `date` y claves de serie.           |
+| `series`             | `SerieLineChart[]` | `[]`                  | Series disponibles.                           |
+| `seriePorDefecto`    | `string`           | Primera serie         | Serie activa inicial.                         |
+| `mostrarTotales`     | `boolean`          | `true`                | Muestra selector y totales con varias series. |
+| `mostrarCabecera`    | `boolean`          | `true`                | Muestra u oculta toda la cabecera.            |
+| `mostrarTitulo`      | `boolean`          | `true`                | Muestra u oculta solo el título.              |
+| `mostrarDescripcion` | `boolean`          | `true`                | Muestra u oculta solo la descripción.         |
+| `mostrarDatos`       | `boolean`          | `true`                | Muestra u oculta la tabla de datos.           |
+| `mostrarBorde`       | `boolean`          | `true`                | Muestra u oculta el borde de la tarjeta.      |
+| `altura`             | `number`           | `250`                 | Altura del SVG.                               |
+| `locale`             | `string`           | `'es-PA'`             | Formato de fechas y números.                  |
 
 ## Tipos
 

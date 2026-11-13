@@ -31,63 +31,77 @@ interface SerieCalculada extends SerieLineChart {
         [titulo]="titulo()"
         [descripcion]="descripcion()"
         [datos]="datos()"
+        [mostrarCabecera]="mostrarCabecera()"
+        [mostrarTitulo]="mostrarTitulo()"
+        [mostrarDescripcion]="mostrarDescripcion()"
+        [mostrarDatos]="mostrarDatos()"
+        [mostrarBorde]="mostrarBorde()"
         [cabeceraPersonalizada]="true"
         nombreContenedor="mupa-line"
       >
-        <div mupaChartHeader class="mupa-line-chart__cabecera">
-          <div class="mupa-line-chart__titulo-bloque">
-            <div class="mupa-line-chart__titulo">{{ titulo() }}</div>
-            @if (descripcion()) {
-              <div class="mupa-line-chart__descripcion">
-                {{ descripcion() }}
+        @if (mostrarCabecera()) {
+          <div mupaChartHeader class="mupa-line-chart__cabecera">
+            @if (mostrarTitulo() || (mostrarDescripcion() && descripcion())) {
+              <div class="mupa-line-chart__titulo-bloque">
+                @if (mostrarTitulo()) {
+                  <div class="mupa-line-chart__titulo">{{ titulo() }}</div>
+                }
+                @if (mostrarDescripcion() && descripcion()) {
+                  <div class="mupa-line-chart__descripcion">
+                    {{ descripcion() }}
+                  </div>
+                }
+              </div>
+            }
+
+            @if (mostrarTotales() && columnas().length > 1) {
+              <div class="mupa-line-chart__series-movil">
+                <label [attr.for]="idSelector">Serie</label>
+                <select
+                  [id]="idSelector"
+                  [value]="colActiva().clave"
+                  (change)="elegirSerieDesdeEvento($event)"
+                >
+                  @for (columna of columnas(); track columna.clave) {
+                    <option [value]="columna.clave">
+                      {{ columna.etiqueta }}
+                    </option>
+                  }
+                </select>
+                <span class="mupa-line-chart__total" role="status">
+                  Total de {{ colActiva().etiqueta }}:
+                  {{ totalActivo() }}
+                </span>
+              </div>
+
+              <div class="mupa-line-chart__series" role="group" aria-label="Serie">
+                @for (columna of columnas(); track columna.clave) {
+                  <button
+                    type="button"
+                    class="mupa-line-chart__serie"
+                    [class.mupa-line-chart__serie--activa]="columna.clave === colActiva().clave"
+                    [attr.aria-pressed]="columna.clave === colActiva().clave"
+                    [style.box-shadow]="
+                      columna.clave === colActiva().clave ? 'inset 0 -3px 0 ' + columna.color : null
+                    "
+                    (click)="elegirSerie(columna.clave)"
+                  >
+                    <span class="mupa-line-chart__serie-etiqueta">
+                      <span
+                        class="mupa-line-chart__punto"
+                        [style.background]="columna.color"
+                      ></span>
+                      {{ columna.etiqueta }}
+                    </span>
+                    <span class="mupa-line-chart__serie-total">
+                      {{ totalDe(columna.clave) }}
+                    </span>
+                  </button>
+                }
               </div>
             }
           </div>
-
-          @if (mostrarTotales() && columnas().length > 1) {
-            <div class="mupa-line-chart__series-movil">
-              <label [attr.for]="idSelector">Serie</label>
-              <select
-                [id]="idSelector"
-                [value]="colActiva().clave"
-                (change)="elegirSerieDesdeEvento($event)"
-              >
-                @for (columna of columnas(); track columna.clave) {
-                  <option [value]="columna.clave">
-                    {{ columna.etiqueta }}
-                  </option>
-                }
-              </select>
-              <span class="mupa-line-chart__total" role="status">
-                Total de {{ colActiva().etiqueta }}:
-                {{ totalActivo() }}
-              </span>
-            </div>
-
-            <div class="mupa-line-chart__series" role="group" aria-label="Serie">
-              @for (columna of columnas(); track columna.clave) {
-                <button
-                  type="button"
-                  class="mupa-line-chart__serie"
-                  [class.mupa-line-chart__serie--activa]="columna.clave === colActiva().clave"
-                  [attr.aria-pressed]="columna.clave === colActiva().clave"
-                  [style.box-shadow]="
-                    columna.clave === colActiva().clave ? 'inset 0 -3px 0 ' + columna.color : null
-                  "
-                  (click)="elegirSerie(columna.clave)"
-                >
-                  <span class="mupa-line-chart__serie-etiqueta">
-                    <span class="mupa-line-chart__punto" [style.background]="columna.color"></span>
-                    {{ columna.etiqueta }}
-                  </span>
-                  <span class="mupa-line-chart__serie-total">
-                    {{ totalDe(columna.clave) }}
-                  </span>
-                </button>
-              }
-            </div>
-          }
-        </div>
+        }
 
         <div class="mupa-line-chart__cuerpo">
           <div class="mupa-line-chart__plot" mupaChartResize (anchoCambio)="ancho.set($event)">
@@ -186,6 +200,11 @@ export class MupaLineChart {
   readonly series = input<readonly SerieLineChart[]>([]);
   readonly seriePorDefecto = input<string>();
   readonly mostrarTotales = input(true, { transform: booleanAttribute });
+  readonly mostrarCabecera = input(true, { transform: booleanAttribute });
+  readonly mostrarTitulo = input(true, { transform: booleanAttribute });
+  readonly mostrarDescripcion = input(true, { transform: booleanAttribute });
+  readonly mostrarDatos = input(true, { transform: booleanAttribute });
+  readonly mostrarBorde = input(true, { transform: booleanAttribute });
   readonly altura = input(250);
   readonly locale = input('es-PA');
 

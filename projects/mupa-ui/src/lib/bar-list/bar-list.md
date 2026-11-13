@@ -20,15 +20,19 @@ Réplica del BarList del Lego Design System — Alcaldía de Panamá.
 
 ## Inputs
 
-| Input           | Tipo            | Default                    | Descripción                          |
-| --------------- | --------------- | -------------------------- | ------------------------------------ |
-| `titulo`        | `string`        | —                          | Título opcional.                     |
-| `descripcion`   | `string`        | —                          | Descripción opcional.                |
-| `elementos`     | `ItemBarList[]` | `[]`                       | Elementos del ranking.               |
-| `color`         | `string`        | `var(--color-primary-500)` | Color de las barras.                 |
-| `maximo`        | `number`        | Mayor valor                | Escala máxima.                       |
-| `etiquetaValor` | `string`        | —                          | Encabezado de la columna de valores. |
-| `locale`        | `string`        | `'es-PA'`                  | Formato numérico.                    |
+| Input                | Tipo            | Default                    | Descripción                           |
+| -------------------- | --------------- | -------------------------- | ------------------------------------- |
+| `titulo`             | `string`        | —                          | Título opcional.                      |
+| `descripcion`        | `string`        | —                          | Descripción opcional.                 |
+| `mostrarCabecera`    | `boolean`       | `true`                     | Muestra u oculta toda la cabecera.    |
+| `mostrarTitulo`      | `boolean`       | `true`                     | Muestra u oculta solo el título.      |
+| `mostrarDescripcion` | `boolean`       | `true`                     | Muestra u oculta solo la descripción. |
+| `mostrarBorde`       | `boolean`       | `true`                     | Muestra u oculta el borde.            |
+| `elementos`          | `ItemBarList[]` | `[]`                       | Elementos del ranking.                |
+| `color`              | `string`        | `var(--color-primary-500)` | Color de las barras.                  |
+| `maximo`             | `number`        | Mayor valor                | Escala máxima.                        |
+| `etiquetaValor`      | `string`        | —                          | Encabezado de la columna de valores.  |
+| `locale`             | `string`        | `'es-PA'`                  | Formato numérico.                     |
 
 ## Tipo
 

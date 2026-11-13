@@ -18,6 +18,10 @@
   container-type: inline-size;
 }
 
+.mupa-chart-card--sin-borde {
+  border: 0;
+}
+
 .mupa-chart-card__cabecera {
   display: flex;
   flex-wrap: wrap;

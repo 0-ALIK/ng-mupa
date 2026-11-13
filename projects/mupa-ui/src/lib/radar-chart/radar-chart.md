@@ -21,20 +21,25 @@ Réplica del RadarChart del Lego Design System — Alcaldía de Panamá.
 
 ## Inputs
 
-| Input                | Tipo                    | Default              | Descripción                   |
-| -------------------- | ----------------------- | -------------------- | ----------------------------- |
-| `titulo`             | `string`                | `'Gráfico de radar'` | Título.                       |
-| `descripcion`        | `string`                | —                    | Descripción.                  |
-| `datos`              | `DatoRadarChart[]`      | `[]`                 | Una fila por eje.             |
-| `claveCategoria`     | `string`                | `'month'`            | Clave de la etiqueta del eje. |
-| `series`             | `SerieRadarChart[]`     | `[]`                 | Series del radar.             |
-| `cuadricula`         | `'polygon' \| 'circle'` | `'polygon'`          | Forma de la cuadrícula.       |
-| `opacidadRelleno`    | `number`                | `0.6` / `0.35`       | Opacidad del relleno.         |
-| `tendencia`          | `string`                | —                    | Texto de tendencia.           |
-| `direccionTendencia` | `'up' \| 'down'`        | `'up'`               | Flecha y color.               |
-| `notaAlPie`          | `string`                | —                    | Nota del pie.                 |
-| `tamano`             | `number`                | `250`                | Tamaño del radar.             |
-| `locale`             | `string`                | `'es-PA'`            | Formato numérico.             |
+| Input                | Tipo                    | Default              | Descripción                      |
+| -------------------- | ----------------------- | -------------------- | -------------------------------- |
+| `titulo`             | `string`                | `'Gráfico de radar'` | Título.                          |
+| `descripcion`        | `string`                | —                    | Descripción.                     |
+| `datos`              | `DatoRadarChart[]`      | `[]`                 | Una fila por eje.                |
+| `claveCategoria`     | `string`                | `'month'`            | Clave de la etiqueta del eje.    |
+| `series`             | `SerieRadarChart[]`     | `[]`                 | Series del radar.                |
+| `cuadricula`         | `'polygon' \| 'circle'` | `'polygon'`          | Forma de la cuadrícula.          |
+| `opacidadRelleno`    | `number`                | `0.6` / `0.35`       | Opacidad del relleno.            |
+| `mostrarCabecera`    | `boolean`               | `true`               | Muestra u oculta la cabecera.    |
+| `mostrarTitulo`      | `boolean`               | `true`               | Muestra u oculta el título.      |
+| `mostrarDescripcion` | `boolean`               | `true`               | Muestra u oculta la descripción. |
+| `mostrarDatos`       | `boolean`               | `true`               | Muestra u oculta la tabla.       |
+| `mostrarBorde`       | `boolean`               | `true`               | Muestra u oculta el borde.       |
+| `tendencia`          | `string`                | —                    | Texto de tendencia.              |
+| `direccionTendencia` | `'up' \| 'down'`        | `'up'`               | Flecha y color.                  |
+| `notaAlPie`          | `string`                | —                    | Nota del pie.                    |
+| `tamano`             | `number`                | `250`                | Tamaño del radar.                |
+| `locale`             | `string`                | `'es-PA'`            | Formato numérico.                |
 
 ## Tipos
 

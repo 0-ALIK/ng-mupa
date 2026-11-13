@@ -28,6 +28,11 @@ Réplica del BarChart del Lego Design System — Alcaldía de Panamá.
 | `claveCategoria`     | `string`          | `'month'`             | Clave de la categoría del eje X.                 |
 | `series`             | `SerieBarChart[]` | `[]`                  | Una o varias series.                             |
 | `longitudEtiqueta`   | `number`          | `3`                   | Recorte de la etiqueta del eje; 0 = sin recorte. |
+| `mostrarCabecera`    | `boolean`         | `true`                | Muestra u oculta toda la cabecera.               |
+| `mostrarTitulo`      | `boolean`         | `true`                | Muestra u oculta solo el título.                 |
+| `mostrarDescripcion` | `boolean`         | `true`                | Muestra u oculta solo la descripción.            |
+| `mostrarDatos`       | `boolean`         | `true`                | Muestra u oculta la tabla de datos.              |
+| `mostrarBorde`       | `boolean`         | `true`                | Muestra u oculta el borde de la tarjeta.         |
 | `tendencia`          | `string`          | —                     | Texto de tendencia en el pie.                    |
 | `direccionTendencia` | `'up' \| 'down'`  | `'up'`                | Flecha y color de tendencia.                     |
 | `notaAlPie`          | `string`          | —                     | Nota adicional del pie.                          |

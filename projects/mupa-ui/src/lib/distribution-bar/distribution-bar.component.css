@@ -26,6 +26,10 @@
   container-name: mupa-distribution;
 }
 
+.mupa-distribution--sin-borde {
+  border: 0;
+}
+
 .mupa-distribution__cabecera {
   display: flex;
   align-items: flex-start;

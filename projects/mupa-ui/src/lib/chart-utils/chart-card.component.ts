@@ -19,22 +19,30 @@ import type {
   selector: 'mupa-chart-card',
   imports: [MupaChartDataTable, MupaTrendIcon],
   template: `
-    <section class="mupa-chart-card" [style.container-name]="nombreContenedor() || null">
-      @if (mostrarCabecera()) {
+    <section
+      class="mupa-chart-card"
+      [class.mupa-chart-card--sin-borde]="!mostrarBorde()"
+      [style.container-name]="nombreContenedor() || null"
+    >
+      @if (hayCabecera()) {
         <header
           class="mupa-chart-card__cabecera"
           [class.mupa-chart-card__cabecera--centrada]="alineacion() === 'centro'"
           [class.mupa-chart-card__cabecera--personalizada]="cabeceraPersonalizada()"
         >
           @if (!cabeceraPersonalizada()) {
-            <div class="mupa-chart-card__titulo-bloque">
-              <div class="mupa-chart-card__titulo">{{ titulo() }}</div>
-              @if (descripcion()) {
-                <div class="mupa-chart-card__descripcion">
-                  {{ descripcion() }}
-                </div>
-              }
-            </div>
+            @if (hayTituloBloque()) {
+              <div class="mupa-chart-card__titulo-bloque">
+                @if (mostrarTitulo()) {
+                  <div class="mupa-chart-card__titulo">{{ titulo() }}</div>
+                }
+                @if (mostrarDescripcion() && descripcion()) {
+                  <div class="mupa-chart-card__descripcion">
+                    {{ descripcion() }}
+                  </div>
+                }
+              </div>
+            }
           }
 
           <div
@@ -89,6 +97,9 @@ export class MupaChartCard {
   readonly descripcion = input<string>();
   readonly alineacion = input<AlineacionGrafico>('inicio');
   readonly mostrarCabecera = input(true, { transform: booleanAttribute });
+  readonly mostrarTitulo = input(true, { transform: booleanAttribute });
+  readonly mostrarDescripcion = input(true, { transform: booleanAttribute });
+  readonly mostrarBorde = input(true, { transform: booleanAttribute });
   readonly cabeceraPersonalizada = input(false, {
     transform: booleanAttribute,
   });
@@ -104,6 +115,14 @@ export class MupaChartCard {
   readonly tituloDatos = input<string>();
 
   protected readonly tituloDatosEfectivo = computed(() => this.tituloDatos() ?? this.titulo());
+
+  protected readonly hayTituloBloque = computed(
+    () => this.mostrarTitulo() || (this.mostrarDescripcion() && !!this.descripcion()),
+  );
+
+  protected readonly hayCabecera = computed(
+    () => this.mostrarCabecera() && (this.cabeceraPersonalizada() || this.hayTituloBloque()),
+  );
 
   protected readonly colorTendencia = computed(() =>
     this.direccionTendencia() === 'down' ? 'var(--color-error-700)' : 'var(--color-success-700)',

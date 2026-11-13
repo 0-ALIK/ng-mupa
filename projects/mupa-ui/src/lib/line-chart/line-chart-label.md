@@ -30,6 +30,11 @@ Réplica del LineChartLabel del Lego Design System — Alcaldía de Panamá.
 | `etiquetaSerie`      | `string`                 | `claveValor`          | Etiqueta usada en el tooltip.                |
 | `color`              | `string`                 | `#0660FF`             | Color de la línea.                           |
 | `longitudEtiqueta`   | `number`                 | `3`                   | Recorte de categorías; 0 = sin recorte.      |
+| `mostrarCabecera`    | `boolean`                | `true`                | Muestra u oculta la cabecera.                |
+| `mostrarTitulo`      | `boolean`                | `true`                | Muestra u oculta el título.                  |
+| `mostrarDescripcion` | `boolean`                | `true`                | Muestra u oculta la descripción.             |
+| `mostrarDatos`       | `boolean`                | `true`                | Muestra u oculta la tabla.                   |
+| `mostrarBorde`       | `boolean`                | `true`                | Muestra u oculta el borde.                   |
 | `tendencia`          | `string`                 | —                     | Texto de tendencia.                          |
 | `direccionTendencia` | `'up' \| 'down'`         | `'up'`                | Flecha y color.                              |
 | `notaAlPie`          | `string`                 | —                     | Nota del pie.                                |

@@ -68,6 +68,24 @@ import { PageHeaderComponent } from '../../shared/page-header.component';
         </div>
       </pg-demo-card>
 
+      <pg-demo-card
+        titulo="Sin cabecera ni borde"
+        descripcion="El ranking se muestra directamente sobre la página, sin título ni contenedor visible."
+        [codigo]="ejemploSinCabecera"
+      >
+        <div class="pg-ancho">
+          <mupa-bar-list
+            titulo="Dispositivos"
+            descripcion="Cómo acceden los ciudadanos"
+            [color]="'#48A9FF'"
+            [maximo]="100"
+            [elementos]="dispositivos"
+            [mostrarCabecera]="false"
+            [mostrarBorde]="false"
+          />
+        </div>
+      </pg-demo-card>
+
       <section class="pg-docs">
         <pg-markdown-view ruta="docs/bar-list/bar-list.md" />
       </section>
@@ -98,5 +116,15 @@ export class BarListPageComponent {
   etiquetaValor="Reportes"
   [color]="'#7C6AE6'"
   [elementos]="corregimientos"
+/>`;
+
+  protected readonly ejemploSinCabecera = `<mupa-bar-list
+  titulo="Dispositivos"
+  descripcion="Cómo acceden los ciudadanos"
+  [color]="'#48A9FF'"
+  [maximo]="100"
+  [elementos]="dispositivos"
+  [mostrarCabecera]="false"
+  [mostrarBorde]="false"
 />`;
 }

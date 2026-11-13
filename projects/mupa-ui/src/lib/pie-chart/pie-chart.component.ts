@@ -31,6 +31,11 @@ interface PorcionCalculada extends PorcionPieChart {
       [titulo]="titulo()"
       [descripcion]="descripcion()"
       [datos]="datos()"
+      [mostrarCabecera]="mostrarCabecera()"
+      [mostrarTitulo]="mostrarTitulo()"
+      [mostrarDescripcion]="mostrarDescripcion()"
+      [mostrarDatos]="mostrarDatos()"
+      [mostrarBorde]="mostrarBorde()"
       [alineacion]="'centro'"
       [tendencia]="tendencia()"
       [direccionTendencia]="direccionTendencia()"
@@ -116,6 +121,11 @@ export class MupaPieChart {
   readonly datos = input<readonly PorcionPieChart[]>([]);
   readonly etiquetaValor = input<string>();
   readonly radioInterior = input(0);
+  readonly mostrarCabecera = input(true, { transform: booleanAttribute });
+  readonly mostrarTitulo = input(true, { transform: booleanAttribute });
+  readonly mostrarDescripcion = input(true, { transform: booleanAttribute });
+  readonly mostrarDatos = input(true, { transform: booleanAttribute });
+  readonly mostrarBorde = input(true, { transform: booleanAttribute });
   readonly mostrarLeyenda = input(true, { transform: booleanAttribute });
   readonly tendencia = input<string>();
   readonly direccionTendencia = input<DireccionTendencia>('up');

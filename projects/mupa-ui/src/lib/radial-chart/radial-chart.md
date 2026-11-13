@@ -34,6 +34,11 @@ Réplica del RadialChart del Lego Design System — Alcaldía de Panamá.
 | `datos`              | `ItemRadialChart[]` | `[]`               | Anillos, del interior al exterior.       |
 | `etiquetaValor`      | `string`            | —                  | Nombre de la serie en el tooltip.        |
 | `mostrarEtiquetas`   | `boolean`           | `true`             | Etiquetas sobre los arcos.               |
+| `mostrarCabecera`    | `boolean`           | `true`             | Muestra u oculta la cabecera.            |
+| `mostrarTitulo`      | `boolean`           | `true`             | Muestra u oculta el título.              |
+| `mostrarDescripcion` | `boolean`           | `true`             | Muestra u oculta la descripción.         |
+| `mostrarDatos`       | `boolean`           | `true`             | Muestra u oculta la tabla.               |
+| `mostrarBorde`       | `boolean`           | `true`             | Muestra u oculta el borde.               |
 | `anguloMaximo`       | `number`            | `300`              | Barrido máximo en grados.                |
 | `valorCentral`       | `string \| number`  | —                  | Cifra central; los números se formatean. |
 | `etiquetaCentral`    | `string`            | —                  | Texto bajo la cifra central.             |

@@ -69,4 +69,28 @@ describe('MupaDistributionBar', () => {
       fixture.nativeElement.querySelector('.mupa-distribution__redondeo')?.textContent,
     ).toContain('100 % exacto');
   });
+
+  it('oculta la cabecera y el borde, y conserva el nombre accesible', () => {
+    fixture.componentRef.setInput('mostrarCabecera', false);
+    fixture.componentRef.setInput('mostrarBorde', false);
+    fixture.detectChanges();
+
+    const host = fixture.nativeElement as HTMLElement;
+    const figura = host.querySelector('.mupa-distribution');
+    expect(host.querySelector('.mupa-distribution__cabecera')).toBeNull();
+    expect(figura?.classList.contains('mupa-distribution--sin-borde')).toBe(true);
+    expect(figura?.getAttribute('aria-label')).toBe('Estado de los expedientes');
+  });
+
+  it('oculta solo el título y conserva la cifra total', () => {
+    fixture.componentRef.setInput('mostrarTitulo', false);
+    fixture.detectChanges();
+
+    const host = fixture.nativeElement as HTMLElement;
+    expect(host.querySelector('.mupa-distribution__encabezado h3')).toBeNull();
+    expect(host.querySelector('.mupa-distribution__total')).toBeTruthy();
+    expect(host.querySelector('.mupa-distribution')?.getAttribute('aria-label')).toBe(
+      'Estado de los expedientes',
+    );
+  });
 });

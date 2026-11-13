@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { booleanAttribute, Component, computed, input } from '@angular/core';
 
 import { MupaChartCard } from '../chart-utils/chart-card.component';
 import { MupaIcon } from '../icon/icon.component';
@@ -21,7 +21,10 @@ interface ItemBarListCalculado extends ItemBarList {
     <mupa-chart-card
       [titulo]="titulo() ?? 'Bar list'"
       [descripcion]="descripcion()"
-      [mostrarCabecera]="!!titulo() || !!descripcion()"
+      [mostrarCabecera]="mostrarCabecera() && (!!titulo() || !!descripcion())"
+      [mostrarTitulo]="mostrarTitulo()"
+      [mostrarDescripcion]="mostrarDescripcion()"
+      [mostrarBorde]="mostrarBorde()"
       [mostrarDatos]="false"
     >
       <div class="mupa-bar-list">
@@ -69,6 +72,18 @@ export class MupaBarList {
 
   /** Descripción opcional. */
   readonly descripcion = input<string>();
+
+  /** Muestra u oculta la cabecera completa. */
+  readonly mostrarCabecera = input(true, { transform: booleanAttribute });
+
+  /** Muestra u oculta solo el título. */
+  readonly mostrarTitulo = input(true, { transform: booleanAttribute });
+
+  /** Muestra u oculta solo la descripción. */
+  readonly mostrarDescripcion = input(true, { transform: booleanAttribute });
+
+  /** Muestra u oculta el borde de la tarjeta. */
+  readonly mostrarBorde = input(true, { transform: booleanAttribute });
 
   /** Elementos del ranking. */
   readonly elementos = input<readonly ItemBarList[]>([]);

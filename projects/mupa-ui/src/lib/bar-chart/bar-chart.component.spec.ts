@@ -57,4 +57,18 @@ describe('MupaBarChart', () => {
     expect(host.textContent).toContain('Subió 5,2% este mes');
     expect(host.textContent).toContain('Últimos 6 meses');
   });
+
+  it('oculta cabecera, tabla y borde', () => {
+    fixture.componentRef.setInput('mostrarCabecera', false);
+    fixture.componentRef.setInput('mostrarDatos', false);
+    fixture.componentRef.setInput('mostrarBorde', false);
+    fixture.detectChanges();
+
+    const host = fixture.nativeElement as HTMLElement;
+    expect(host.querySelector('.mupa-chart-card__cabecera')).toBeNull();
+    expect(host.querySelector('mupa-chart-data-table')).toBeNull();
+    expect(
+      host.querySelector('.mupa-chart-card')?.classList.contains('mupa-chart-card--sin-borde'),
+    ).toBe(true);
+  });
 });

@@ -118,20 +118,29 @@ function calcularDistribucion(
 @Component({
   selector: 'mupa-distribution-bar',
   template: `
-    <figure class="mupa-distribution" [attr.aria-labelledby]="idTitulo">
-      <figcaption class="mupa-distribution__cabecera">
-        <div class="mupa-distribution__encabezado">
-          <h3 [id]="idTitulo">{{ titulo() }}</h3>
-          @if (descripcion()) {
-            <p>{{ descripcion() }}</p>
-          }
-        </div>
+    <figure
+      class="mupa-distribution"
+      [class.mupa-distribution--sin-borde]="!mostrarBorde()"
+      [attr.aria-labelledby]="mostrarCabecera() && mostrarTitulo() ? idTitulo : null"
+      [attr.aria-label]="mostrarCabecera() && mostrarTitulo() ? null : titulo()"
+    >
+      @if (mostrarCabecera()) {
+        <figcaption class="mupa-distribution__cabecera">
+          <div class="mupa-distribution__encabezado">
+            @if (mostrarTitulo()) {
+              <h3 [id]="idTitulo">{{ titulo() }}</h3>
+            }
+            @if (mostrarDescripcion() && descripcion()) {
+              <p>{{ descripcion() }}</p>
+            }
+          </div>
 
-        <div class="mupa-distribution__total">
-          <span>{{ etiquetaTotal() }}</span>
-          <strong>{{ error() ? '—' : numero(totalCalculado()) }}</strong>
-        </div>
-      </figcaption>
+          <div class="mupa-distribution__total">
+            <span>{{ etiquetaTotal() }}</span>
+            <strong>{{ error() ? '—' : numero(totalCalculado()) }}</strong>
+          </div>
+        </figcaption>
+      }
 
       @if (error()) {
         <p class="mupa-distribution__error" role="status">{{ error() }}</p>
@@ -204,6 +213,10 @@ export class MupaDistributionBar {
 
   readonly titulo = input('Distribución del total');
   readonly descripcion = input<string>();
+  readonly mostrarCabecera = input(true, { transform: booleanAttribute });
+  readonly mostrarTitulo = input(true, { transform: booleanAttribute });
+  readonly mostrarDescripcion = input(true, { transform: booleanAttribute });
+  readonly mostrarBorde = input(true, { transform: booleanAttribute });
   readonly elementos = input<readonly ItemDistribucion[]>([]);
   readonly total = input<number>();
   readonly etiquetaTotal = input('Total');

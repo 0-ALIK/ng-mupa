@@ -19,20 +19,25 @@ Réplica del PieChart del Lego Design System — Alcaldía de Panamá.
 
 ## Inputs
 
-| Input                | Tipo                                    | Default              | Descripción                         |
-| -------------------- | --------------------------------------- | -------------------- | ----------------------------------- |
-| `titulo`             | `string`                                | `'Gráfico circular'` | Título.                             |
-| `descripcion`        | `string`                                | —                    | Descripción.                        |
-| `datos`              | `PorcionPieChart[]`                     | `[]`                 | Porciones.                          |
-| `etiquetaValor`      | `string`                                | —                    | Nombre de la serie en el tooltip.   |
-| `radioInterior`      | `number`                                | `0`                  | 0 = círculo; > 0 = dona (máx. 0.9). |
-| `mostrarLeyenda`     | `boolean`                               | `true`               | Leyenda bajo el gráfico.            |
-| `listaEtiquetas`     | `'etiqueta' \| 'valor' \| 'porcentaje'` | —                    | Texto dentro de las porciones.      |
-| `tendencia`          | `string`                                | —                    | Texto de tendencia.                 |
-| `direccionTendencia` | `'up' \| 'down'`                        | `'up'`               | Flecha y color.                     |
-| `notaAlPie`          | `string`                                | —                    | Nota del pie.                       |
-| `tamano`             | `number`                                | `250`                | Diámetro del SVG.                   |
-| `locale`             | `string`                                | `'es-PA'`            | Formato numérico.                   |
+| Input                | Tipo                                    | Default              | Descripción                           |
+| -------------------- | --------------------------------------- | -------------------- | ------------------------------------- |
+| `titulo`             | `string`                                | `'Gráfico circular'` | Título.                               |
+| `descripcion`        | `string`                                | —                    | Descripción.                          |
+| `datos`              | `PorcionPieChart[]`                     | `[]`                 | Porciones.                            |
+| `etiquetaValor`      | `string`                                | —                    | Nombre de la serie en el tooltip.     |
+| `radioInterior`      | `number`                                | `0`                  | 0 = círculo; > 0 = dona (máx. 0.9).   |
+| `mostrarCabecera`    | `boolean`                               | `true`               | Muestra u oculta toda la cabecera.    |
+| `mostrarTitulo`      | `boolean`                               | `true`               | Muestra u oculta solo el título.      |
+| `mostrarDescripcion` | `boolean`                               | `true`               | Muestra u oculta solo la descripción. |
+| `mostrarDatos`       | `boolean`                               | `true`               | Muestra u oculta la tabla de datos.   |
+| `mostrarBorde`       | `boolean`                               | `true`               | Muestra u oculta el borde.            |
+| `mostrarLeyenda`     | `boolean`                               | `true`               | Leyenda bajo el gráfico.              |
+| `listaEtiquetas`     | `'etiqueta' \| 'valor' \| 'porcentaje'` | —                    | Texto dentro de las porciones.        |
+| `tendencia`          | `string`                                | —                    | Texto de tendencia.                   |
+| `direccionTendencia` | `'up' \| 'down'`                        | `'up'`               | Flecha y color.                       |
+| `notaAlPie`          | `string`                                | —                    | Nota del pie.                         |
+| `tamano`             | `number`                                | `250`                | Diámetro del SVG.                     |
+| `locale`             | `string`                                | `'es-PA'`            | Formato numérico.                     |
 
 ## Tipo
 

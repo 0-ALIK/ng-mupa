@@ -66,4 +66,28 @@ describe('MupaAreaChart', () => {
 
     expect(fixture.nativeElement.querySelectorAll('tbody tr').length).toBe(7);
   });
+
+  it('oculta cabecera, tabla y borde', () => {
+    fixture.componentRef.setInput('mostrarCabecera', false);
+    fixture.componentRef.setInput('mostrarDatos', false);
+    fixture.componentRef.setInput('mostrarBorde', false);
+    fixture.detectChanges();
+
+    const host = fixture.nativeElement as HTMLElement;
+    expect(host.querySelector('.mupa-area-chart__cabecera')).toBeNull();
+    expect(host.querySelector('mupa-chart-data-table')).toBeNull();
+    expect(
+      host.querySelector('.mupa-chart-card')?.classList.contains('mupa-chart-card--sin-borde'),
+    ).toBe(true);
+  });
+
+  it('oculta el título y conserva el selector de periodo', () => {
+    fixture.componentRef.setInput('mostrarTitulo', false);
+    fixture.componentRef.setInput('mostrarDescripcion', false);
+    fixture.detectChanges();
+
+    const host = fixture.nativeElement as HTMLElement;
+    expect(host.querySelector('.mupa-area-chart__titulo')).toBeNull();
+    expect(host.querySelectorAll('.mupa-area-chart__rango').length).toBe(3);
+  });
 });

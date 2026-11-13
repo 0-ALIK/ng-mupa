@@ -70,6 +70,23 @@ type ClaveEscenario = keyof typeof ESCENARIOS_DISTRIBUCION;
         </div>
       </pg-demo-card>
 
+      <pg-demo-card
+        titulo="Solo la barra"
+        descripcion="Sin cabecera, sin cifra total y sin borde: únicamente la barra y su leyenda."
+        [codigo]="ejemploSoloBarra"
+      >
+        <div class="pg-ancho">
+          <mupa-distribution-bar
+            titulo="Canales de atención"
+            etiquetaTotal="Reportes"
+            [elementos]="canales"
+            [total]="2650"
+            [mostrarCabecera]="false"
+            [mostrarBorde]="false"
+          />
+        </div>
+      </pg-demo-card>
+
       <section class="pg-docs">
         <pg-markdown-view ruta="docs/distribution-bar/distribution-bar.md" />
       </section>
@@ -145,5 +162,14 @@ export class DistributionBarPageComponent {
   etiquetaTotal="Reportes"
   [elementos]="canales"
   [total]="2650"
+/>`;
+
+  protected readonly ejemploSoloBarra = `<mupa-distribution-bar
+  titulo="Canales de atención"
+  etiquetaTotal="Reportes"
+  [elementos]="canales"
+  [total]="2650"
+  [mostrarCabecera]="false"
+  [mostrarBorde]="false"
 />`;
 }

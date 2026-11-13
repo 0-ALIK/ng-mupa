@@ -20,6 +20,11 @@ import type { DatoLineChartLabel } from './line-chart-label.types';
       [titulo]="titulo()"
       [descripcion]="descripcion()"
       [datos]="datos()"
+      [mostrarCabecera]="mostrarCabecera()"
+      [mostrarTitulo]="mostrarTitulo()"
+      [mostrarDescripcion]="mostrarDescripcion()"
+      [mostrarDatos]="mostrarDatos()"
+      [mostrarBorde]="mostrarBorde()"
       [tendencia]="tendencia()"
       [direccionTendencia]="direccionTendencia()"
       [notaAlPie]="notaAlPie()"
@@ -125,6 +130,11 @@ export class MupaLineChartLabel {
   readonly etiquetaSerie = input<string>();
   readonly color = input('#0660FF');
   readonly longitudEtiqueta = input(3);
+  readonly mostrarCabecera = input(true, { transform: booleanAttribute });
+  readonly mostrarTitulo = input(true, { transform: booleanAttribute });
+  readonly mostrarDescripcion = input(true, { transform: booleanAttribute });
+  readonly mostrarDatos = input(true, { transform: booleanAttribute });
+  readonly mostrarBorde = input(true, { transform: booleanAttribute });
   readonly tendencia = input<string>();
   readonly direccionTendencia = input<DireccionTendencia>('up');
   readonly notaAlPie = input<string>();
