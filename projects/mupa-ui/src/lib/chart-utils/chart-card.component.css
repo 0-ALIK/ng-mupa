@@ -1,0 +1,113 @@
+/*
+ * Port fiel de la superficie compartida de los gráficos del Lego Design System.
+ */
+
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.mupa-chart-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+  background: var(--bg-surface);
+  color: var(--fg-default);
+  font-family: var(--font-body);
+  container-type: inline-size;
+}
+
+.mupa-chart-card__cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.mupa-chart-card__cabecera--centrada {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.mupa-chart-card__cabecera--personalizada {
+  display: block;
+  padding: 0;
+  border-bottom: 0;
+}
+
+.mupa-chart-card__titulo-bloque {
+  display: grid;
+  flex: 1 1 220px;
+  gap: 4px;
+  min-width: 0;
+}
+
+.mupa-chart-card__cabecera--centrada .mupa-chart-card__titulo-bloque {
+  flex: none;
+}
+
+.mupa-chart-card__titulo {
+  color: var(--fg-strong);
+  font: var(--text-h3);
+}
+
+.mupa-chart-card__descripcion {
+  color: var(--fg-muted);
+  font: var(--text-body-sm);
+}
+
+.mupa-chart-card__extra {
+  display: contents;
+}
+
+.mupa-chart-card__extra--personalizada {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+.mupa-chart-card__cuerpo {
+  min-width: 0;
+}
+
+.mupa-chart-card__pie {
+  display: grid;
+  gap: 6px;
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.mupa-chart-card__pie--centrado {
+  justify-items: center;
+  text-align: center;
+}
+
+.mupa-chart-card__tendencia {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--fg-strong);
+  font: 600 14px/1.3 var(--font-body);
+}
+
+.mupa-chart-card__tendencia-icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+}
+
+.mupa-chart-card__nota {
+  color: var(--fg-muted);
+  font: 400 13px/1.5 var(--font-body);
+}

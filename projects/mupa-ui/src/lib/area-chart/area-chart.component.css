@@ -1,0 +1,133 @@
+/*
+ * Port fiel de AreaChart del Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.mupa-area-chart__cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.mupa-area-chart__titulo-bloque {
+  display: grid;
+  flex: 1 1 220px;
+  gap: 4px;
+  min-width: 0;
+}
+
+.mupa-area-chart__titulo {
+  color: var(--fg-strong);
+  font: var(--text-h3);
+}
+
+.mupa-area-chart__descripcion {
+  color: var(--fg-muted);
+  font: var(--text-body-sm);
+}
+
+.mupa-area-chart__periodo {
+  display: grid;
+  flex: 1 1 100%;
+  gap: 8px;
+  min-width: 0;
+  font: 600 12px/1.4 var(--font-body);
+}
+
+.mupa-area-chart__select-wrap {
+  position: relative;
+  display: block;
+  min-width: 0;
+}
+
+.mupa-area-chart__select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 44px 10px 14px;
+  appearance: none;
+  border: 1.5px solid var(--border-control);
+  border-radius: 8px;
+  background: var(--bg-surface);
+  color: var(--fg-default);
+  font: 600 13px/1.4 var(--font-body);
+  cursor: pointer;
+}
+
+.mupa-area-chart__chevron {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.mupa-area-chart__rangos {
+  display: none;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mupa-area-chart__rango {
+  min-height: 44px;
+  padding: 9px 16px;
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface);
+  color: var(--fg-default);
+  font: 600 13px/1 var(--font-body);
+  cursor: pointer;
+}
+
+.mupa-area-chart__rango--activo {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-50);
+  color: var(--color-primary-700);
+}
+
+.mupa-area-chart__select:focus-visible,
+.mupa-area-chart__rango:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 3px;
+}
+
+.mupa-area-chart__cuerpo {
+  padding: 20px 24px 18px;
+}
+
+.mupa-area-chart__plot {
+  position: relative;
+  width: 100%;
+}
+
+.mupa-area-chart__svg {
+  display: block;
+  overflow: visible;
+  cursor: crosshair;
+}
+
+.mupa-area-chart__etiqueta-eje {
+  font: 500 12px var(--font-body);
+}
+
+.mupa-area-chart__leyenda {
+  margin-top: 12px;
+}
+
+@container mupa-area (min-width: 560px) {
+  .mupa-area-chart__rangos {
+    display: flex;
+  }
+
+  .mupa-area-chart__periodo {
+    display: none;
+  }
+}

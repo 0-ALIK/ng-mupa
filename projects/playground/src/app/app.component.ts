@@ -100,6 +100,7 @@ export class AppComponent {
     'navegacion',
     'contenido',
     'mensajes',
+    'graficos',
   ];
 
   protected readonly grupos: readonly GrupoSidebar[] = [
@@ -281,6 +282,61 @@ export class AppComponent {
               etiqueta: 'Data table',
               href: '/componentes/data-table',
               icono: 'clipboard-list',
+            },
+          ],
+        },
+        {
+          id: 'graficos',
+          etiqueta: 'Gráficos',
+          icono: 'chart-column',
+          hijos: [
+            {
+              id: 'area-chart',
+              etiqueta: 'Área',
+              href: '/componentes/area-chart',
+              icono: 'chart-area',
+            },
+            {
+              id: 'bar-chart',
+              etiqueta: 'Barras',
+              href: '/componentes/bar-chart',
+              icono: 'chart-column',
+            },
+            {
+              id: 'bar-list',
+              etiqueta: 'Bar list',
+              href: '/componentes/bar-list',
+              icono: 'list',
+            },
+            {
+              id: 'line-chart',
+              etiqueta: 'Líneas',
+              href: '/componentes/line-chart',
+              icono: 'chart-line',
+            },
+            {
+              id: 'pie-chart',
+              etiqueta: 'Circular',
+              href: '/componentes/pie-chart',
+              icono: 'chart-pie',
+            },
+            {
+              id: 'radar-chart',
+              etiqueta: 'Radar',
+              href: '/componentes/radar-chart',
+              icono: 'radar',
+            },
+            {
+              id: 'radial-chart',
+              etiqueta: 'Radial',
+              href: '/componentes/radial-chart',
+              icono: 'gauge',
+            },
+            {
+              id: 'distribution-bar',
+              etiqueta: 'Distribución',
+              href: '/componentes/distribution-bar',
+              icono: 'chart-column',
             },
           ],
         },

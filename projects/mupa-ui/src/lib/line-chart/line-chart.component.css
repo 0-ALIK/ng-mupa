@@ -1,0 +1,153 @@
+/*
+ * Port fiel de LineChart del Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.mupa-line-chart__sin-datos {
+  padding: 24px;
+  color: var(--fg-muted);
+  font-family: var(--font-body);
+}
+
+.mupa-line-chart__cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.mupa-line-chart__titulo-bloque {
+  display: grid;
+  flex: 1 1 240px;
+  align-content: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 20px 24px;
+}
+
+.mupa-line-chart__titulo {
+  color: var(--fg-strong);
+  font: var(--text-h3);
+}
+
+.mupa-line-chart__descripcion {
+  color: var(--fg-muted);
+  font: var(--text-body-sm);
+}
+
+.mupa-line-chart__series-movil {
+  display: grid;
+  flex: 1 1 100%;
+  gap: 8px;
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 0 24px 20px;
+  font: 600 12px/1.4 var(--font-body);
+}
+
+.mupa-line-chart__series-movil select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--border-control);
+  border-radius: 8px;
+  background: var(--bg-surface);
+  color: var(--fg-default);
+  font: 600 13px/1.4 var(--font-body);
+}
+
+.mupa-line-chart__series-movil select:focus-visible,
+.mupa-line-chart__series button:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: -3px;
+}
+
+.mupa-line-chart__total {
+  color: var(--fg-muted);
+  font-weight: 500;
+}
+
+.mupa-line-chart__series {
+  display: none;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.mupa-line-chart__serie {
+  display: grid;
+  flex: 1 1 0;
+  align-content: center;
+  gap: 6px;
+  min-width: 140px;
+  padding: 18px 28px;
+  border: none;
+  border-left: 1px solid var(--border-subtle);
+  background: transparent;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.mupa-line-chart__serie--activa {
+  background: var(--color-primary-50);
+}
+
+.mupa-line-chart__serie-etiqueta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--fg-muted);
+  font: 500 12px/1 var(--font-body);
+}
+
+.mupa-line-chart__serie--activa .mupa-line-chart__serie-etiqueta {
+  color: var(--color-primary-700);
+}
+
+.mupa-line-chart__punto {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+}
+
+.mupa-line-chart__serie-total {
+  color: var(--fg-strong);
+  font: 500 28px/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+
+.mupa-line-chart__cuerpo {
+  padding: 20px 24px 18px;
+}
+
+.mupa-line-chart__plot {
+  position: relative;
+  width: 100%;
+}
+
+.mupa-line-chart__svg {
+  display: block;
+  overflow: visible;
+  cursor: crosshair;
+}
+
+.mupa-line-chart__etiqueta-eje {
+  font: 500 12px var(--font-body);
+}
+
+@container mupa-line (min-width: 560px) {
+  .mupa-line-chart__series {
+    display: flex;
+  }
+
+  .mupa-line-chart__series-movil {
+    display: none;
+  }
+}

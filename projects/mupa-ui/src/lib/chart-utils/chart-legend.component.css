@@ -1,0 +1,36 @@
+/*
+ * Port fiel de la leyenda compartida de los gráficos del Lego Design System.
+ */
+
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 20px;
+  color: var(--fg-default);
+  font: 500 13px/1 var(--font-body);
+}
+
+:host(.mupa-chart-legend--inicio) {
+  justify-content: flex-start;
+}
+
+.mupa-chart-legend__elemento {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mupa-chart-legend__marcador {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.mupa-chart-legend__marcador--punto {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+}

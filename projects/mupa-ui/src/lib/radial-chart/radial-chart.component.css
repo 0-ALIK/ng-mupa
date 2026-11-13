@@ -1,0 +1,58 @@
+/*
+ * Port fiel de RadialChart del Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.mupa-radial-chart__cuerpo {
+  display: grid;
+  flex: 1;
+  justify-items: center;
+  padding: 24px;
+}
+
+.mupa-radial-chart__plot {
+  position: relative;
+  width: 100%;
+}
+
+.mupa-radial-chart__svg {
+  display: block;
+  overflow: visible;
+}
+
+.mupa-radial-chart__anillo {
+  cursor: pointer;
+}
+
+:host-context([data-theme='dark']) .mupa-radial-chart__pista {
+  stroke: var(--color-neutral-100);
+}
+
+.mupa-radial-chart__arco {
+  transition: opacity 0.15s;
+}
+
+.mupa-radial-chart__etiqueta-arco {
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.mupa-radial-chart__valor-central {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.mupa-radial-chart__etiqueta-central {
+  font: 500 13px var(--font-body);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mupa-radial-chart__arco {
+    transition: none;
+  }
+}

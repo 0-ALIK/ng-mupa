@@ -41,39 +41,48 @@ En este workspace, durante el desarrollo de la librería:
 
 ## Componentes disponibles
 
-| Componente             | Selector                                                                  | Documentación                              |
-| ---------------------- | ------------------------------------------------------------------------- | ------------------------------------------ |
-| Icono                  | `mupa-icon`                                                               | `src/lib/icon/icon.md`                     |
-| Botón                  | `mupa-button`                                                             | `src/lib/button/button.md`                 |
-| Toggle button          | `mupa-toggle-button`                                                      | `src/lib/toggle-button/toggle-button.md`   |
-| Chip / etiqueta        | `mupa-pill`                                                               | `src/lib/pill/pill.md`                     |
-| Voice pill             | `mupa-voice-pill`                                                         | `src/lib/voice-pill/voice-pill.md`         |
-| Casilla                | `mupa-checkbox`                                                           | `src/lib/checkbox/checkbox.md`             |
-| Directiva de campo     | `mupaInput`                                                               | `src/lib/input/input.md`                   |
-| Selector               | `mupa-select`                                                             | `src/lib/select/select.md`                 |
-| Selector de fecha      | `mupa-date-picker`                                                        | `src/lib/date-picker/date-picker.md`       |
-| Avatar                 | `mupa-avatar`                                                             | `src/lib/avatar/avatar.md`                 |
-| Grupo de avatares      | `mupa-avatar-group`                                                       | `src/lib/avatar-group/avatar-group.md`     |
-| Tarjeta                | `mupa-card`                                                               | `src/lib/card/card.md`                     |
-| Ranuras de tarjeta     | `mupaCardMedia` · `mupaCardHeader` · `mupaCardFooter` · `mupaCardActions` | `src/lib/card/card.md`                     |
-| Cabecera de página     | `mupa-page-header`                                                        | `src/lib/page-header/page-header.md`       |
-| Tabla de datos         | `mupa-data-table`                                                         | `src/lib/data-table/data-table.md`         |
-| Plantilla de tabla     | `mupaTemplate`                                                            | `src/lib/data-table/data-table.md`         |
-| Aviso informativo      | `mupa-banner`                                                             | `src/lib/banner/banner.md`                 |
-| Lattice loader         | `mupa-lattice-loader`                                                     | `src/lib/lattice-loader/lattice-loader.md` |
-| Burbuja                | `mupa-bubble`                                                             | `src/lib/bubble/bubble.md`                 |
-| Contenido de burbuja   | `mupa-bubble-content`                                                     | `src/lib/bubble/bubble.md`                 |
-| Sugerencias            | `mupa-bubble-suggestions`                                                 | `src/lib/bubble/bubble.md`                 |
-| Tarjeta de burbuja     | `mupa-bubble-card`                                                        | `src/lib/bubble/bubble.md`                 |
-| Grupo de burbujas      | `mupa-bubble-group`                                                       | `src/lib/bubble/bubble.md`                 |
-| Reacciones de burbuja  | `mupa-bubble-reactions`                                                   | `src/lib/bubble/bubble.md`                 |
-| Notificación           | `mupa-toast`                                                              | `src/lib/toast/toast.md`                   |
-| Pila de notificaciones | `mupa-toaster`                                                            | `src/lib/toast/toaster.md`                 |
-| Navegación lateral     | `mupa-sidebar`                                                            | `src/lib/sidebar/sidebar.md`               |
-| Ruta de navegación     | `mupa-breadcrumb`                                                         | `src/lib/breadcrumb/breadcrumb.md`         |
-| Menú de landing        | `mupa-landing-nav`                                                        | `src/lib/landing-nav/landing-nav.md`       |
-| Espécimen de enlace    | `mupa-nav-link`                                                           | `src/lib/nav-link/nav-link.md`             |
-| Paginación             | `mupa-pagination`                                                         | `src/lib/pagination/pagination.md`         |
+| Componente             | Selector                                                                  | Documentación                                  |
+| ---------------------- | ------------------------------------------------------------------------- | ---------------------------------------------- |
+| Icono                  | `mupa-icon`                                                               | `src/lib/icon/icon.md`                         |
+| Botón                  | `mupa-button`                                                             | `src/lib/button/button.md`                     |
+| Toggle button          | `mupa-toggle-button`                                                      | `src/lib/toggle-button/toggle-button.md`       |
+| Chip / etiqueta        | `mupa-pill`                                                               | `src/lib/pill/pill.md`                         |
+| Voice pill             | `mupa-voice-pill`                                                         | `src/lib/voice-pill/voice-pill.md`             |
+| Casilla                | `mupa-checkbox`                                                           | `src/lib/checkbox/checkbox.md`                 |
+| Directiva de campo     | `mupaInput`                                                               | `src/lib/input/input.md`                       |
+| Selector               | `mupa-select`                                                             | `src/lib/select/select.md`                     |
+| Selector de fecha      | `mupa-date-picker`                                                        | `src/lib/date-picker/date-picker.md`           |
+| Avatar                 | `mupa-avatar`                                                             | `src/lib/avatar/avatar.md`                     |
+| Grupo de avatares      | `mupa-avatar-group`                                                       | `src/lib/avatar-group/avatar-group.md`         |
+| Tarjeta                | `mupa-card`                                                               | `src/lib/card/card.md`                         |
+| Ranuras de tarjeta     | `mupaCardMedia` · `mupaCardHeader` · `mupaCardFooter` · `mupaCardActions` | `src/lib/card/card.md`                         |
+| Cabecera de página     | `mupa-page-header`                                                        | `src/lib/page-header/page-header.md`           |
+| Tabla de datos         | `mupa-data-table`                                                         | `src/lib/data-table/data-table.md`             |
+| Plantilla de tabla     | `mupaTemplate`                                                            | `src/lib/data-table/data-table.md`             |
+| Gráfico de área        | `mupa-area-chart`                                                         | `src/lib/area-chart/area-chart.md`             |
+| Gráfico de barras      | `mupa-bar-chart`                                                          | `src/lib/bar-chart/bar-chart.md`               |
+| Bar list               | `mupa-bar-list`                                                           | `src/lib/bar-list/bar-list.md`                 |
+| Gráfico de líneas      | `mupa-line-chart`                                                         | `src/lib/line-chart/line-chart.md`             |
+| Líneas con etiquetas   | `mupa-line-chart-label`                                                   | `src/lib/line-chart/line-chart-label.md`       |
+| Gráfico circular       | `mupa-pie-chart`                                                          | `src/lib/pie-chart/pie-chart.md`               |
+| Gráfico de radar       | `mupa-radar-chart`                                                        | `src/lib/radar-chart/radar-chart.md`           |
+| Gráfico radial         | `mupa-radial-chart`                                                       | `src/lib/radial-chart/radial-chart.md`         |
+| Barra de distribución  | `mupa-distribution-bar`                                                   | `src/lib/distribution-bar/distribution-bar.md` |
+| Aviso informativo      | `mupa-banner`                                                             | `src/lib/banner/banner.md`                     |
+| Lattice loader         | `mupa-lattice-loader`                                                     | `src/lib/lattice-loader/lattice-loader.md`     |
+| Burbuja                | `mupa-bubble`                                                             | `src/lib/bubble/bubble.md`                     |
+| Contenido de burbuja   | `mupa-bubble-content`                                                     | `src/lib/bubble/bubble.md`                     |
+| Sugerencias            | `mupa-bubble-suggestions`                                                 | `src/lib/bubble/bubble.md`                     |
+| Tarjeta de burbuja     | `mupa-bubble-card`                                                        | `src/lib/bubble/bubble.md`                     |
+| Grupo de burbujas      | `mupa-bubble-group`                                                       | `src/lib/bubble/bubble.md`                     |
+| Reacciones de burbuja  | `mupa-bubble-reactions`                                                   | `src/lib/bubble/bubble.md`                     |
+| Notificación           | `mupa-toast`                                                              | `src/lib/toast/toast.md`                       |
+| Pila de notificaciones | `mupa-toaster`                                                            | `src/lib/toast/toaster.md`                     |
+| Navegación lateral     | `mupa-sidebar`                                                            | `src/lib/sidebar/sidebar.md`                   |
+| Ruta de navegación     | `mupa-breadcrumb`                                                         | `src/lib/breadcrumb/breadcrumb.md`             |
+| Menú de landing        | `mupa-landing-nav`                                                        | `src/lib/landing-nav/landing-nav.md`           |
+| Espécimen de enlace    | `mupa-nav-link`                                                           | `src/lib/nav-link/nav-link.md`                 |
+| Paginación             | `mupa-pagination`                                                         | `src/lib/pagination/pagination.md`             |
 
 ## Uso
 

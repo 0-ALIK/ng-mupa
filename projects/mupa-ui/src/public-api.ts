@@ -49,6 +49,39 @@ export type {
   RangoFechas,
 } from './lib/date-picker/date-picker.types';
 
+// Gráficos
+export { MupaAreaChart } from './lib/area-chart/area-chart.component';
+export { RANGOS_AREA } from './lib/area-chart/area-chart.types';
+export type {
+  DatoAreaChart,
+  RangoAreaChart,
+  SerieAreaChart,
+} from './lib/area-chart/area-chart.types';
+export { MupaBarChart } from './lib/bar-chart/bar-chart.component';
+export type { DatoBarChart, SerieBarChart } from './lib/bar-chart/bar-chart.types';
+export { MupaBarList } from './lib/bar-list/bar-list.component';
+export type { ItemBarList } from './lib/bar-list/bar-list.types';
+export { MupaDistributionBar } from './lib/distribution-bar/distribution-bar.component';
+export type {
+  ItemDistribucion,
+  TonoDistribucion,
+} from './lib/distribution-bar/distribution-bar.types';
+export { MupaLineChart } from './lib/line-chart/line-chart.component';
+export { MupaLineChartLabel } from './lib/line-chart/line-chart-label.component';
+export type { DatoLineChartLabel } from './lib/line-chart/line-chart-label.types';
+export type { DatoLineChart, SerieLineChart } from './lib/line-chart/line-chart.types';
+export { MupaPieChart } from './lib/pie-chart/pie-chart.component';
+export type { ListaEtiquetasPie, PorcionPieChart } from './lib/pie-chart/pie-chart.types';
+export { MupaRadarChart } from './lib/radar-chart/radar-chart.component';
+export type {
+  CuadriculaRadar,
+  DatoRadarChart,
+  SerieRadarChart,
+} from './lib/radar-chart/radar-chart.types';
+export { MupaRadialChart } from './lib/radial-chart/radial-chart.component';
+export type { ItemRadialChart } from './lib/radial-chart/radial-chart.types';
+export type { DireccionTendencia } from './lib/chart-utils/chart.types';
+
 // Mensajes y estados
 export { MupaBanner } from './lib/banner/banner.component';
 export { TONOS_BANNER } from './lib/banner/banner.types';

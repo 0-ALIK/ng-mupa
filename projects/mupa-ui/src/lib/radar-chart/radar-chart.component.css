@@ -1,0 +1,34 @@
+/*
+ * Port fiel de RadarChart del Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.mupa-radar-chart__cuerpo {
+  display: grid;
+  flex: 1;
+  justify-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+}
+
+.mupa-radar-chart__plot {
+  position: relative;
+  width: 100%;
+}
+
+.mupa-radar-chart__svg {
+  display: block;
+  overflow: visible;
+}
+
+.mupa-radar-chart__eje {
+  cursor: pointer;
+}
+
+.mupa-radar-chart__etiqueta-eje {
+  font: 500 12px var(--font-body);
+}

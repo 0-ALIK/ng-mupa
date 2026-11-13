@@ -1,0 +1,67 @@
+/*
+ * Port fiel de ChartDataTable del Lego Design System — Alcaldía de Panamá.
+ */
+
+:host {
+  display: block;
+}
+
+.mupa-chart-data-table {
+  margin-top: 16px;
+  max-width: 100%;
+  color: var(--fg-default);
+  font-family: var(--font-body);
+  font-size: 13px;
+}
+
+.mupa-chart-data-table summary {
+  display: list-item;
+  min-height: 44px;
+  align-content: center;
+  color: var(--link);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mupa-chart-data-table summary:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 3px;
+}
+
+.mupa-chart-data-table__region {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.mupa-chart-data-table__region:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: -3px;
+}
+
+.mupa-chart-data-table table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.mupa-chart-data-table caption {
+  padding: 8px 0;
+  color: var(--fg-muted);
+  text-align: left;
+}
+
+.mupa-chart-data-table th {
+  padding: 8px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.mupa-chart-data-table td {
+  padding: 8px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--fg-default);
+}
+
+.mupa-chart-data-table__vacio {
+  margin: 8px 0 0;
+  color: var(--fg-muted);
+}

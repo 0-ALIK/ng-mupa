@@ -112,6 +112,62 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'componentes/area-chart',
+    loadComponent: () =>
+      import('./pages/area-chart/area-chart-page.component').then(
+        (modulo) => modulo.AreaChartPageComponent,
+      ),
+  },
+  {
+    path: 'componentes/bar-chart',
+    loadComponent: () =>
+      import('./pages/bar-chart/bar-chart-page.component').then(
+        (modulo) => modulo.BarChartPageComponent,
+      ),
+  },
+  {
+    path: 'componentes/bar-list',
+    loadComponent: () =>
+      import('./pages/bar-list/bar-list-page.component').then(
+        (modulo) => modulo.BarListPageComponent,
+      ),
+  },
+  {
+    path: 'componentes/line-chart',
+    loadComponent: () =>
+      import('./pages/line-chart/line-chart-page.component').then(
+        (modulo) => modulo.LineChartPageComponent,
+      ),
+  },
+  {
+    path: 'componentes/pie-chart',
+    loadComponent: () =>
+      import('./pages/pie-chart/pie-chart-page.component').then(
+        (modulo) => modulo.PieChartPageComponent,
+      ),
+  },
+  {
+    path: 'componentes/radar-chart',
+    loadComponent: () =>
+      import('./pages/radar-chart/radar-chart-page.component').then(
+        (modulo) => modulo.RadarChartPageComponent,
+      ),
+  },
+  {
+    path: 'componentes/radial-chart',
+    loadComponent: () =>
+      import('./pages/radial-chart/radial-chart-page.component').then(
+        (modulo) => modulo.RadialChartPageComponent,
+      ),
+  },
+  {
+    path: 'componentes/distribution-bar',
+    loadComponent: () =>
+      import('./pages/distribution-bar/distribution-bar-page.component').then(
+        (modulo) => modulo.DistributionBarPageComponent,
+      ),
+  },
+  {
     path: 'componentes/banner',
     loadComponent: () =>
       import('./pages/banner/banner-page.component').then((modulo) => modulo.BannerPageComponent),
