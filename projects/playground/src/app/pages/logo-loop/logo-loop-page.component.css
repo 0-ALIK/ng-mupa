@@ -1,0 +1,68 @@
+.pg-marco-logo-loop {
+  width: 100%;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
+  background: var(--bg-surface);
+  overflow: hidden;
+}
+
+.pg-marco-logo-loop--vertical {
+  height: 360px;
+}
+
+.pg-logo-loop-navy {
+  width: 100%;
+  min-width: 0;
+  padding: 28px 0;
+  border-radius: var(--radius-card);
+  background: #0e225d;
+  overflow: hidden;
+}
+
+.pg-logo-loop-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  width: 100%;
+  min-width: 0;
+}
+
+.pg-logo-institucion {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font: 700 17px/1 var(--font-body);
+  color: var(--fg-strong);
+  white-space: nowrap;
+}
+
+.pg-logo-institucion__marca {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--color-primary-50);
+  border: 1.5px solid var(--color-primary-200);
+  color: var(--color-primary-700);
+}
+
+.pg-logo-institucion--oscura {
+  color: #ffffff;
+}
+
+.pg-logo-institucion--oscura .pg-logo-institucion__marca {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.32);
+  color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .pg-logo-loop-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

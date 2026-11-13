@@ -1,0 +1,23 @@
+.pg-confetti-custom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 24px;
+  border: 1.5px dashed var(--color-primary-300);
+  border-radius: 999px;
+  background: var(--color-primary-50);
+  color: var(--color-primary-700);
+  font: 600 15px/1.2 var(--font-body);
+  cursor: pointer;
+}
+
+.pg-confetti-custom:hover {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-100);
+}
+
+.pg-confetti-custom:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
