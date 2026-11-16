@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <img alt="Versión 1.0.0" src="https://img.shields.io/badge/version-1.0.0-0660FF?style=flat-square" />
+  <img alt="Versión 1.0.1" src="https://img.shields.io/badge/version-1.0.1-0660FF?style=flat-square" />
   <img alt="Licencia Apache 2.0" src="https://img.shields.io/badge/licencia-Apache%202.0-0660FF?style=flat-square" />
   <img alt="Angular 22" src="https://img.shields.io/badge/Angular-22-DD0031?style=flat-square&logo=angular" />
   <img alt="Más de 50 componentes" src="https://img.shields.io/badge/componentes-50%2B-0660FF?style=flat-square" />
@@ -104,9 +104,52 @@ npx skills add 0-ALIK/ng-mupa --skill mupa-lego-design-system --copy -y
 ```
 
 La skill también incluye el flujo de instalación y configuración de `mupa-ui`.
-Consulta el
-[prompt para dejar un proyecto listo](https://github.com/0-ALIK/ng-mupa#prompt-para-dejar-un-proyecto-listo)
-en el README del repositorio.
+
+### Prompt para dejar un proyecto listo
+
+Copia este bloque y pégalo en el agente que esté trabajando en tu proyecto
+Angular. El agente instala la librería, configura `angular.json`, instala la
+skill y verifica que todo compile.
+
+```text
+Trabaja en este proyecto Angular y déjalo listo para usar mupa-ui, la librería
+del Lego Design System de la Alcaldía de Panamá. Sigue estos pasos en orden:
+
+1. Revisa package.json y confirma que el proyecto usa Angular 22
+   (@angular/core y @angular/common ^22.2.0). Si la versión es anterior,
+   detente y explícame el conflicto antes de modificar archivos.
+2. Instala la librería:
+   npm install mupa-ui
+3. Configura angular.json en el proyecto de la app:
+   - En architect.build.options.styles, agrega antes de src/styles.css:
+     "node_modules/mupa-ui/tokens.css",
+     "node_modules/mupa-ui/forms.css"
+   - En architect.build.options.assets, agrega:
+     { "glob": "**/*", "input": "node_modules/mupa-ui/assets/branding", "output": "assets/branding" }
+4. Instala la skill para agentes:
+   npx -y skills@latest add 0-ALIK/ng-mupa --skill mupa-lego-design-system --copy -y
+   Verifica que exista .agents/skills/mupa-lego-design-system/SKILL.md. Si tu
+   agente no lee .agents/skills, repite el comando con -a <agente> (por
+   ejemplo, -a claude-code).
+5. Verifica la instalación:
+   - npm run build (o ng build) termina sin errores.
+   - tokens.css y forms.css están en angular.json.
+   - Los logos están en dist/<app>/browser/assets/branding/.
+6. Si el proyecto tiene una página de inicio o un componente de prueba, añade
+   un ejemplo mínimo con mupa-button y mupa-card y confirma que compila. Si no
+   existe, no crees archivos nuevos: solo verifica el build y muéstrame el
+   snippet listo para pegar.
+7. Al terminar, entrega un resumen con: versión instalada, archivos
+   modificados, comandos ejecutados y cómo verificar que todo quedó bien.
+
+No inventes APIs, tokens ni nombres de componentes. La fuente de verdad es
+node_modules/mupa-ui/README.md y node_modules/mupa-ui/lib/**/*.md. Usa la
+skill mupa-lego-design-system para consultar el catálogo.
+```
+
+> El prompt asume que el agente puede ejecutar `npm` y `npx` en la terminal del
+> proyecto. Si usas otro gestor de paquetes, sustituye `npm install` por el
+> equivalente.
 
 ## Catálogo de componentes
 
