@@ -1,6 +1,7 @@
 ---
-name: Mupa Lego Design System
-description: Consulta el catálogo, la documentación y los tokens de mupa-ui antes de construir interfaces de la Alcaldía de Panamá. Úsala para elegir componentes existentes, leer sus APIs o crear UI coherente con los tokens cuando algo no exista en el catálogo.
+name: mupa-lego-design-system
+description: Consulta el catálogo, la documentación y los tokens de mupa-ui, e instala y configura la librería en proyectos Angular de la Alcaldía de Panamá. Úsala para dejar un proyecto listo para usar mupa-ui, elegir componentes existentes, leer sus APIs o crear UI coherente con los tokens cuando algo no exista en el catálogo.
+license: Apache-2.0
 ---
 
 # Mupa Lego Design System
@@ -9,6 +10,7 @@ description: Consulta el catálogo, la documentación y los tokens de mupa-ui an
 
 Úsala siempre que vayas a:
 
+- Instalar o configurar `mupa-ui` en un proyecto Angular.
 - Construir o modificar una interfaz con `mupa-ui`.
 - Elegir un componente del Lego Design System — Alcaldía de Panamá.
 - Revisar inputs, outputs, tipos o comportamiento de un componente.
@@ -20,13 +22,13 @@ description: Consulta el catálogo, la documentación y los tokens de mupa-ui an
 No inventes APIs, colores, medidas ni nombres de componentes. La fuente de
 verdad es el paquete instalado:
 
-```
+```text
 node_modules/mupa-ui/
 ```
 
-En este workspace de la librería, la fuente está en:
+En el workspace de la librería (`ng-mupa`), la fuente está en:
 
-```
+```text
 projects/mupa-ui/          # código fuente
 dist/mupa-ui/              # paquete compilado
 ```
@@ -35,20 +37,87 @@ Si trabajas en el workspace y necesitas simular al consumidor, consulta
 `dist/mupa-ui/`. Si trabajas en una app consumidora, consulta
 `node_modules/mupa-ui/`.
 
-## 1. Consultar el catálogo y la documentación
+Si `node_modules/mupa-ui` no existe, instala la librería antes de continuar
+(ver la sección 1).
+
+## 1. Instalar y configurar mupa-ui
+
+### Requisitos
+
+- Proyecto Angular 22 (`@angular/core` y `@angular/common` `^22.2.0`).
+- Node.js compatible con Angular 22.
+
+Si el proyecto usa una versión anterior de Angular, detente y reporta el
+conflicto de versiones antes de modificar archivos.
+
+### Instalación
+
+```bash
+npm install mupa-ui
+```
+
+### Estilos globales
+
+En `angular.json`, dentro de `projects.<app>.architect.build.options.styles`,
+incluye los estilos de la librería antes de los estilos de la app:
+
+```json
+"styles": [
+  "node_modules/mupa-ui/tokens.css",
+  "node_modules/mupa-ui/forms.css",
+  "src/styles.css"
+]
+```
+
+`tokens.css` declara los `@font-face` de Montserrat y todos los tokens.
+`forms.css` contiene los estilos de los controles de formulario.
+
+### Logos y assets de marca
+
+En `projects.<app>.architect.build.options.assets`, agrega:
+
+```json
+{
+  "glob": "**/*",
+  "input": "node_modules/mupa-ui/assets/branding",
+  "output": "assets/branding"
+}
+```
+
+### Verificación
+
+- `npm run build` (o `ng build`) termina sin errores.
+- `node_modules/mupa-ui/tokens.css` y `forms.css` están en `styles`.
+- Los logos aparecen en `dist/<app>/browser/assets/branding/`.
+- Un componente de prueba compila:
+
+```ts
+import { MupaButton, MupaCard } from 'mupa-ui';
+```
+
+```html
+<mupa-card titulo="Reportes ciudadanos" descripcion="Últimos 30 días">
+  <mupa-button iconoInicio="plus">Nuevo reporte</mupa-button>
+</mupa-card>
+```
+
+Los componentes son standalone y se importan directamente desde `mupa-ui`.
+La librería no requiere módulos ni providers adicionales.
+
+## 2. Consultar el catálogo y la documentación
 
 ### Paso 1 — Catálogo completo
 
 Lee el README del paquete:
 
-```powershell
-Get-Content node_modules/mupa-ui/README.md
+```text
+node_modules/mupa-ui/README.md
 ```
 
 En el workspace:
 
-```powershell
-Get-Content projects/mupa-ui/README.md
+```text
+projects/mupa-ui/README.md
 ```
 
 La tabla del README lista todos los selectores y la ruta de su documentación.
@@ -57,16 +126,16 @@ La tabla del README lista todos los selectores y la ruta de su documentación.
 
 Cada componente tiene un `.md` dentro de `lib`:
 
-```powershell
-Get-Content node_modules/mupa-ui/lib/button/button.md
-Get-Content node_modules/mupa-ui/lib/line-chart/line-chart.md
-Get-Content node_modules/mupa-ui/lib/menu/menu.md
+```text
+node_modules/mupa-ui/lib/button/button.md
+node_modules/mupa-ui/lib/line-chart/line-chart.md
+node_modules/mupa-ui/lib/menu/menu.md
 ```
 
 En el workspace:
 
-```powershell
-Get-Content projects/mupa-ui/src/lib/button/button.md
+```text
+projects/mupa-ui/src/lib/button/button.md
 ```
 
 La documentación incluye, según el componente:
@@ -80,29 +149,36 @@ La documentación incluye, según el componente:
 
 ### Paso 3 — Listar componentes
 
-```powershell
-Get-ChildItem node_modules/mupa-ui/lib -Directory | Select-Object Name
+Lista los directorios dentro de:
+
+```text
+node_modules/mupa-ui/lib/
 ```
+
+Cada carpeta corresponde a un componente o directiva.
 
 ### Paso 4 — Buscar un patrón en toda la documentación
 
-```powershell
-Select-String -Path node_modules/mupa-ui/lib/**/*.md -Pattern "aria-"
-Select-String -Path node_modules/mupa-ui/lib/**/*.md -Pattern "tokens"
-```
+Usa la búsqueda de archivos de tu entorno (por ejemplo `rg` o la herramienta de
+búsqueda del agente) sobre `node_modules/mupa-ui/lib/**/*.md`. Patrones útiles:
+
+- `aria-`
+- `tokens`
+- `ControlValueAccessor`
+- `data-theme`
 
 ### Paso 5 — Tipos públicos
 
 Las declaraciones están centralizadas en:
 
-```powershell
-Get-Content node_modules/mupa-ui/types/mupa-ui.d.ts
+```text
+node_modules/mupa-ui/types/mupa-ui.d.ts
 ```
 
 Busca allí interfaces como `OpcionRadio`, `GrupoMenu`, `ItemMenu`,
 `DatoLineChart`, `PorcionPieChart`, etc.
 
-## 2. Componentes disponibles
+## 3. Componentes disponibles
 
 | Categoría          | Selectores                                                                                                                                                                                            |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -120,18 +196,18 @@ Busca allí interfaces como `OpcionRadio`, `GrupoMenu`, `ItemMenu`,
 
 Para la lista exacta y actualizada, usa siempre el README del paquete.
 
-## 3. Usar los tokens de diseño
+## 4. Usar los tokens de diseño
 
 Archivo:
 
-```powershell
-Get-Content node_modules/mupa-ui/tokens.css
+```text
+node_modules/mupa-ui/tokens.css
 ```
 
 En el workspace:
 
-```powershell
-Get-Content projects/mupa-ui/src/theme/tokens.css
+```text
+projects/mupa-ui/src/theme/tokens.css
 ```
 
 ### Reglas obligatorias
@@ -167,11 +243,11 @@ Get-Content projects/mupa-ui/src/theme/tokens.css
 - Foco: `outline: 3px solid var(--link); outline-offset: 2px/3px`.
 - Texto normal: 15 px / 1.55; texto pequeño: 13 px / 1.5.
 
-## 4. Assets de marca y fuentes
+## 5. Assets de marca y fuentes
 
 ### Logos
 
-```
+```text
 node_modules/mupa-ui/assets/branding/
 ├── logo-alcaldia-navy.svg
 ├── logo-alcaldia-navy.png
@@ -192,26 +268,19 @@ Variantes: `horizontal`, `vertical`, `escudo`, `isotipo`.
 Temas: `color`, `blanco`.
 Tamaños: `sm`, `md`, `lg`.
 
-Para copiar los assets en una app Angular:
-
-```json
-{
-  "glob": "**/*",
-  "input": "node_modules/mupa-ui/assets/branding",
-  "output": "assets/branding"
-}
-```
+Para copiar los assets en una app Angular, usa la configuración de `assets`
+mostrada en la sección 1.
 
 ### Fuentes
 
-```
+```text
 node_modules/mupa-ui/fonts/Montserrat-*.ttf
 ```
 
 La app debe incluir `node_modules/mupa-ui/tokens.css` en `angular.json`, porque
 ese archivo declara los `@font-face` y los tokens.
 
-## 5. Si el componente no existe en el catálogo
+## 6. Si el componente no existe en el catálogo
 
 Sigue este orden:
 
@@ -245,8 +314,11 @@ Si necesitas un “tooltip” y no está en el catálogo:
    - `font: 500 12px/1.2 var(--font-body)`
 4. Añade `role="tooltip"`, foco y cierre con Escape si es interactivo.
 
-## 6. Checklist antes de entregar
+## 7. Checklist antes de entregar
 
+- [ ] Verifiqué que `mupa-ui` está instalado y en la versión esperada.
+- [ ] `tokens.css` y `forms.css` están en `angular.json`.
+- [ ] Los assets de marca están copiados.
 - [ ] Leí el `.md` del componente que voy a usar.
 - [ ] Verifiqué los inputs/outputs reales; no inventé nombres.
 - [ ] Usé tokens para todo color, tipografía, radio, sombra y borde.
@@ -255,21 +327,26 @@ Si necesitas un “tooltip” y no está en el catálogo:
 - [ ] Ejecuté las pruebas y axe cuando corresponda.
 - [ ] Si creé un componente, actualicé README, docs, playground y `public-api.ts`.
 
-## 7. Comandos rápidos
+## 8. Rutas y comandos útiles
 
-```powershell
-# Catálogo
-Get-Content node_modules/mupa-ui/README.md
+```bash
+# Instalar la librería
+npm install mupa-ui
 
-# Documentación de un componente
-Get-Content node_modules/mupa-ui/lib/menu/menu.md
+# Buscar un patrón en toda la documentación (si tienes ripgrep)
+rg "aria-expanded" node_modules/mupa-ui/lib
 
-# Tokens
-Get-Content node_modules/mupa-ui/tokens.css
+# Ver los assets de marca
+# (lista node_modules/mupa-ui/assets/branding con tu herramienta de archivos)
+```
 
-# Buscar en todos los docs
-Select-String -Path node_modules/mupa-ui/lib/**/*.md -Pattern "aria-expanded"
+Rutas que puedes leer directamente con la herramienta de archivos del agente:
 
-# Assets
-Get-ChildItem node_modules/mupa-ui/assets/branding
+```text
+node_modules/mupa-ui/README.md
+node_modules/mupa-ui/tokens.css
+node_modules/mupa-ui/forms.css
+node_modules/mupa-ui/types/mupa-ui.d.ts
+node_modules/mupa-ui/lib/<componente>/<componente>.md
+node_modules/mupa-ui/assets/branding/
 ```

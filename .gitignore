@@ -39,6 +39,12 @@ testem.log
 /typings
 __screenshots__/
 
+# Agent skills (installed with `npx skills add`)
+/.agents/
+/.claude/skills/
+/.opencode/skills/
+/skills-lock.json
+
 # System files
 .DS_Store
 Thumbs.db

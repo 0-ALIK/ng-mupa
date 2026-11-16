@@ -94,6 +94,20 @@ import { MupaButton, MupaCard } from 'mupa-ui';
 > **En el workspace:** usa `projects/mupa-ui/src/theme/tokens.css` mientras
 > desarrollas la librería localmente.
 
+## Skill para agentes
+
+Instala la skill del sistema para que un agente consulte el catálogo, los
+tokens y las APIs antes de escribir código:
+
+```bash
+npx skills add 0-ALIK/ng-mupa --skill mupa-lego-design-system --copy -y
+```
+
+La skill también incluye el flujo de instalación y configuración de `mupa-ui`.
+Consulta el
+[prompt para dejar un proyecto listo](https://github.com/0-ALIK/ng-mupa#prompt-para-dejar-un-proyecto-listo)
+en el README del repositorio.
+
 ## Catálogo de componentes
 
 La documentación de cada componente vive en el paquete como
@@ -294,18 +308,6 @@ servirlos, copia esa carpeta en los assets de la aplicación:
 ```
 
 Más detalles en [logo.md](https://github.com/0-ALIK/ng-mupa/blob/main/projects/mupa-ui/src/lib/logo/logo.md).
-
-## Skill para agentes
-
-El repositorio incluye la skill:
-
-```
-.opencode/skills/mupa-lego-design-system/SKILL.md
-```
-
-Enseña a consultar el catálogo y la documentación desde `node_modules/mupa-ui`
-y a construir interfaces nuevas con los tokens cuando algo no exista en el
-catálogo.
 
 ## Desarrollo
 
