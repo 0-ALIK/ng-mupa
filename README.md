@@ -4,10 +4,32 @@ Workspace Angular del **Lego Design System — Alcaldía de Panamá**.
 
 ## Proyectos
 
-| Proyecto     | Tipo        | Descripción                                                        |
-| ------------ | ----------- | ------------------------------------------------------------------ |
-| `mupa-ui`    | Librería    | Componentes Angular del sistema de diseño.                         |
-| `playground` | Aplicación  | Sitio de demostración con preview, ejemplos y documentación.       |
+| Proyecto     | Tipo       | Descripción                                                  |
+| ------------ | ---------- | ------------------------------------------------------------ |
+| `mupa-ui`    | Librería   | Componentes Angular del sistema de diseño.                   |
+| `playground` | Aplicación | Sitio de demostración con preview, ejemplos y documentación. |
+
+## Paquete `mupa-ui`
+
+- Versión: **1.0.0**
+- Licencia: **Apache 2.0** (`LICENSE` y `NOTICE`)
+- El build publica en `dist/mupa-ui`:
+  - Componentes, tipos y documentación `.md` de cada componente.
+  - `tokens.css` y `forms.css`.
+  - Fuentes Montserrat.
+  - Logos institucionales en `assets/branding`.
+  - `README.md`, `LICENSE` y `NOTICE`.
+
+## Skill para agentes
+
+El instructivo del sistema de diseño está en:
+
+```
+.opencode/skills/mupa-lego-design-system/SKILL.md
+```
+
+Enseña a consultar el catálogo y la documentación desde `node_modules/mupa-ui`
+y a construir interfaces nuevas con los tokens del sistema.
 
 ## Comandos
 

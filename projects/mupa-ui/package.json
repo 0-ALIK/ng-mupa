@@ -1,6 +1,25 @@
 {
   "name": "mupa-ui",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Librería Angular del Lego Design System — Alcaldía de Panamá.",
+  "license": "Apache-2.0",
+  "author": "Flavio Sánchez (Alik)",
+  "keywords": [
+    "angular",
+    "design-system",
+    "mupa",
+    "lego",
+    "alcaldia-panama",
+    "componentes"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0-ALIK/ng-mupa.git"
+  },
+  "homepage": "https://github.com/0-ALIK/ng-mupa#readme",
+  "bugs": {
+    "url": "https://github.com/0-ALIK/ng-mupa/issues"
+  },
   "peerDependencies": {
     "@angular/common": "^22.2.0",
     "@angular/core": "^22.2.0"

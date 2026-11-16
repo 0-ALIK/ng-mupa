@@ -24,6 +24,16 @@
       "input": "src/lib/logo/assets",
       "output": "assets/branding",
       "glob": "**/*"
+    },
+    {
+      "input": "src/lib",
+      "output": "lib",
+      "glob": "**/*.md"
+    },
+    {
+      "input": ".",
+      "output": ".",
+      "glob": "NOTICE"
     }
   ]
 }
