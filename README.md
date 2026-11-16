@@ -89,15 +89,18 @@ interfaces con los tokens del sistema.
 # Ver las skills disponibles en el repositorio
 npx skills add 0-ALIK/ng-mupa --list
 
-# Instalar en el agente detectado (OpenCode, Claude Code, Cursor, etc.)
+# Instalar en los agentes detectados (OpenCode, Cursor, Codex, etc.)
 npx skills add 0-ALIK/ng-mupa --skill mupa-lego-design-system --copy -y
+
+# Forzar un agente concreto (por ejemplo, Claude Code)
+npx skills add 0-ALIK/ng-mupa --skill mupa-lego-design-system -a claude-code --copy -y
 
 # Instalación global para todos los proyectos
 npx skills add 0-ALIK/ng-mupa --skill mupa-lego-design-system -g --copy -y
 ```
 
-Si quieres elegir el agente manualmente, añade `-a <agente>` (`opencode`,
-`claude-code`, `cursor`, etc.).
+Si no indicas `-a`, el CLI instala en los agentes que detecta. Para un agente
+que no detecte, usa `-a <agente>` (`opencode`, `claude-code`, `cursor`, etc.).
 
 ### Prompt para dejar un proyecto listo
 
@@ -122,7 +125,9 @@ del Lego Design System de la Alcaldía de Panamá. Sigue estos pasos en orden:
      { "glob": "**/*", "input": "node_modules/mupa-ui/assets/branding", "output": "assets/branding" }
 4. Instala la skill para agentes:
    npx -y skills@latest add 0-ALIK/ng-mupa --skill mupa-lego-design-system --copy -y
-   Verifica que exista .agents/skills/mupa-lego-design-system/SKILL.md.
+   Verifica que exista .agents/skills/mupa-lego-design-system/SKILL.md. Si tu
+   agente no lee .agents/skills, repite el comando con -a <agente> (por
+   ejemplo, -a claude-code).
 5. Verifica la instalación:
    - npm run build (o ng build) termina sin errores.
    - tokens.css y forms.css están en angular.json.
