@@ -109,6 +109,21 @@
   padding: 32px 32px 96px;
 }
 
+.playground--template {
+  display: block;
+  min-height: 100dvh;
+}
+
+.playground__contenido--template {
+  min-height: 100dvh;
+}
+
+.playground__pagina.playground__pagina--template {
+  max-width: none;
+  min-height: 100dvh;
+  padding: 0;
+}
+
 @media (max-width: 767px) {
   .playground {
     display: block;
@@ -120,5 +135,9 @@
 
   .playground__pagina {
     padding: 20px 16px 64px;
+  }
+
+  .playground__pagina.playground__pagina--template {
+    padding: 0;
   }
 }

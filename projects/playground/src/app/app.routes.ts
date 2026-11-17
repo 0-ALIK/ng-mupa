@@ -14,6 +14,21 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'templates',
+    pathMatch: 'full',
+    loadComponent: () =>
+      import('./pages/templates/templates-page.component').then(
+        (modulo) => modulo.TemplatesPageComponent,
+      ),
+  },
+  {
+    path: 'templates/login',
+    loadComponent: () =>
+      import('./templates/login/login-template.component').then(
+        (modulo) => modulo.LoginTemplateComponent,
+      ),
+  },
+  {
     path: 'componentes/icono',
     loadComponent: () =>
       import('./pages/icono/icono-page.component').then((modulo) => modulo.IconoPageComponent),

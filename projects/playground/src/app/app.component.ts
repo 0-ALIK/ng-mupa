@@ -18,56 +18,60 @@ import {
   selector: 'app-root',
   imports: [RouterOutlet, MupaSidebar, MupaToaster, MupaIcon],
   template: `
-    <div class="playground">
-      <mupa-sidebar
-        [grupos]="grupos"
-        [idActivo]="idActivo()"
-        [usuario]="usuario"
-        [accionesUsuario]="accionesUsuario"
-        [colapsado]="colapsadoApp()"
-        [idsExpandidosPorDefecto]="idsExpandidos"
-        [logoSrc]="'/logo-mupa.png'"
-        marca="Alcaldía de Panamá"
-        nombreSistema="Playground · mupa-ui"
-        etiqueta="Navegación del playground"
-        pie="Sistema de diseño Lego · Alcaldía de Panamá"
-        [mostrarControlColapso]="false"
-        (navegar)="alNavegar($event)"
-        (colapsadoCambio)="colapsadoApp.set($event)"
-      />
+    <div class="playground" [class.playground--template]="esTemplate()">
+      @if (!esTemplate()) {
+        <mupa-sidebar
+          [grupos]="grupos"
+          [idActivo]="idActivo()"
+          [usuario]="usuario"
+          [accionesUsuario]="accionesUsuario"
+          [colapsado]="colapsadoApp()"
+          [idsExpandidosPorDefecto]="idsExpandidos"
+          [logoSrc]="'/logo-mupa.png'"
+          marca="Alcaldía de Panamá"
+          nombreSistema="Playground · mupa-ui"
+          etiqueta="Navegación del playground"
+          pie="Sistema de diseño Lego · Alcaldía de Panamá"
+          [mostrarControlColapso]="false"
+          (navegar)="alNavegar($event)"
+          (colapsadoCambio)="colapsadoApp.set($event)"
+        />
+      }
 
-      <div class="playground__contenido">
-        <header class="playground__barra">
-          <button
-            type="button"
-            class="playground__burger"
-            [attr.aria-label]="colapsadoApp() ? 'Expandir menú lateral' : 'Contraer menú lateral'"
-            (click)="colapsadoApp.set(!colapsadoApp())"
-          >
-            <mupa-icon
-              [nombre]="colapsadoApp() ? 'panel-left-open' : 'panel-left-close'"
-              [tamano]="20"
-            />
-          </button>
+      <div class="playground__contenido" [class.playground__contenido--template]="esTemplate()">
+        @if (!esTemplate()) {
+          <header class="playground__barra">
+            <button
+              type="button"
+              class="playground__burger"
+              [attr.aria-label]="colapsadoApp() ? 'Expandir menú lateral' : 'Contraer menú lateral'"
+              (click)="colapsadoApp.set(!colapsadoApp())"
+            >
+              <mupa-icon
+                [nombre]="colapsadoApp() ? 'panel-left-open' : 'panel-left-close'"
+                [tamano]="20"
+              />
+            </button>
 
-          <div class="playground__contexto">
-            <p class="playground__overline">Sistema de diseño · Lego</p>
-            <p class="playground__subtitulo">Componentes porteados a Angular</p>
-          </div>
+            <div class="playground__contexto">
+              <p class="playground__overline">Sistema de diseño · Lego</p>
+              <p class="playground__subtitulo">Componentes porteados a Angular</p>
+            </div>
 
-          <button
-            type="button"
-            class="playground__tema"
-            [attr.aria-pressed]="modoOscuro()"
-            [attr.aria-label]="modoOscuro() ? 'Activar modo claro' : 'Activar modo oscuro'"
-            (click)="alternarTema()"
-          >
-            <mupa-icon [nombre]="modoOscuro() ? 'sun' : 'moon'" [tamano]="18" />
-            {{ modoOscuro() ? 'Modo claro' : 'Modo oscuro' }}
-          </button>
-        </header>
+            <button
+              type="button"
+              class="playground__tema"
+              [attr.aria-pressed]="modoOscuro()"
+              [attr.aria-label]="modoOscuro() ? 'Activar modo claro' : 'Activar modo oscuro'"
+              (click)="alternarTema()"
+            >
+              <mupa-icon [nombre]="modoOscuro() ? 'sun' : 'moon'" [tamano]="18" />
+              {{ modoOscuro() ? 'Modo claro' : 'Modo oscuro' }}
+            </button>
+          </header>
+        }
 
-        <main class="playground__pagina">
+        <main class="playground__pagina" [class.playground__pagina--template]="esTemplate()">
           <router-outlet />
         </main>
       </div>
@@ -93,6 +97,8 @@ export class AppComponent {
     return partes[partes.length - 1] ?? '';
   });
 
+  protected readonly esTemplate = computed(() => this.rutaActual().startsWith('/templates/'));
+
   protected readonly idsExpandidos = [
     'acciones',
     'elementos',
@@ -115,6 +121,24 @@ export class AppComponent {
           etiqueta: 'Tokens',
           href: '/fundamentos',
           icono: 'sliders-horizontal',
+        },
+      ],
+    },
+    {
+      id: 'templates',
+      etiqueta: 'Templates',
+      items: [
+        {
+          id: 'templates',
+          etiqueta: 'Galería de templates',
+          href: '/templates',
+          icono: 'layout-dashboard',
+        },
+        {
+          id: 'login',
+          etiqueta: 'Login interno',
+          href: '/templates/login',
+          icono: 'lock',
         },
       ],
     },

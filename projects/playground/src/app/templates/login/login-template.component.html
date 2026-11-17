@@ -1,0 +1,189 @@
+<main class="page login-template">
+  <section class="left">
+    <div class="brand">
+      <img src="assets/branding/logo-alcaldia-navy.svg" alt="Alcaldía de Panamá" />
+    </div>
+
+    <div class="formwrap">
+      <!-- Solo móvil: nombre del sistema -->
+      <div class="mname">
+        <small>Uso interno</small>
+        <b data-slot="nombre-sistema">Nombre del sistema</b>
+      </div>
+
+      <div id="v-login" [hidden]="vista() !== 'login'">
+        <h1>Iniciar sesión</h1>
+        <p class="sub">Ingresa con tu correo institucional.</p>
+
+        <form id="f" novalidate (submit)="ingresar($event)">
+          <div class="field" id="fe" [class.bad]="errorCorreo()">
+            <label for="em">Correo institucional</label>
+            <div class="ctrl">
+              <mupa-icon nombre="mail" [tamano]="18" />
+              <input
+                #correoInput
+                id="em"
+                type="email"
+                autocomplete="username"
+                placeholder="nombre.apellido@mupa.gob.pa"
+                [value]="correo()"
+                (input)="actualizarCorreo($event)"
+                (blur)="validarCorreo()"
+              />
+            </div>
+            <span class="err">
+              <mupa-icon nombre="circle-alert" [tamano]="14" />
+              Escribe un correo válido.
+            </span>
+          </div>
+
+          <div class="field">
+            <label for="pw">Contraseña</label>
+            <div class="ctrl">
+              <mupa-icon nombre="lock" [tamano]="18" />
+              <input
+                id="pw"
+                [type]="mostrarContrasena() ? 'text' : 'password'"
+                autocomplete="current-password"
+                placeholder="Escribe tu contraseña"
+                [value]="contrasena()"
+                (input)="actualizarContrasena($event)"
+              />
+              <button
+                type="button"
+                class="eye"
+                id="eye"
+                [attr.aria-label]="
+                  mostrarContrasena() ? 'Ocultar contraseña' : 'Mostrar contraseña'
+                "
+                [attr.aria-pressed]="mostrarContrasena()"
+                (click)="alternarContrasena()"
+              >
+                @if (mostrarContrasena()) {
+                  <!-- Fallback inline de Lucide eye-off para versiones publicadas de mupa-ui. -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"
+                    />
+                    <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
+                    <path
+                      d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"
+                    />
+                    <path d="m2 2 20 20" />
+                  </svg>
+                } @else {
+                  <mupa-icon nombre="eye" [tamano]="18" />
+                }
+              </button>
+            </div>
+          </div>
+
+          <a class="forgot" href="#" id="to-rec" (click)="irARecuperacion($event)">
+            ¿Olvidaste tu contraseña?
+          </a>
+
+          <mupa-button
+            tipo="submit"
+            tamano="lg"
+            bloque
+            iconoFin="arrow-right"
+            [deshabilitado]="!puedeIngresar()"
+          >
+            Iniciar sesión
+          </mupa-button>
+        </form>
+      </div>
+
+      <div id="v-rec" [hidden]="vista() !== 'recuperacion'">
+        <h1>Recuperar contraseña</h1>
+        <p class="sub">
+          Escribe tu correo institucional y te enviaremos un enlace para crear una nueva contraseña.
+        </p>
+
+        <form id="fr" novalidate (submit)="solicitarRecuperacion($event)">
+          <div class="field" id="fre" [class.bad]="errorRecuperacion()">
+            <label for="rem">Correo institucional</label>
+            <div class="ctrl">
+              <mupa-icon nombre="mail" [tamano]="18" />
+              <input
+                #recuperacionInput
+                id="rem"
+                type="email"
+                autocomplete="username"
+                placeholder="nombre.apellido@mupa.gob.pa"
+                [value]="correoRecuperacion()"
+                (input)="actualizarCorreoRecuperacion($event)"
+              />
+            </div>
+            <span class="err">
+              <mupa-icon nombre="circle-alert" [tamano]="14" />
+              Escribe un correo válido.
+            </span>
+          </div>
+
+          <div class="ok" id="sent" [hidden]="!enlaceEnviado()" role="status">
+            <mupa-icon nombre="circle-check" [tamano]="18" />
+            <span>
+              Si el correo está registrado, recibirás un enlace en los próximos minutos. Revisa
+              también tu carpeta de spam.
+            </span>
+          </div>
+
+          <mupa-button
+            tipo="submit"
+            tamano="lg"
+            bloque
+            iconoFin="send"
+            [deshabilitado]="!puedeEnviar()"
+          >
+            Enviar enlace
+          </mupa-button>
+
+          <a class="back" href="#" id="to-login" (click)="volverAIniciar($event)">
+            <mupa-icon nombre="arrow-left" [tamano]="16" />
+            Volver a iniciar sesión
+          </a>
+        </form>
+      </div>
+    </div>
+
+    <p class="help">Acceso exclusivo para personal de la Alcaldía de Panamá</p>
+  </section>
+
+  <aside class="right" aria-label="Sistema">
+    <span class="pill">
+      <mupa-icon nombre="shield-check" [tamano]="15" />
+      Acceso institucional
+    </span>
+
+    <div class="mid">
+      <img class="iso" src="assets/branding/hatillo-isotipo.svg" alt="" />
+      <h2><span data-slot="nombre-sistema">Nombre del sistema</span></h2>
+      <p>Describe en una frase lo que el personal podrá hacer al ingresar.</p>
+    </div>
+
+    <div class="rfoot">
+      <span>
+        <mupa-icon nombre="clock" [tamano]="15" />
+        Última actualización: [fecha y hora]
+      </span>
+      <span>
+        <mupa-icon nombre="tag" [tamano]="15" />
+        Versión [x.x]
+      </span>
+    </div>
+
+    <img class="mark" src="assets/branding/hatillo-isotipo.svg" alt="" aria-hidden="true" />
+  </aside>
+</main>

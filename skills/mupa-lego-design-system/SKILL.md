@@ -1,6 +1,6 @@
 ---
 name: mupa-lego-design-system
-description: Consulta el catálogo, la documentación y los tokens de mupa-ui, e instala y configura la librería en proyectos Angular de la Alcaldía de Panamá. Úsala para dejar un proyecto listo para usar mupa-ui, elegir componentes existentes, leer sus APIs o crear UI coherente con los tokens cuando algo no exista en el catálogo.
+description: Consulta el catálogo, la documentación y los tokens de mupa-ui, instala y configura la librería en proyectos Angular de la Alcaldía de Panamá, y localiza templates completos en GitHub para copiarlos y pegarlos. Úsala para dejar un proyecto listo para usar mupa-ui, elegir componentes existentes, leer sus APIs, copiar una pantalla completa o crear UI coherente con los tokens cuando algo no exista en el catálogo.
 license: Apache-2.0
 ---
 
@@ -14,6 +14,7 @@ license: Apache-2.0
 - Construir o modificar una interfaz con `mupa-ui`.
 - Elegir un componente del Lego Design System — Alcaldía de Panamá.
 - Revisar inputs, outputs, tipos o comportamiento de un componente.
+- Copiar un template completo (login, dashboard, etc.) desde GitHub.
 - Crear un componente nuevo que no esté en el catálogo.
 - Usar logos, fuentes o tokens del sistema.
 
@@ -31,6 +32,13 @@ En el workspace de la librería (`ng-mupa`), la fuente está en:
 ```text
 projects/mupa-ui/          # código fuente
 dist/mupa-ui/              # paquete compilado
+```
+
+Los **templates completos** no se publican en el paquete npm. Viven en el
+repositorio, dentro del playground:
+
+```text
+projects/playground/src/app/templates/<template>/
 ```
 
 Si trabajas en el workspace y necesitas simular al consumidor, consulta
@@ -314,7 +322,77 @@ Si necesitas un “tooltip” y no está en el catálogo:
    - `font: 500 12px/1.2 var(--font-body)`
 4. Añade `role="tooltip"`, foco y cierre con Escape si es interactivo.
 
-## 7. Checklist antes de entregar
+## 7. Templates completos
+
+Los templates son pantallas completas ya construidas con `mupa-ui`. No llevan
+sidebar ni barra del playground: el archivo es la pantalla entera y se copia y
+pega en la app consumidora.
+
+### Dónde buscarlos
+
+Fuente de verdad en GitHub (rama `main`):
+
+```text
+https://github.com/0-ALIK/ng-mupa/tree/main/projects/playground/src/app/templates
+```
+
+Cada template tiene su carpeta y estos archivos:
+
+```text
+projects/playground/src/app/templates/<template>/
+├── <template>.component.html   # estructura completa
+├── <template>.component.css    # estilos exactos
+└── <template>.component.ts     # comportamiento Angular
+```
+
+No reconstruyas el template de memoria. Lee directamente el archivo del
+template en GitHub; si el nombre exacto no coincide, lista la carpeta del
+template en el repositorio y usa el `.component.html` que encuentres.
+
+### Cómo copiarlo
+
+1. Abre la carpeta del template en GitHub.
+2. Lee el `.component.html`, el `.component.css` y el `.component.ts`.
+3. Copia los tres archivos en la app consumidora.
+4. Ajusta solo los imports y las rutas de assets; conserva la estructura, los
+   textos, las clases CSS, los estados y el comportamiento.
+5. No añadas sidebar, barra de playground ni contenedores extra: el template
+   ya es la pantalla completa.
+6. Usa los componentes de `mupa-ui` que aparecen en el template. Si el
+   template usa un icono, verifica que exista en `mupa-icon` antes de
+   reemplazarlo.
+
+### Catálogo
+
+| Template      | Carpeta                                        | Pantalla completa  |
+| ------------- | ---------------------------------------------- | ------------------ |
+| Login interno | `projects/playground/src/app/templates/login/` | `/templates/login` |
+
+URLs raw del login:
+
+```text
+https://raw.githubusercontent.com/0-ALIK/ng-mupa/main/projects/playground/src/app/templates/login/login-template.component.html
+https://raw.githubusercontent.com/0-ALIK/ng-mupa/main/projects/playground/src/app/templates/login/login-template.component.css
+https://raw.githubusercontent.com/0-ALIK/ng-mupa/main/projects/playground/src/app/templates/login/login-template.component.ts
+```
+
+El template de login usa `mupa-button` y `mupa-icon`, y conserva el tema claro
+del diseño original con tokens locales. No lo cambies a modo oscuro. También
+usa `assets/branding/logo-alcaldia-navy.svg` y
+`assets/branding/hatillo-isotipo.svg`; asegúrate de tener los assets de marca
+configurados (sección 1).
+
+### Agregar un template nuevo
+
+Cuando agregues un template al repositorio:
+
+1. Créalo en `projects/playground/src/app/templates/<nombre>/`.
+2. Mantén un `.component.html`, `.component.css` y `.component.ts` standalone.
+3. Añade su ruta full-screen en `projects/playground/src/app/app.routes.ts`.
+4. Añade el enlace en la galería `/templates` y en el sidebar del playground.
+5. Actualiza esta skill con la carpeta y las URLs raw.
+
+## 8. Checklist antes de entregar
 
 - [ ] Verifiqué que `mupa-ui` está instalado y en la versión esperada.
 - [ ] `tokens.css` y `forms.css` están en `angular.json`.
@@ -325,9 +403,10 @@ Si necesitas un “tooltip” y no está en el catálogo:
 - [ ] Probé claro y oscuro.
 - [ ] Probé teclado y foco visible.
 - [ ] Ejecuté las pruebas y axe cuando corresponda.
+- [ ] Si copié un template, usé la versión de GitHub y no le añadí layout.
 - [ ] Si creé un componente, actualicé README, docs, playground y `public-api.ts`.
 
-## 8. Rutas y comandos útiles
+## 9. Rutas y comandos útiles
 
 ```bash
 # Instalar la librería
@@ -349,4 +428,13 @@ node_modules/mupa-ui/forms.css
 node_modules/mupa-ui/types/mupa-ui.d.ts
 node_modules/mupa-ui/lib/<componente>/<componente>.md
 node_modules/mupa-ui/assets/branding/
+```
+
+Templates completos en GitHub:
+
+```text
+https://github.com/0-ALIK/ng-mupa/tree/main/projects/playground/src/app/templates
+https://raw.githubusercontent.com/0-ALIK/ng-mupa/main/projects/playground/src/app/templates/login/login-template.component.html
+https://raw.githubusercontent.com/0-ALIK/ng-mupa/main/projects/playground/src/app/templates/login/login-template.component.css
+https://raw.githubusercontent.com/0-ALIK/ng-mupa/main/projects/playground/src/app/templates/login/login-template.component.ts
 ```
