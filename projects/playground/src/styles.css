@@ -237,6 +237,10 @@ a {
   height: 100% !important;
 }
 
+.pg-sidebar-demo mupa-sidebar {
+  min-height: 0;
+}
+
 .pg-sidebar-demo__contenido {
   flex: 1;
   min-width: 0;

@@ -210,7 +210,7 @@
   --shadow-lg: 0 14px 34px rgba(0,0,0,.55);
 }
 
-/* Sidebar institucional: superficie blanca en todas las apariencias. */
+/* Sidebar blanca opcional: el consumidor la activa manualmente con data-sidebar="white". */
 [data-sidebar="white"] {
   color-scheme: light;
   --border-control: #627485;

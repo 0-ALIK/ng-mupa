@@ -25,7 +25,7 @@ import { PageHeaderComponent } from '../../shared/page-header.component';
 
       <pg-demo-card
         titulo="Navegación completa"
-        descripcion="El sidebar del propio playground está construido con este componente. Aquí se muestra en un contenedor para probar el estado activo, las ramas y el panel de usuario."
+        descripcion="El sidebar del propio playground está construido con este componente. El contenido se proyecta en su slot y el disparador móvil se controla con posicionDisparador. Aquí se muestra en un contenedor para probar el estado activo, las ramas y el panel de usuario."
         [codigo]="ejemploBasico"
       >
         <div class="pg-columna pg-ancho">
@@ -53,15 +53,16 @@ import { PageHeaderComponent } from '../../shared/page-header.component';
               pie="© 2026 Alcaldía de Panamá"
               (navegar)="alNavegarDemo($event)"
               (colapsadoCambio)="colapsadoDemo.set($event)"
-            />
-
-            <div class="pg-sidebar-demo__contenido">
-              <h3>Contenido del sistema</h3>
-              <p>
-                El sidebar convive con el área de contenido. Pulsa los enlaces para cambiar el
-                estado activo o contrae la barra para ver la versión de solo iconos.
-              </p>
-            </div>
+            >
+              <div class="pg-sidebar-demo__contenido">
+                <h3>Contenido del sistema</h3>
+                <p>
+                  El contenido se proyecta dentro del sidebar, que impone el layout de dos columnas.
+                  Pulsa los enlaces para cambiar el estado activo o contrae la barra para ver la
+                  versión de solo iconos.
+                </p>
+              </div>
+            </mupa-sidebar>
           </div>
         </div>
       </pg-demo-card>
@@ -82,15 +83,15 @@ import { PageHeaderComponent } from '../../shared/page-header.component';
             etiqueta="Navegación colapsada de ejemplo"
             pie="Estado inicial colapsado"
             (navegar)="alNavegarDemo($event)"
-          />
-
-          <div class="pg-sidebar-demo__contenido">
-            <h3>Modo compacto</h3>
-            <p>
-              La barra inicia con 72 px de ancho. El botón interno de la esquina superior expande la
-              navegación sin intervención del layout.
-            </p>
-          </div>
+          >
+            <div class="pg-sidebar-demo__contenido">
+              <h3>Modo compacto</h3>
+              <p>
+                La barra inicia con 72 px de ancho. El botón interno de la esquina superior expande
+                la navegación sin intervención del layout.
+              </p>
+            </div>
+          </mupa-sidebar>
         </div>
       </pg-demo-card>
 
@@ -175,25 +176,24 @@ export class SidebarPageComponent {
     this.idActivoDemo.set(enlace.id);
   }
 
-  protected readonly ejemploBasico = `<div class="layout">
-  <mupa-sidebar
-    [grupos]="grupos"
-    [idActivo]="rutaActiva()"
-    [usuario]="usuario"
-    [accionesUsuario]="accionesUsuario"
-    nombreSistema="Sistema interno"
-    pie="© 2026 Alcaldía de Panamá"
-    (navegar)="alNavegar($event)"
-    (colapsadoCambio)="alCambiarBarra($event)"
-  />
+  protected readonly ejemploBasico = `<mupa-sidebar
+  [grupos]="grupos"
+  [idActivo]="rutaActiva()"
+  [usuario]="usuario"
+  [accionesUsuario]="accionesUsuario"
+  nombreSistema="Sistema interno"
+  pie="© 2026 Alcaldía de Panamá"
+  (navegar)="alNavegar($event)"
+  (colapsadoCambio)="alCambiarBarra($event)"
+>
+  <main class="contenido">...</main>
+</mupa-sidebar>
 
-  <main>...</main>
-</div>
-
-/* El contenedor del layout */
-.layout {
-  display: flex;
-  min-height: 100dvh;
+/* El sidebar impone el layout; el contenido va en el slot */
+.contenido {
+  flex: 1;
+  min-width: 0;
+  padding: 24px;
 }`;
 
   protected readonly ejemploColapsado = `<mupa-sidebar
@@ -202,5 +202,7 @@ export class SidebarPageComponent {
   [colapsadoPorDefecto]="true"
   [mostrarControlColapso]="true"
   etiqueta="Navegación colapsada de ejemplo"
-/>`;
+>
+  <main class="contenido">...</main>
+</mupa-sidebar>`;
 }

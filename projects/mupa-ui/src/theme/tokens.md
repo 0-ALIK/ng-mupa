@@ -68,10 +68,12 @@ Escala disponible:
 Actívalo con `data-theme="dark"` en un contenedor. Los alias semánticos y los
 neutros se redefinen automáticamente.
 
-## Sidebar blanca
+## Sidebar y modo oscuro
 
-El atributo `data-sidebar="white"` fuerza la superficie blanca institucional
-dentro de un tema oscuro. `mupa-sidebar` ya lo aplica.
+`mupa-sidebar` usa los tokens de superficie y texto, por lo que respeta
+`data-theme="dark"` como el resto de componentes. Si necesitas forzar una
+superficie blanca institucional dentro de un tema oscuro, aplica
+`data-sidebar="white"` manualmente.
 
 ## Reglas de uso
 

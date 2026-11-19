@@ -191,6 +191,7 @@ export type {
   EnlaceSidebar,
   EventoNavegacionSidebar,
   GrupoSidebar,
+  PosicionDisparadorSidebar,
   RamaSidebar,
   UsuarioSidebar,
 } from './lib/sidebar/sidebar.types';

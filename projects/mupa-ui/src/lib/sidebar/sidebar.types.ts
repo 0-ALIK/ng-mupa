@@ -30,6 +30,9 @@ export interface EventoNavegacionSidebar {
   evento: MouseEvent;
 }
 
+/** Ubicación del disparador que abre el cajón de navegación en móvil. */
+export type PosicionDisparadorSidebar = 'contenido' | 'flotante' | 'oculto';
+
 /** Distingue una rama con hijos de un enlace simple. */
 export function esRamaSidebar(item: EnlaceSidebar | RamaSidebar): item is RamaSidebar {
   return 'hijos' in item;

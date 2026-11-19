@@ -54,6 +54,6 @@ móvil. La página actual se muestra en azul institucional con `aria-current`.
 ## Design tokens
 
 `--color-primary-50`, `--color-primary-100`, `--color-primary-300`,
-`--color-primary-500`, `--color-primary-700`, `--color-neutral-300`,
-`--fg-strong`, `--fg-default`, `--fg-muted`, `--border-default`,
+`--color-primary-500`, `--color-primary-700`, `--bg-surface`, `--fg-strong`,
+`--fg-default`, `--fg-muted`, `--fg-disabled`, `--border-default`,
 `--border-subtle`, `--font-body`.

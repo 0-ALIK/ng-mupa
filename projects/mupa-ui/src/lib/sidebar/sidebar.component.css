@@ -4,7 +4,17 @@
  */
 
 :host {
-  display: contents;
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  min-height: 100dvh;
+}
+
+.mupa-sidebar__contenido {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .mupa-sidebar,
@@ -369,11 +379,26 @@ summary.mupa-sidebar__usuario-disparador::-webkit-details-marker {
 }
 
 @media (max-width: 767px) {
+  :host {
+    display: block;
+  }
+
   .mupa-sidebar:not(.mupa-sidebar--drawer) {
     display: none;
   }
 
   .mupa-sidebar__disparador-movil {
     display: inline-flex;
+    align-self: flex-start;
+    margin: 12px 16px 0;
+  }
+
+  .mupa-sidebar__disparador-movil--flotante {
+    position: fixed;
+    top: var(--mupa-sidebar-disparador-top, 12px);
+    left: var(--mupa-sidebar-disparador-left, 12px);
+    z-index: var(--z-sticky);
+    margin: 0;
+    box-shadow: var(--shadow-md);
   }
 }

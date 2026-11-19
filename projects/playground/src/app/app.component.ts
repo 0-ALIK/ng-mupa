@@ -1,3 +1,4 @@
+import { NgTemplateOutlet } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
@@ -16,28 +17,9 @@ import {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MupaSidebar, MupaToaster, MupaIcon],
+  imports: [RouterOutlet, NgTemplateOutlet, MupaSidebar, MupaToaster, MupaIcon],
   template: `
-    <div class="playground" [class.playground--template]="esTemplate()">
-      @if (!esTemplate()) {
-        <mupa-sidebar
-          [grupos]="grupos"
-          [idActivo]="idActivo()"
-          [usuario]="usuario"
-          [accionesUsuario]="accionesUsuario"
-          [colapsado]="colapsadoApp()"
-          [idsExpandidosPorDefecto]="idsExpandidos"
-          [logoSrc]="'/logo-mupa.png'"
-          marca="Alcaldía de Panamá"
-          nombreSistema="Playground · mupa-ui"
-          etiqueta="Navegación del playground"
-          pie="Sistema de diseño Lego · Alcaldía de Panamá"
-          [mostrarControlColapso]="false"
-          (navegar)="alNavegar($event)"
-          (colapsadoCambio)="colapsadoApp.set($event)"
-        />
-      }
-
+    <ng-template #contenido>
       <div class="playground__contenido" [class.playground__contenido--template]="esTemplate()">
         @if (!esTemplate()) {
           <header class="playground__barra">
@@ -75,7 +57,32 @@ import {
           <router-outlet />
         </main>
       </div>
-    </div>
+    </ng-template>
+
+    @if (!esTemplate()) {
+      <mupa-sidebar
+        [grupos]="grupos"
+        [idActivo]="idActivo()"
+        [usuario]="usuario"
+        [accionesUsuario]="accionesUsuario"
+        [colapsado]="colapsadoApp()"
+        [idsExpandidosPorDefecto]="idsExpandidos"
+        [logoSrc]="logoSidebar()"
+        marca="Alcaldía de Panamá"
+        nombreSistema="Playground · mupa-ui"
+        etiqueta="Navegación del playground"
+        pie="Sistema de diseño Lego · Alcaldía de Panamá"
+        [mostrarControlColapso]="false"
+        (navegar)="alNavegar($event)"
+        (colapsadoCambio)="colapsadoApp.set($event)"
+      >
+        <ng-container *ngTemplateOutlet="contenido" />
+      </mupa-sidebar>
+    } @else {
+      <div class="playground playground--template">
+        <ng-container *ngTemplateOutlet="contenido" />
+      </div>
+    }
 
     <mupa-toaster />
   `,
@@ -90,6 +97,10 @@ export class AppComponent {
 
   protected readonly modoOscuro = signal(
     typeof document !== 'undefined' && document.documentElement.dataset['theme'] === 'dark',
+  );
+
+  protected readonly logoSidebar = computed(() =>
+    this.modoOscuro() ? '/assets/branding/logo-horizontal-white.png' : '/logo-mupa.png',
   );
 
   protected readonly idActivo = computed(() => {

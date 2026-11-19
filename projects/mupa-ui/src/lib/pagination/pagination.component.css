@@ -58,7 +58,7 @@
   justify-content: center;
   border-radius: 8px;
   border: 1.5px solid var(--border-default);
-  background: #ffffff;
+  background: var(--bg-surface);
   cursor: pointer;
   outline: none;
   font: 600 14px/1 var(--font-body);
@@ -103,9 +103,9 @@
 }
 
 .mupa-pagination__boton:disabled {
-  background: #ffffff;
+  background: var(--bg-surface);
   border-color: var(--border-default);
-  color: var(--color-neutral-300);
+  color: var(--fg-disabled);
   cursor: not-allowed;
 }
 

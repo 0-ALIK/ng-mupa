@@ -1,7 +1,26 @@
+import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MupaSidebar } from './sidebar.component';
 import type { GrupoSidebar } from './sidebar.types';
+
+@Component({
+  imports: [MupaSidebar],
+  template: `
+    <mupa-sidebar [grupos]="grupos">
+      <p class="contenido-proyectado">Contenido de la página</p>
+    </mupa-sidebar>
+  `,
+})
+class SidebarHostComponent {
+  readonly grupos: GrupoSidebar[] = [
+    {
+      id: 'principal',
+      etiqueta: 'Principal',
+      items: [{ id: 'inicio', etiqueta: 'Inicio', href: '/inicio', icono: 'house' }],
+    },
+  ];
+}
 
 describe('MupaSidebar', () => {
   let fixture: ComponentFixture<MupaSidebar>;
@@ -27,7 +46,7 @@ describe('MupaSidebar', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MupaSidebar],
+      imports: [MupaSidebar, SidebarHostComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(MupaSidebar);
@@ -125,5 +144,61 @@ describe('MupaSidebar', () => {
     ) as HTMLElement;
     expect(identidad.textContent).toContain('Ana Pérez');
     expect(fixture.nativeElement.querySelector('.mupa-sidebar__usuario-panel')).toBeTruthy();
+  });
+
+  it('proyecta el contenido dentro del área principal', () => {
+    const hostFixture = TestBed.createComponent(SidebarHostComponent);
+    hostFixture.detectChanges();
+
+    const contenido = hostFixture.nativeElement.querySelector(
+      '.mupa-sidebar__contenido .contenido-proyectado',
+    ) as HTMLElement;
+
+    expect(contenido).toBeTruthy();
+    expect(contenido.textContent).toContain('Contenido de la página');
+  });
+
+  it('renderiza el disparador móvil dentro del contenido por defecto', () => {
+    fixture.detectChanges();
+
+    const disparador = fixture.nativeElement.querySelector(
+      '.mupa-sidebar__contenido .mupa-sidebar__disparador-movil',
+    );
+
+    expect(disparador).toBeTruthy();
+  });
+
+  it('permite mover u ocultar el disparador móvil con posicionDisparador', () => {
+    fixture.componentRef.setInput('posicionDisparador', 'flotante');
+    fixture.detectChanges();
+
+    expect(
+      fixture.nativeElement.querySelector(
+        '.mupa-sidebar__contenido .mupa-sidebar__disparador-movil',
+      ),
+    ).toBeNull();
+    expect(
+      fixture.nativeElement.querySelector('.mupa-sidebar__disparador-movil--flotante'),
+    ).toBeTruthy();
+
+    fixture.componentRef.setInput('posicionDisparador', 'oculto');
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.mupa-sidebar__disparador-movil')).toBeNull();
+  });
+
+  it('abre el cajón mediante la API pública', () => {
+    fixture.detectChanges();
+
+    const dialogo = fixture.nativeElement.querySelector('dialog') as HTMLDialogElement;
+    let abierto = false;
+
+    dialogo.showModal = () => {
+      abierto = true;
+    };
+
+    fixture.componentInstance.abrir();
+
+    expect(abierto).toBe(true);
   });
 });

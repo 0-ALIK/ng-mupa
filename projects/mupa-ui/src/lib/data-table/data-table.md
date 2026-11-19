@@ -109,7 +109,7 @@ interface AccionTabla {
 ## Design tokens
 
 `--bg-surface`, `--bg-base`, `--border-default`, `--border-subtle`,
-`--fg-strong`, `--fg-default`, `--fg-muted`, `--color-primary-50`,
+`--fg-strong`, `--fg-default`, `--fg-muted`, `--fg-disabled`, `--color-primary-50`,
 `--color-primary-500`, `--color-primary-700`, `--color-neutral-50`,
 `--color-neutral-100`, `--color-neutral-200`, `--color-neutral-300`,
 `--color-success-*`, `--color-warning-*`, `--color-error-*`,

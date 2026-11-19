@@ -20,6 +20,7 @@ import {
   type EnlaceSidebar,
   type EventoNavegacionSidebar,
   type GrupoSidebar,
+  type PosicionDisparadorSidebar,
   type RamaSidebar,
   type UsuarioSidebar,
 } from './sidebar.types';
@@ -35,29 +36,43 @@ let secuenciaSidebar = 0;
  */
 @Component({
   selector: 'mupa-sidebar',
+  exportAs: 'mupaSidebar',
   imports: [NgTemplateOutlet, MupaIcon, MupaAvatar],
   template: `
+    <ng-template #plantillaDisparador>
+      <button
+        type="button"
+        class="mupa-sidebar__disparador-movil"
+        [class.mupa-sidebar__disparador-movil--flotante]="posicionDisparador() === 'flotante'"
+        aria-label="Abrir navegación"
+        [attr.aria-expanded]="movilAbierto()"
+        [attr.aria-controls]="idDialogo"
+        (click)="abrir()"
+      >
+        <mupa-icon nombre="menu" [tamano]="20" />
+        Menú
+      </button>
+    </ng-template>
+
     <aside
       class="mupa-sidebar"
       [class.mupa-sidebar--colapsada]="compacto()"
       [attr.aria-label]="nombreSistema()"
-      data-sidebar="white"
     >
       <ng-container *ngTemplateOutlet="contenido; context: { movil: false }" />
     </aside>
 
-    <button
-      #disparador
-      type="button"
-      class="mupa-sidebar__disparador-movil"
-      aria-label="Abrir navegación"
-      [attr.aria-expanded]="movilAbierto()"
-      [attr.aria-controls]="idDialogo"
-      (click)="abrirDialogo()"
-    >
-      <mupa-icon nombre="menu" [tamano]="20" />
-      Menú
-    </button>
+    <div class="mupa-sidebar__contenido">
+      @if (posicionDisparador() === 'contenido') {
+        <ng-container *ngTemplateOutlet="plantillaDisparador" />
+      }
+
+      <ng-content />
+    </div>
+
+    @if (posicionDisparador() === 'flotante') {
+      <ng-container *ngTemplateOutlet="plantillaDisparador" />
+    }
 
     <dialog
       #dialogo
@@ -67,7 +82,7 @@ let secuenciaSidebar = 0;
       (close)="alCerrarDialogo()"
       (click)="alClicDialogo($event)"
     >
-      <div class="mupa-sidebar mupa-sidebar--drawer" data-sidebar="white">
+      <div class="mupa-sidebar mupa-sidebar--drawer">
         <ng-container *ngTemplateOutlet="contenido; context: { movil: true }" />
       </div>
     </dialog>
@@ -282,7 +297,6 @@ export class MupaSidebar {
   protected readonly idDialogo = `${this.uid}-dialogo`;
 
   private readonly dialogo = viewChild<ElementRef<HTMLDialogElement>>('dialogo');
-  private readonly disparador = viewChild<ElementRef<HTMLButtonElement>>('disparador');
 
   /** Grupos de navegación. */
   readonly grupos = input<readonly GrupoSidebar[]>([]);
@@ -323,11 +337,17 @@ export class MupaSidebar {
   /** Etiqueta accesible de la navegación. */
   readonly etiqueta = input('Navegación principal');
 
+  /** Posición del disparador móvil: dentro del contenido, flotante u oculto. */
+  readonly posicionDisparador = input<PosicionDisparadorSidebar>('contenido');
+
   /** Emitido al activar un enlace. */
   readonly navegar = output<EventoNavegacionSidebar>();
 
   /** Emitido al cambiar el estado de la barra. */
   readonly colapsadoCambio = output<boolean>();
+
+  /** Emitido al abrir o cerrar el cajón móvil. */
+  readonly movilAbiertoCambio = output<boolean>();
 
   protected readonly colapsadoLocal = signal<boolean | null>(null);
   protected readonly abiertos = signal<Record<string, boolean>>({});
@@ -355,6 +375,38 @@ export class MupaSidebar {
 
       this.destruir.onDestroy(() => this.bloquearScroll(false));
     });
+  }
+
+  /**
+   * Abre el cajón de navegación móvil.
+   *
+   * Útil cuando `posicionDisparador` es `'oculto'` y el consumidor controla la
+   * apertura desde su propia interfaz.
+   */
+  abrir(): void {
+    if (
+      typeof window !== 'undefined' &&
+      typeof window.matchMedia === 'function' &&
+      !window.matchMedia('(max-width: 767px)').matches
+    ) {
+      return;
+    }
+
+    this.abrirDialogo();
+  }
+
+  /** Cierra el cajón de navegación móvil. */
+  cerrar(): void {
+    this.cerrarDialogo();
+  }
+
+  /** Abre o cierra el cajón de navegación móvil. */
+  alternar(): void {
+    if (this.movilAbierto()) {
+      this.cerrar();
+    } else {
+      this.abrir();
+    }
   }
 
   protected esPequeno(movil: boolean): boolean {
@@ -429,6 +481,7 @@ export class MupaSidebar {
 
     dialogo.showModal();
     this.movilAbierto.set(true);
+    this.movilAbiertoCambio.emit(true);
     this.bloquearScroll(true);
   }
 
@@ -441,6 +494,7 @@ export class MupaSidebar {
 
   protected alCerrarDialogo(): void {
     this.movilAbierto.set(false);
+    this.movilAbiertoCambio.emit(false);
     this.bloquearScroll(false);
 
     if (
@@ -448,7 +502,9 @@ export class MupaSidebar {
       typeof window.matchMedia === 'function' &&
       window.matchMedia('(max-width: 767px)').matches
     ) {
-      this.disparador()?.nativeElement.focus();
+      this.host.nativeElement
+        .querySelector<HTMLButtonElement>('.mupa-sidebar__disparador-movil')
+        ?.focus();
     }
   }
 

@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <img alt="Versión 1.0.1" src="https://img.shields.io/badge/version-1.0.1-0660FF?style=flat-square" />
+  <img alt="Versión 1.1.0" src="https://img.shields.io/badge/version-1.1.0-0660FF?style=flat-square" />
   <img alt="Licencia Apache 2.0" src="https://img.shields.io/badge/licencia-Apache%202.0-0660FF?style=flat-square" />
   <img alt="Angular 22" src="https://img.shields.io/badge/Angular-22-DD0031?style=flat-square&logo=angular" />
   <img alt="Más de 50 componentes" src="https://img.shields.io/badge/componentes-50%2B-0660FF?style=flat-square" />

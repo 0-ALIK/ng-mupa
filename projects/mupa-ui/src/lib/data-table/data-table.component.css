@@ -224,7 +224,7 @@
   justify-content: center;
   box-sizing: border-box;
   border: 1.5px solid var(--border-default);
-  background: #ffffff;
+  background: var(--bg-surface);
   color: var(--fg-strong);
 }
 
@@ -245,7 +245,7 @@
 }
 
 .mupa-data-table__pagina-boton:disabled {
-  color: var(--color-neutral-300);
+  color: var(--fg-disabled);
   opacity: 0.6;
   cursor: not-allowed;
 }
